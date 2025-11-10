@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Template Pesan Viral #SaveLenderDSI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Font Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+        .smooth-scroll-touch { -webkit-overflow-scrolling: touch; }
+        .glass-effect { bg-white/90; backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    animation: { 'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite' },
+                    boxShadow: { 'glow': '0 0 20px -5px rgba(255, 0, 0, 0.3)' }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="min-h-screen bg-[#F8FAFC] text-slate-900 pb-40 selection:bg-blue-100/50 overflow-x-hidden">
+
+    <!-- BACKGROUND AMBIENCE -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+        <div class="absolute top-[-20%] left-[-20%] w-[70%] h-[70%] bg-blue-100/40 blur-[100px] rounded-full mix-blend-multiply"></div>
+        <div class="absolute bottom-[-20%] right-[-20%] w-[70%] h-[70%] bg-red-100/40 blur-[100px] rounded-full mix-blend-multiply"></div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="pt-6 pb-4 px-4 relative z-20 bg-white/80 backdrop-blur-xl sticky top-0 border-b border-slate-200/80 supports-[backdrop-filter]:bg-white/60">
+        <div class="max-w-3xl mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="relative">
+                    <div class="absolute inset-0 bg-red-600 blur-md opacity-20 rounded-xl animate-pulse-slow"></div>
+                    <div class="bg-gradient-to-br from-red-600 to-red-700 p-2.5 rounded-xl shadow-lg relative">
+                        <i data-lucide="megaphone" class="w-5 h-5 text-white"></i>
+                    </div>
+                </div>
+                <div>
+                    <h1 class="text-xl font-black tracking-tight text-slate-900 leading-none">
+                        SUARA KORBAN
+                    </h1>
+                    <div class="flex items-center space-x-2 mt-1">
+                        <span class="px-1.5 py-0.5 bg-red-100 text-red-700 rounded text-[10px] font-bold tracking-wider uppercase">#SaveLenderDSI</span>
+                        <span class="w-1 h-1 bg-slate-300 rounded-full"></span>
+                         <span class="text-[11px] font-medium text-slate-500">Siaga 1</span>
+                    </div>
+                </div>
+            </div>
+            <div class="text-right">
+                <div class="text-[10px] text-slate-500 font-bold uppercase tracking-wider mb-0.5">Total Kerugian</div>
+                <div class="text-xl md:text-2xl font-black text-slate-800 flex items-center justify-end">
+                    <span class="text-red-600 mr-1">Rp</span>800 M<span class="text-red-600">+</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-3xl mx-auto px-4 space-y-5 pt-5 relative z-10">
+
+        <!-- QUICK ACTIONS -->
+        <div class="bg-white rounded-2xl p-1.5 border border-slate-200 shadow-sm grid grid-cols-2 gap-1.5">
+             <button onclick="copyAllTargets()" class="relative group overflow-hidden bg-slate-50 hover:bg-blue-50 border border-slate-100 hover:border-blue-200 rounded-xl p-3 transition-all active:scale-[0.98]">
+                <div class="flex items-center space-x-3 relative z-10">
+                    <div class="bg-white p-2 rounded-full shadow-sm border border-slate-100 group-hover:border-blue-200 transition-colors">
+                        <i data-lucide="crosshair" class="w-4 h-4 text-blue-600"></i>
+                    </div>
+                    <div class="text-left">
+                        <div class="font-bold text-xs text-slate-900">SALIN TARGET</div>
+                        <div class="text-[10px] font-medium text-slate-500" id="target-count">Loading...</div>
+                    </div>
+                </div>
+            </button>
+            <button onclick="copyAllHashtags()" class="relative group overflow-hidden bg-slate-50 hover:bg-amber-50 border border-slate-100 hover:border-amber-200 rounded-xl p-3 transition-all active:scale-[0.98]">
+                <div class="flex items-center space-x-3 relative z-10">
+                    <div class="bg-white p-2 rounded-full shadow-sm border border-slate-100 group-hover:border-amber-200 transition-colors">
+                        <i data-lucide="hash" class="w-4 h-4 text-amber-600"></i>
+                    </div>
+                    <div class="text-left">
+                        <div class="font-bold text-xs text-slate-900">SALIN TAGAR</div>
+                        <div class="text-[10px] font-medium text-slate-500" id="hashtag-count">Loading...</div>
+                    </div>
+                </div>
+            </button>
+        </div>
+
+        <!-- HYBRID FILTERS (STICKY) -->
+        <section class="sticky top-[85px] z-30 -mx-4 bg-[#F8FAFC]/80 backdrop-blur-md pt-2 pb-1 transition-all" id="sticky-filter">
+            <div class="px-4 max-w-3xl mx-auto space-y-3">
+                
+                <!-- PLATFORM FILTER (Pills) -->
+                <div class="flex items-center space-x-2 overflow-x-auto pb-1 scrollbar-hide smooth-scroll-touch px-1" id="platform-filters">
+                    <!-- Populated by JS -->
+                </div>
+
+                <!-- TONE FILTER (Hybrid Slider/Dropdown) -->
+                <div class="relative">
+                    <!-- Header & Toggle Button -->
+                    <div class="flex justify-between items-center mb-2 px-1">
+                        <div class="text-[11px] font-bold text-slate-400 uppercase tracking-wider flex items-center">
+                            <i data-lucide="sliders-horizontal" class="w-3 h-3 mr-1.5"></i> Gaya Pesan (Tone)
+                        </div>
+                         <button onclick="toggleToneDropdown()" id="tone-toggle-btn" class="text-[11px] font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded-full flex items-center transition-all hover:bg-blue-100 active:scale-95">
+                            <span>Lihat Semua</span> <i data-lucide="chevron-down" class="w-3 h-3 ml-1 transition-transform" id="tone-toggle-icon"></i>
+                        </button>
+                    </div>
+
+                    <!-- MODE 1: SLIDER (Default) -->
+                    <div id="tone-slider" class="flex space-x-2 overflow-x-auto pb-3 px-1 scrollbar-hide smooth-scroll-touch snap-x snap-mandatory">
+                        <!-- Populated by JS -->
+                    </div>
+
+                    <!-- MODE 2: DROPDOWN GRID (Hidden by default) -->
+                    <div id="tone-dropdown" class="hidden absolute top-full left-0 right-0 mt-2 p-3 bg-white rounded-2xl shadow-xl border border-slate-200/80 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+                         <div class="grid grid-cols-2 sm:grid-cols-3 gap-2" id="tone-grid">
+                             <!-- Populated by JS -->
+                         </div>
+                    </div>
+                     <!-- Overlay when dropdown is open -->
+                    <div id="dropdown-overlay" onclick="toggleToneDropdown()" class="hidden fixed inset-0 bg-slate-900/20 z-40 backdrop-blur-sm transition-opacity"></div>
+                </div>
+
+            </div>
+             <div class="h-4 bg-gradient-to-b from-[#F8FAFC]/80 to-transparent pointer-events-none"></div>
+        </section>
+
+        <!-- TEMPLATE LIST -->
+        <div id="template-list" class="space-y-4 min-h-[60vh] px-1">
+            <!-- Populated by JS -->
+        </div>
+
+         <!-- EMPTY STATE (Hidden by default) -->
+        <div id="empty-state" class="hidden flex-col items-center justify-center py-16 px-4 text-center">
+            <div class="bg-slate-100 p-4 rounded-full mb-4">
+                <i data-lucide="search-x" class="w-8 h-8 text-slate-400"></i>
+            </div>
+            <p class="text-slate-900 font-bold">Tidak Ditemukan</p>
+            <p class="text-slate-500 text-sm mt-1 mb-6">Coba kombinasi filter yang berbeda.</p>
+            <button onclick="resetFilters()" class="bg-slate-900 text-white px-6 py-2.5 rounded-full font-bold text-sm shadow-lg shadow-slate-200 active:scale-95 transition-transform">
+                Reset Filter
+            </button>
+        </div>
+
+    </main>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast" class="fixed top-6 inset-x-4 z-[100] pointer-events-none flex justify-center transition-all duration-500 -translate-y-40 opacity-0">
+        <div class="bg-slate-900/95 backdrop-blur-md text-white px-6 py-3.5 rounded-2xl font-bold text-[13px] shadow-2xl flex items-center space-x-3 border border-white/10 ring-1 ring-black/5 max-w-xs w-full justify-center">
+            <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400 shrink-0"></i>
+            <span id="toast-msg" class="truncate">Berhasil disalin!</span>
+        </div>
+    </div>
+
+    <script>
+        // --- DATABASE LENGKAP (90 TEMPLATES) ---
+        const DB = {
+            targets: [
+                "@ojkindonesia", "@Prabowo", "@dpr_ri", "@kemkomdigi", "@muipusat",
+                "@setwatpres.ri", "@afsi.id", "@kemenkeuri", "@official.kpk",
+                "@humaspolri", "@fpiofficialid", "@gibran_rakabuming", "@kemenko_perekonomian",
+                "@jokowi", "@ppatka_indonesia", "@divisihumaspolri", "@kejaksaan.ri"
+            ],
+            hashtags: [
+                "#DanaSyariah", "#SaveLenderDSI", "#UsutTuntasDSI", "#OJKGagalMengawasi",
+                "#800MiliarRakyat", "#NegaraHadirDong", "#DaruratKeuanganSyariah",
+                "#RakyatMonitor", "#KejahatanKerahPutih", "#PensiunanMenjerit"
+            ],
+            platforms: [
+                { id: 'all', icon: 'layers', label: 'Semua' },
+                { id: 'Instagram', icon: 'instagram', label: 'Instagram' },
+                { id: 'X', icon: 'twitter', label: 'X / Twitter' },
+                { id: 'TikTok', icon: 'video', label: 'TikTok' },
+                { id: 'Facebook', icon: 'facebook', label: 'Facebook' }
+            ],
+            tones: [
+                { id: 'all', label: 'Semua Gaya', icon: 'layout-grid', color: 'from-slate-600 to-slate-800', bg: 'bg-slate-900', text: 'text-white' },
+                { id: 'Ultimatum', label: 'Ultimatum Keras', icon: 'bomb', color: 'from-red-600 to-red-700', bg: 'bg-red-50', text: 'text-red-700' },
+                { id: 'Investigasi', label: 'Tuntut Investigasi', icon: 'search-code', color: 'from-indigo-600 to-blue-700', bg: 'bg-indigo-50', text: 'text-indigo-700' },
+                { id: 'Kemanusiaan', label: 'Sisi Kemanusiaan', icon: 'heart-crack', color: 'from-rose-500 to-pink-600', bg: 'bg-rose-50', text: 'text-rose-700' },
+                { id: 'Fakta', label: 'Data & Fakta', icon: 'file-bar-chart-2', color: 'from-cyan-600 to-sky-700', bg: 'bg-cyan-50', text: 'text-cyan-700' },
+                { id: 'Satire', label: 'Sindiran/Satire', icon: 'laugh', color: 'from-purple-600 to-violet-700', bg: 'bg-purple-50', text: 'text-purple-700' },
+                { id: 'Religius', label: 'Gugatan Moral', icon: 'book-open-check', color: 'from-emerald-600 to-green-700', bg: 'bg-emerald-50', text: 'text-emerald-700' },
+                { id: 'Hukum', label: 'Ancaman Hukum', icon: 'scale', color: 'from-slate-700 to-gray-800', bg: 'bg-slate-100', text: 'text-slate-800' },
+                { id: 'Viral', label: 'Ajak Viralkan', icon: 'megaphone', color: 'from-amber-500 to-orange-600', bg: 'bg-amber-50', text: 'text-amber-800' },
+            ],
+            // 90 TEMPLATE TOTAL (10 PER TONE)
+            templates: [
+                // --- 1. ULTIMATUM (10) ---
+                { tone: 'Ultimatum', platform: 'all', text: "KAMI SUDAH CUKUP BERSABAR! 800 Miliar bukan daun kering, itu NYAWA kami! Jika dalam 3x24 jam tidak ada roadmap pengembalian dana konkret, kami anggap negara melakukan PEMBIARAN. SIAP ESKALASI! 🚨 [TAGS] [HASHTAGS]" },
+                { tone: 'Ultimatum', platform: 'X', text: "Deadline untuk DSI & @ojkindonesia: Jangan paksa korban yang putus asa melakukan hal nekat. Selesaikan beradab atau kami buat kegaduhan nasional yang tak bisa diredam! 💣 [HASHTAGS]" },
+                { tone: 'Ultimatum', platform: 'Instagram', text: "🔴 SIAGA 1 KORBAN DSI 🔴 Kami beri waktu OJK & DSI keluar dari persembunyian. Jangan sampai ribuan korban menduduki kantor kalian meminta hak kami! Negara HARUS HADIR! [TAGS] [HASHTAGS]" },
+                { tone: 'Ultimatum', platform: 'Facebook', text: "YTH PRESIDEN @Prabowo. Ini PERAMPOKAN berkedok legalitas negara. Jika bapak diam, bapak merestui rakyat dimiskinkan sistem! Turun tangan atau kami 'adili' cara jalanan! ⚡ [TAGS]" },
+                { tone: 'Ultimatum', platform: 'TikTok', text: "⚠️ WARNING! Uang 800 M nyangkut, OJK slow response? OKE, kita mainkan cara viral! Jangan salahkan netizen kalau reputasi instansi hancur minggu ini! 🔥 [HASHTAGS]" },
+                { tone: 'Ultimatum', platform: 'X', text: "Jangan uji kesabaran rakyat yang lapar! 800 Miliar hak kami ditahan, kalian masih bisa tidur nyenyak? KAMI SIAP KEPUNG JIKA PERLU! 🛑⏳ @ojkindonesia [HASHTAGS]" },
+                { tone: 'Ultimatum', platform: 'all', text: "Opsi kalian cuma dua: KEMBALIKAN uang kami 100% atau hadapi GELOMBANG PROTES terbesar dari korban fintech! Waktu terus berjalan! ⏱️💥 [TAGS] [HASHTAGS]" },
+                { tone: 'Ultimatum', platform: 'Instagram', text: "‼️ PERINGATAN KERAS ‼️ Direksi DSI, jangan pikir kalian bisa lari. Kami kejar sampai lubang tikus! OJK, jangan jadi pelindung penjahat! [TAGS] [HASHTAGS]" },
+                { tone: 'Ultimatum', platform: 'all', text: "Kami tidak butuh janji manis restrukturisasi yang ujungnya nol! KEMBALIKAN POKOK KAMI SEKARANG atau kami anggap ini deklarasi perang terhadap nasabah! ⚔️ [TAGS]" },
+                { tone: 'Ultimatum', platform: 'X', text: "Pak @Prabowo @gibran_rakabuming, ini ujian pertama pemerintahan baru. Biarkan 800 M rakyat hilang, artinya kalian GAGAL lindungi rakyat! Bertindak DETIK INI JUGA! ⚡🇮🇩 [HASHTAGS]" },
+
+                // --- 2. INVESTIGASI (10) ---
+                { tone: 'Investigasi', platform: 'X', text: "Mendesak @official.kpk & @ppatka_indonesia AUDIT FORENSIK DSI! Rp 800 M tak mungkin lenyap tanpa jejak. Telusuri aliran dana ke direksi & afiliasinya! Bekukan aset sekarang! 🕵️‍♂️💸 [HASHTAGS]" },
+                { tone: 'Investigasi', platform: 'all', text: "PATUT DIDUGA ada PONZI berkedok syariah di DSI! Gagal bayar 800 M tidak terjadi semalam. Dimana fungsi pengawasan OJK selama ini? Ada pembiaran terencana? BONGKAR! 📉🔍 [TAGS] [HASHTAGS]" },
+                { tone: 'Investigasi', platform: 'Facebook', text: "[SURAT TERBUKA BARESKRIM] Kami duga ada TPPU di gagal bayar DSI. Segera CEKAL seluruh direksi sebelum kabur ke luar negeri bawa uang kami! 🚔⚖️ [TAGS]" },
+                { tone: 'Investigasi', platform: 'Instagram', text: "🔍 JEJAK UANG TIDAK BOHONG. Kemana 800 M dana lender? Diputar kemana? Siapa penikmatnya? Kami tuntut transparansi total! Buka data peminjam macet jika ada! 📂 [TAGS] [HASHTAGS]" },
+                { tone: 'Investigasi', platform: 'X', text: "Halo @kemkomdigi bantu telusuri jejak digital aset petinggi DSI. Jangan ada penghilangan barang bukti. Kejahatan kerah putih butuh penanganan canggih! 💻🔒 [HASHTAGS]" },
+                { tone: 'Investigasi', platform: 'all', text: "Kami menuntut OJK buka data: Sejak kapan NPF DSI memburuk? Kenapa tetap diizinkan himpun dana saat sudah sakit? ADA APA? 🧐📄 @ojkindonesia [HASHTAGS]" },
+                { tone: 'Investigasi', platform: 'X', text: "Jangan-jangan 800 M ini mengalir ke 'proyek hantu'? @ppatka_indonesia tolong lacak sampai ke akar. Jangan sampai jadi bancakan oknum! 💸🐀 [TAGS] [HASHTAGS]" },
+                { tone: 'Investigasi', platform: 'Facebook', text: "DSI Gagal Bayar = Kejahatan Terstruktur? Mustahil 800M lenyap jika pengawasan jalan. Siapa 'orang dalam' yang bermain? USUT TUNTAS! 🔎🏦 [TAGS]" },
+                { tone: 'Investigasi', platform: 'all', text: "Audit independen HARGA MATI! Kami tidak percaya data internal DSI. Buka semua buku ke publik jika kalian bersih! 📊📢 [TAGS] [HASHTAGS]" },
+                { tone: 'Investigasi', platform: 'Instagram', text: "Bareskrim @dittipideksus, mohon segera panggil paksa manajemen DSI. Indikasi fraud sudah terlalu nyata. Jangan tunggu korban makin banyak! 👮‍♂️🚨 [TAGS]" },
+
+                // --- 3. KEMANUSIAAN (10) ---
+                { tone: 'Kemanusiaan', platform: 'Instagram', text: "💔 Dibalik Rp 800 M, ada ribuan lansia bingung beli obat. Ada janda kehilangan pegangan. Mereka percaya karena ada LOGO OJK. Pak @Prabowo, mana negara untuk mereka? 😭 [TAGS] [HASHTAGS]" },
+                { tone: 'Kemanusiaan', platform: 'Facebook', text: "\"Saya pensiunan, uang pesangon masuk DSI untuk hari tua. Kini istri sakit, uang ditahan.\" — Pak Presiden, dengarkan jeritan rakyatmu! 🙏😢 [TAGS]" },
+                { tone: 'Kemanusiaan', platform: 'TikTok', text: "POV: Nabung seumur hidup buat masa tua, lenyap karena percaya platform 'berizin negara'. Sakit sampai ulu hati! 💔 Bantu viralin, kasihan ortu kita! 😭 [HASHTAGS]" },
+                { tone: 'Kemanusiaan', platform: 'X', text: "Tiap hari penundaan = penderitaan korban butuh uang untuk SURVIVE. Tolong pejabat @ojkindonesia, pakai rasa kemanusiaan sedikit. Jangan cuma birokratis! 🚑🆘 [HASHTAGS]" },
+                { tone: 'Kemanusiaan', platform: 'all', text: "Kami bukan investor kaya main saham. Kami rakyat biasa menitipkan harapan hidup. Jangan samakan dengan penjudi. KEMBALIKAN HAK KAMI! 🛑🤝 [TAGS] [HASHTAGS]" },
+                { tone: 'Kemanusiaan', platform: 'Instagram', text: "Ada anak terancam putus sekolah karena dana pendidikan orang tuanya nyangkut di DSI. Tega kalian melihat masa depan bangsa hancur? 🎒😢 [TAGS] [HASHTAGS]" },
+                { tone: 'Kemanusiaan', platform: 'Facebook', text: "Ya Allah, kembalikan uang hamba. Itu untuk biaya rumah sakit ibu. Para pejabat yang terhormat, tolong lihat kami sebagai manusia, bukan angka statistik! 🏥🙏 [TAGS]" },
+                { tone: 'Kemanusiaan', platform: 'X', text: "Stress, depresi, sakit-sakitan. Itu kondisi korban DSI sekarang. Jika ada yang sampai bunuh diri, tangan kalian berlumurah darah! 🩸😔 @ojkindonesia [HASHTAGS]" },
+                { tone: 'Kemanusiaan', platform: 'all', text: "Kami hanya minta uang kami sendiri, hasil keringat puluhan tahun. Kenapa dipersulit? Dimana hati nurani kalian? 💔🤲 [TAGS] [HASHTAGS]" },
+                { tone: 'Kemanusiaan', platform: 'TikTok', text: "Surat terbuka untuk anak direksi DSI: Ayahmu menahan uang ribuan orang tua lain. Nikmatkah makan dari penderitaan kami? 🍽️😢 #SaveLenderDSI" },
+
+                // --- 4. FAKTA (10) ---
+                { tone: 'Fakta', platform: 'X', text: "FAKTA KASUS DSI:\n✅ Berizin & Diawasi OJK\n✅ Ada Dewan Pengawas Syariah\n❌ GAGAL BAYAR Rp 800 M\nKesimpulan: Pengawasan GAGAL TOTAL. Negara tanggung jawab! 📊📉 @dpr_ri [HASHTAGS]" },
+                { tone: 'Fakta', platform: 'Facebook', text: "BEDAH KASUS: Bagaimana perusahaan diawasi ketat jebol 800 M tanpa terdeteksi dini? 1. Pengawas tidak kompeten, atau 2. Ada 'main mata'. Rakyat tuntut jawaban logis! 🤔🔍 [TAGS] [HASHTAGS]" },
+                { tone: 'Fakta', platform: 'Instagram', text: "📚 PELAJARAN MAHAL: Logo OJK ternyata bukan jaminan keamanan, cuma tanda izin berdiri. Saat masalah muncul, nasabah dibiarkan berjuang sendiri. RAKYAT WAJIB TAU! 🚫🛡️ [TAGS]" },
+                { tone: 'Fakta', platform: 'all', text: "Rp 800 Miliar jumlah masif. Bisa bangun ribuan sekolah, tapi nyangkut di satu platform. Ini BENCANA KEUANGAN NASIONAL! 💥💸 [TAGS] [HASHTAGS]" },
+                { tone: 'Fakta', platform: 'X', text: "Regulasi OJK atur perlindungan konsumen (POJK 6/2022). Pasal berapa dipakai sekarang? Kenapa implementasi NOL BESAR di kasus DSI? Kami butuh aksi nyata sesuai UU! 📜⚖️ [HASHTAGS]" },
+                { tone: 'Fakta', platform: 'all', text: "Data TKB90 DSI di website sempat 98%+ padahal realita macet total. Ini PEMBOHONGAN PUBLIK! OJK kemana saat data palsu ini beredar? 📉🤥 [TAGS] [HASHTAGS]" },
+                { tone: 'Fakta', platform: 'X', text: "Komparasi: Kasus Asuransi Jiwasraya negara hadir bailout/restrukturisasi BUMN. Kenapa di Fintech Syariah rakyat dibiarkan 'auto-pilot' berjuang sendiri? Standar ganda! ⚖️😒 @kemenkeuri [HASHTAGS]" },
+                { tone: 'Fakta', platform: 'Instagram', text: "Fakta pahit: Asuransi di fintech ternyata seringkali tidak mengcover 'gagal bayar' karena fraud borrower. Celah regulasi yang merugikan lender! Perbaiki! 🛠️📄 [TAGS]" },
+                { tone: 'Fakta', platform: 'all', text: "800 Miliar / Rata-rata 50 Juta per orang = ±16.000 Korban. Ini bukan kasus kecil. Ini bencana sosial ekonomi! 📉🚨 [TAGS] [HASHTAGS]" },
+                { tone: 'Fakta', platform: 'Facebook', text: "Janji manis 'Imbal hasil menarik sesuai syariah' kini jadi 'Modal pokok pun tak kembali'. Iklan menyesatkan harus dipidana! 🚫📢 [TAGS]" },
+
+                // --- 5. SATIRE (10) ---
+                { tone: 'Satire', platform: 'X', text: "Selamat OJK atas award 'The Silent Guardian' (Penjaga Diam Saja). 800 M lenyap, respon secepat siput. 🐌🏆 Hebat! @ojkindonesia [HASHTAGS]" },
+                { tone: 'Satire', platform: 'Instagram', text: "Mungkin definisi 'Diawasi OJK' artinya cuma 'Dilihatin pas uangnya diambil'. 🤔 Makasih, kami jadi tau logo garuda kadang cuma stiker mahal. 🎭💸 [TAGS] [HASHTAGS]" },
+                { tone: 'Satire', platform: 'Facebook', text: "Maling ayam digebukin massa. Maling 800 M pakai jas & izin resmi, dilindungi prosedur di hotel mewah. Keadilan sosial bagi yang punya kuasa ya? 🤡👏 [TAGS]" },
+                { tone: 'Satire', platform: 'all', text: "Label 'Syariah' biar berkah, eh musibah. Diawasi 'Negara' biar aman, eh nyaman buat ngilangin duit? Lawak total regulasi kita. 🎪🤹‍♂️ [HASHTAGS]" },
+                { tone: 'Satire', platform: 'X', text: "Tips investasi aman: Jangan percaya siapapun, termasuk yang berlogo resmi. Karena kalau hilang, disuruh 'ikhlas' secara birokratis. 🙃📉 #TutorialMiskin [HASHTAGS]" },
+                { tone: 'Satire', platform: 'all', text: "Luar biasa, teknologi fintech kita tercanggih di dunia: Bisa menghilangkan Rp 800 Miliar dalam sekejap tanpa jejak! David Copperfield minder lihat ini. 🎩✨ [TAGS] [HASHTAGS]" },
+                { tone: 'Satire', platform: 'TikTok', text: "Tutorial jadi kaya instan: 1. Bikin fintech 2. Dapat izin OJK 3. Kumpulin 800M 4. Gagal bayar 5. Bilang 'risiko bisnis'. Easy kan? 🤡🖕 [HASHTAGS]" },
+                { tone: 'Satire', platform: 'X', text: "Halo @ojkindonesia, butuh kopi? Kok ngawasinya ngantuk banget sampai kebobolan 800 M? ☕😴 Bangun woy, rakyat teriak! [HASHTAGS]" },
+                { tone: 'Satire', platform: 'Instagram', text: "Visi Indonesia Emas 2045. Realita: Uang pensiunan emas 2024 dirampok legal. Mantap pak pejabat! 👍🇮🇩 [TAGS] [HASHTAGS]" },
+                { tone: 'Satire', platform: 'all', text: "Kami kira nabung di fintech syariah itu hijrah finansial, ternyata musibah finansial. Syariah casingnya, jahiliyah isinya. 🕌💔 [TAGS]" },
+
+                // --- 6. RELIGIUS (10) ---
+                { tone: 'Religius', platform: 'Facebook', text: "Assalamu'alaikum @muipusat & DPS. Mana suara antum saat umat didzalimi 800 M? Membiarkan kemudharatan itu DOSA! Ingat hisab akhirat! 🕌⚖️ [TAGS]" },
+                { tone: 'Religius', platform: 'Instagram', text: "Tuan Berdasi DSI: Uang yang kalian tahan mungkin doa terakhir ibu. Takutlah pengadilan Allah yang tak bisa disogok! Azab makan harta anak yatim pedih! 🔥🤲 [TAGS]" },
+                { tone: 'Religius', platform: 'all', text: "Label SYARIAH harusnya junjung AMANAH, bukan KHIANAT! Kalian nodai ekonomi Islam. Kembalikan hak umat sebelum terlambat! 🕋⚡ [HASHTAGS]" },
+                { tone: 'Religius', platform: 'X', text: "Rezeki halal kami berubah haram karena kalian tahan zalim. Jangan sampai jadi bara api di perut kalian & keluarga. Kembalikan! 🛑🔥 @afsi.id [HASHTAGS]" },
+                { tone: 'Religius', platform: 'Facebook', text: "Kami tuntut fatwa tegas ulama terkait kelalaian pengelola dana syariah merugikan triliunan! Jangan lembek pada bandit berlabel agama! 👳‍♂️📜 [TAGS]" },
+                { tone: 'Religius', platform: 'all', text: "Wahai pemimpin, 'Kullu kum ra'in'. Setiap kalian adalah pemimpin dan akan dimintai pertanggungjawaban atas rakyat yang uangnya hilang di bawah pengawasan kalian! ☝️⚖️ [TAGS] [HASHTAGS]" },
+                { tone: 'Religius', platform: 'Instagram', text: "Jangan kotori label suci Syariah dengan praktek dzalim garong uang umat! Ini penistaan agama secara ekonomi! 🕋💔 [TAGS] [HASHTAGS]" },
+                { tone: 'Religius', platform: 'X', text: "Doa orang terdzalimi itu tidak ada hijabnya langsung ke langit. Hati-hati para penikmat dana 800 M, azab Allah sangat pedih! 🤲⚡ [HASHTAGS]" },
+                { tone: 'Religius', platform: 'all', text: "Mengambil hak orang lain secara batil adalah dosa besar. Segera tobat dan kembalikan, sebelum kain kafan membungkus kalian! ⚰️🛑 [TAGS]" },
+                { tone: 'Religius', platform: 'Facebook', text: "Kami percayakan harta kami karena label Islam. Jika kalian khianat, kalian munafik kelas berat. Pertanggungjawabkan di dunia sebelum akhirat! 🕌🔥 [TAGS]" },
+
+                // --- 7. HUKUM (10) ---
+                { tone: 'Hukum', platform: 'all', text: "Ini bukan wanprestasi, ini FRAUD! Tuntut @humaspolri terapkan pasal berlapis: Penipuan, Penggelapan, TPPU ke manajemen DSI. Sita aset pribadi untuk ganti rugi! 🚔⚖️ [HASHTAGS]" },
+                { tone: 'Hukum', platform: 'X', text: "UU Perlindungan Konsumen & P2SK jamin hak kami. Jika OJK diam, kami GUGAT CLASS ACTION OJK karena lalai jalankan amanat UU! Siap-siap! 🏛️🔨 @ojkindonesia [HASHTAGS]" },
+                { tone: 'Hukum', platform: 'Facebook', text: "Peringatan Hukum: Upaya alihkan aset saat gagal bayar adalah TINDAK PIDANA. Kami monitor kalian! Jangan coba main curang! 👀👮‍♂️ [TAGS]" },
+                { tone: 'Hukum', platform: 'Instagram', text: "Kami butuh KEPASTIAN HUKUM, bukan janji manis mediasi buntu. Negara hukum harus tajam ke atas! Tindak tegas kerah putih perampok dana pensiunan! ⚔️🇮🇩 [TAGS] [HASHTAGS]" },
+                { tone: 'Hukum', platform: 'all', text: "Mendesak DPR RI @dpr_ri panggil paksa direksi DSI & Komisioner OJK dalam RDP terbuka! Rakyat berhak tahu kenapa hukum mandul hadapi kasus 800 M ini! 🎤🏛️ [HASHTAGS]" },
+                { tone: 'Hukum', platform: 'X', text: "Pak Jaksa Agung @kejaksaan.ri, tolong endus kasus DSI. Jangan hanya kasus korupsi negara, ini korupsi uang rakyat langsung! Sikat mereka! ⚖️🔨 [HASHTAGS]" },
+                { tone: 'Hukum', platform: 'all', text: "Kami menolak PKPU yang hanya mengulur waktu tanpa kepastian bayar! Kami minta PIDANA dijalankan beriringan. Penjara badan bagi pengemplang! 🚔🔒 [TAGS]" },
+                { tone: 'Hukum', platform: 'Instagram', text: "Sesuai POJK, Direksi bertanggung jawab penuh atas kerugian akibat kelalaian. Kami tuntut sita jaminan pribadi direksi & komisaris DSI! 🏠🚗 [TAGS] [HASHTAGS]" },
+                { tone: 'Hukum', platform: 'all', text: "Jangan jadikan 'Risiko Investasi' sebagai tameng hukum untuk lari dari tanggung jawab atas 'MISMANAGEMENT' dan dugaan 'FRAUD'. Kami paham bedanya! 🛑⚖️ [TAGS]" },
+                { tone: 'Hukum', platform: 'Facebook', text: "Kami siapkan laporan massal ke Bareskrim Polri. Ribuan bukti transfer siap kami lampirkan. Negara tidak boleh kalah dengan mafia berjas! 🇮🇩👮‍♂️ [TAGS]" },
+
+                // --- 8. VIRAL (10) ---
+                { tone: 'Viral', platform: 'TikTok', text: "⚠️ JANGAN SCROLL! Kasus 800 M dana umat nyangkut di platform 'aman' berizin negara! Korbannya ortu kita. Yuk viralin biar pejabat melek! 🔥👇 [HASHTAGS]" },
+                { tone: 'Viral', platform: 'Instagram', text: "[MOHON REPOST] 🚨 Hari ini kami korbannya, besok bisa giliran anda jika kita diam. Rapatkan barisan, tag pejabat terkait di komentar! 🗣️🔄 [TAGS] [HASHTAGS]" },
+                { tone: 'Viral', platform: 'X', text: "Twitter do your magic! 🪄✨ Kasus DSI 800M terlalu senyap. Butuh trending topic agar media lirik penderitaan ribuan korban. Retweet jika peduli! 🔄❤️ [HASHTAGS]" },
+                { tone: 'Viral', platform: 'Facebook', text: "Bapak/Ibu, mohon bagikan status ini. Saudara kita berjuang dapatkan kembali hak hari tua. Tunjukkan solidaritas rakyat! 🤝🇮🇩 [HASHTAGS]" },
+                { tone: 'Viral', platform: 'all', text: "🔥 CHALLENGE NETIZEN 🔥 Bisa nggak tagar #SaveLenderDSI trending no 1 hari ini? Biar notif presiden bunyi terus! Gaspol pasukan jempol! 👍📲 [HASHTAGS]" },
+                { tone: 'Viral', platform: 'TikTok', text: "Duit 800 Miliar ilang? 😱 Bukan sulap bukan sihir, ini kejadian nyata di Indonesia! Bantu kawal kasus DSI sampai tuntas! No viral no justice! 🎥🔥 [HASHTAGS]" },
+                { tone: 'Viral', platform: 'X', text: "Dear Influencer finansial, jangan cuma promosiin yang cuan. Bantu suarakan saat kami boncos karena sistem yang kalian endorse dulu! Speak up! 🗣️📢 [TAGS] [HASHTAGS]" },
+                { tone: 'Viral', platform: 'Instagram', text: "TAG 5 TEMANMU! Kita butuh daya gedor massal. 1 postinganmu = 1 harapan bagi korban lansia. Solidaritas tanpa batas! ✊🔄 [HASHTAGS]" },
+                { tone: 'Viral', platform: 'all', text: "🚨 INDONESIA DARURAT KEUANGAN SYARIAH 🚨 Sebarkan gambar ini, biarkan seluruh negeri tahu ada bom waktu 800 M yang sedang ditutupi! 💣📲 [HASHTAGS]" },
+                { tone: 'Viral', platform: 'X', text: "Spam tagar #SaveLenderDSI di setiap postingan pejabat hari ini! Biar mereka tidak bisa pura-pura tidak baca! GASKEN! 🚀💥 [HASHTAGS]" }
+            ]
+        };
+
+        let state = { platform: 'all', tone: 'all' };
+
+        // --- RENDER FUNCTIONS ---
+        function renderPlatforms() {
+            const container = document.getElementById('platform-filters');
+            container.innerHTML = DB.platforms.map(p => `
+                <button onclick="setPlatform('${p.id}')" class="flex-shrink-0 flex items-center space-x-1.5 px-3.5 py-2 rounded-full font-bold text-[11px] uppercase transition-all ${state.platform === p.id ? 'bg-slate-900 text-white shadow-md ring-2 ring-slate-800 ring-offset-1' : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-50'}">
+                    <i data-lucide="${p.icon}" class="w-3.5 h-3.5"></i> <span>${p.label}</span>
+                </button>
+            `).join('');
+        }
+
+        function renderTones() {
+             // Render Slider Mode
+            const slider = document.getElementById('tone-slider');
+            slider.innerHTML = DB.tones.map(t => `
+                <button onclick="setTone('${t.id}')" id="tone-slide-${t.id}" class="flex-shrink-0 snap-start flex items-center space-x-1.5 px-4 py-2.5 rounded-xl font-bold text-[11px] uppercase transition-all border ${state.tone === t.id ? `bg-gradient-to-r ${t.color} text-white border-transparent shadow-md scale-[1.02]` : 'bg-white border-slate-200 text-slate-500 hover:bg-slate-50'}">
+                    <i data-lucide="${t.icon}" class="w-3.5 h-3.5"></i>
+                    <span>${t.label}</span>
+                </button>
+            `).join('');
+
+            // Render Dropdown Grid Mode
+            const grid = document.getElementById('tone-grid');
+            grid.innerHTML = DB.tones.map(t => `
+                 <button onclick="setTone('${t.id}'); toggleToneDropdown(false)" class="flex items-center space-x-2 px-3 py-3 rounded-xl font-bold text-[11px] uppercase transition-all border text-left ${state.tone === t.id ? `bg-gradient-to-r ${t.color} text-white border-transparent shadow-md ring-2 ring-offset-2 ring-blue-500` : `bg-white border-slate-200 text-slate-600 hover:bg-slate-50 hover:border-blue-200`}">
+                    <div class="p-1.5 rounded-lg ${state.tone === t.id ? 'bg-white/20' : t.bg + ' ' + t.text}">
+                        <i data-lucide="${t.icon}" class="w-4 h-4"></i>
+                    </div>
+                    <span>${t.label}</span>
+                </button>
+            `).join('');
+            
+            // Auto-scroll active tone in slider
+            setTimeout(() => {
+               const active = document.getElementById(`tone-slide-${state.tone}`);
+               if (active && state.tone !== 'all') {
+                   active.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+               }
+            }, 100);
+
+            lucide.createIcons();
+        }
+
+        function renderTemplates() {
+            const container = document.getElementById('template-list');
+            const emptyState = document.getElementById('empty-state');
+            
+            const filtered = DB.templates.filter(t =>
+                (state.platform === 'all' || t.platform === 'all' || t.platform === state.platform) &&
+                (state.tone === 'all' || t.tone === state.tone)
+            );
+
+            if (filtered.length === 0) {
+                container.classList.add('hidden');
+                emptyState.classList.remove('hidden');
+                emptyState.classList.add('flex');
+            } else {
+                container.classList.remove('hidden');
+                emptyState.classList.add('hidden');
+                emptyState.classList.remove('flex');
+
+                container.innerHTML = filtered.map((t, index) => {
+                    const toneData = DB.tones.find(tone => tone.id === t.tone);
+                    const platformData = DB.platforms.find(p => p.id === t.platform);
+                    
+                    // Beautify placeholders
+                    const formattedText = t.text
+                        .replace('[TAGS]', '<span class="inline-flex items-center bg-blue-50 text-blue-600 px-1.5 py-0.5 rounded-md font-bold text-[90%] -tracking-tight mx-0.5"><i data-lucide="at-sign" class="w-2.5 h-2.5 mr-0.5"></i>TARGET</span>')
+                        .replace('[HASHTAGS]', '<span class="inline-flex items-center bg-amber-50 text-amber-700 px-1.5 py-0.5 rounded-md font-bold text-[90%] -tracking-tight mx-0.5"><i data-lucide="hash" class="w-2.5 h-2.5 mr-0.5"></i>TAGAR</span>');
+
+                    return `
+                        <div class="group relative bg-white rounded-2xl p-4 border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300 animate-in fade-in slide-in-from-bottom-4" style="animation-delay: ${index * 50}ms">
+                            <!-- Tone Indicator Bar -->
+                            <div class="absolute left-0 inset-y-4 w-1 rounded-r-full bg-gradient-to-b ${toneData.color}"></div>
+                            
+                            <div class="pl-3.5">
+                                <!-- Metadata Badges -->
+                                <div class="flex flex-wrap items-center gap-2 mb-3">
+                                    <span class="inline-flex items-center px-2.5 py-1 rounded-lg text-[10px] font-black uppercase text-white bg-gradient-to-r ${toneData.color} shadow-sm">
+                                        <i data-lucide="${toneData.icon}" class="w-3 h-3 mr-1"></i> ${toneData.label}
+                                    </span>
+                                    ${t.platform !== 'all' ? `
+                                    <span class="inline-flex items-center px-2 py-1 rounded-lg text-[10px] font-bold uppercase bg-slate-100 text-slate-500 border border-slate-200">
+                                        <i data-lucide="${platformData?.icon || 'hash'}" class="w-3 h-3 mr-1"></i> ${t.platform}
+                                    </span>` : ''}
+                                </div>
+
+                                <!-- Message Body -->
+                                <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-100 mb-3 group-hover:border-slate-200 transition-colors">
+                                    <p class="text-slate-800 text-[13px] md:text-sm leading-relaxed whitespace-pre-wrap font-medium">${formattedText}</p>
+                                </div>
+
+                                <!-- Copy Button -->
+                                <button onclick="copyTemplate('${index}')" id="btn-${index}" class="w-full flex items-center justify-center space-x-2 py-3 rounded-xl font-black text-[13px] uppercase tracking-wider transition-all bg-slate-900 text-white hover:bg-slate-800 active:scale-[0.98] shadow-sm relative overflow-hidden">
+                                    <div class="relative z-10 flex items-center space-x-2">
+                                        <i data-lucide="copy" class="w-4 h-4"></i> <span>SALIN PESAN</span>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+            }
+            lucide.createIcons();
+        }
+
+        // --- INTERACTION FUNCTIONS ---
+        function toggleToneDropdown(forceState = null) {
+            const dropdown = document.getElementById('tone-dropdown');
+            const overlay = document.getElementById('dropdown-overlay');
+            const icon = document.getElementById('tone-toggle-icon');
+            const btn = document.getElementById('tone-toggle-btn');
+            
+            const isHidden = dropdown.classList.contains('hidden');
+            const shouldShow = forceState !== null ? forceState : isHidden;
+
+            if (shouldShow) {
+                dropdown.classList.remove('hidden');
+                overlay.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+                btn.classList.add('bg-blue-100');
+                // Hide slider when dropdown is open to reduce clutter
+                // document.getElementById('tone-slider').classList.add('opacity-50', 'pointer-events-none');
+            } else {
+                dropdown.classList.add('hidden');
+                overlay.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+                btn.classList.remove('bg-blue-100');
+                // document.getElementById('tone-slider').classList.remove('opacity-50', 'pointer-events-none');
+            }
+        }
+
+        function setPlatform(p) {
+            state.platform = p;
+            renderPlatforms();
+            renderTemplates();
+            // Scroll back to top of list slightly if deep down
+            document.getElementById('sticky-filter').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function setTone(t) {
+            state.tone = t;
+            renderTones();
+            renderTemplates();
+        }
+
+        function resetFilters() {
+            state = { platform: 'all', tone: 'all' };
+            renderPlatforms();
+            renderTones();
+            renderTemplates();
+        }
+
+        // --- CLIPBOARD FUNCTIONS ---
+        async function copyText(text, successMsg, elementId = null) {
+            try {
+                await navigator.clipboard.writeText(text);
+                showToast(successMsg);
+                if (elementId) animateSuccessButton(elementId);
+            } catch (err) {
+                showToast("Gagal menyalin. Izin ditolak?");
+            }
+        }
+
+        function copyAllTargets() { copyText(DB.targets.join(' '), "Semua Target Tersalin! 🎯"); }
+        function copyAllHashtags() { copyText(DB.hashtags.join(' '), "Semua Tagar Tersalin! 🔥"); }
+
+        function copyTemplate(index) {
+            // Re-find template because index is from filtered list, not original DB
+            // Actually, a simpler way is to re-filter to find the exact object, but attaching unique ID to filtered map is better.
+            // For simplicity in this static version, we'll re-derive the text from the DOM or better yet, use the filtered index carefully.
+            // WAIT: The index passed above IS the index in the filtered list.
+            const filtered = DB.templates.filter(t =>
+                (state.platform === 'all' || t.platform === 'all' || t.platform === state.platform) &&
+                (state.tone === 'all' || t.tone === state.tone)
+            );
+            const t = filtered[index];
+            
+            if (t) {
+                const final = t.text.replace('[TAGS]', DB.targets.join(' ')).replace('[HASHTAGS]', DB.hashtags.join(' '));
+                copyText(final, "Pesan Siap Tempur! ⚔️", `btn-${index}`);
+            }
+        }
+
+        function animateSuccessButton(btnId) {
+            const btn = document.getElementById(btnId);
+            if (!btn) return;
+            
+            const originalHTML = btn.innerHTML;
+            btn.innerHTML = `<div class="flex items-center space-x-2 scale-110 transition-transform"><i data-lucide="check-circle-2" class="w-5 h-5"></i><span>BERHASIL!</span></div>`;
+            btn.classList.remove('bg-slate-900', 'text-white');
+            btn.classList.add('bg-emerald-500', 'text-white', 'shadow-lg', 'shadow-emerald-500/30');
+            lucide.createIcons();
+
+            setTimeout(() => {
+                btn.innerHTML = originalHTML;
+                btn.classList.remove('bg-emerald-500', 'text-white', 'shadow-lg', 'shadow-emerald-500/30');
+                btn.classList.add('bg-slate-900', 'text-white');
+                lucide.createIcons();
+            }, 2000);
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-msg').textContent = msg;
+            toast.classList.remove('-translate-y-40', 'opacity-0');
+            // Reset timer if clicked rapidly
+            clearTimeout(window.toastTimer);
+            window.toastTimer = setTimeout(() => toast.classList.add('-translate-y-40', 'opacity-0'), 2500);
+        }
+
+        // Initial Setup
+        document.getElementById('target-count').textContent = `${DB.targets.length} Akun`;
+        document.getElementById('hashtag-count').textContent = `${DB.hashtags.length} Tagar`;
+        renderPlatforms();
+        renderTones();
+        renderTemplates();
+
+        // Close dropdown on outside click (handled by overlay now, but good backup)
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('#tone-dropdown') && !e.target.closest('#tone-toggle-btn') && !document.getElementById('tone-dropdown').classList.contains('hidden')) {
+               // toggleToneDropdown(false); // Already handled by overlay
+            }
+        });
+
+    </script>
+</body>
+</html>
