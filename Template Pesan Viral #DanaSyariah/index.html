@@ -9,7 +9,7 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <!-- Font Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<script>
+    <script>
   window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
 </script>
 <script defer src="/_vercel/insights/script.js"></script>
@@ -169,7 +169,7 @@
     </div>
 
     <script>
-        // --- DATABASE LENGKAP (90 TEMPLATES) ---
+        // --- DATABASE LENGKAP (165 TEMPLATES) ---
         const DB = {
             targets: [
                 "@ojkindonesia", "@Prabowo", "@dpr_ri", "@kemkomdigi", "@muipusat",
@@ -189,6 +189,7 @@
                 { id: 'TikTok', icon: 'video', label: 'TikTok' },
                 { id: 'Facebook', icon: 'facebook', label: 'Facebook' }
             ],
+            // === MODIFIKASI BAGIAN 1: PENAMBAHAN TONE BARU ===
             tones: [
                 { id: 'all', label: 'Semua Gaya', icon: 'layout-grid', color: 'from-slate-600 to-slate-800', bg: 'bg-slate-900', text: 'text-white' },
                 { id: 'Ultimatum', label: 'Ultimatum Keras', icon: 'bomb', color: 'from-red-600 to-red-700', bg: 'bg-red-50', text: 'text-red-700' },
@@ -199,10 +200,16 @@
                 { id: 'Religius', label: 'Gugatan Moral', icon: 'book-open-check', color: 'from-emerald-600 to-green-700', bg: 'bg-emerald-50', text: 'text-emerald-700' },
                 { id: 'Hukum', label: 'Ancaman Hukum', icon: 'scale', color: 'from-slate-700 to-gray-800', bg: 'bg-slate-100', text: 'text-slate-800' },
                 { id: 'Viral', label: 'Ajak Viralkan', icon: 'megaphone', color: 'from-amber-500 to-orange-600', bg: 'bg-amber-50', text: 'text-amber-800' },
+                // --- BARU DITAMBAHKAN ---
+                { id: 'Kecewa', label: 'Sasar Kekecewaan', icon: 'shield-off', color: 'from-gray-500 to-slate-600', bg: 'bg-gray-100', text: 'text-gray-700' },
+                { id: 'Reformasi', label: 'Tuntut Reformasi', icon: 'gavel', color: 'from-blue-600 to-indigo-700', bg: 'bg-blue-50', text: 'text-blue-700' },
+                { id: 'Solidaritas', label: 'Ajak Solidaritas', icon: 'users', color: 'from-teal-500 to-cyan-600', bg: 'bg-teal-50', text: 'text-teal-700' },
             ],
-            // 90 TEMPLATE TOTAL (10 PER TONE)
+            
+            // === MODIFIKASI BAGIAN 2: REKOMBINASI & PENAMBAHAN TEMPLATE (Total 165) ===
+            // 165 TEMPLATE TOTAL (11 TONE x 15 TEMPLATE)
             templates: [
-                // --- 1. ULTIMATUM (10) ---
+                // --- 1. ULTIMATUM (15) ---
                 { tone: 'Ultimatum', platform: 'all', text: "KAMI SUDAH CUKUP BERSABAR! 800 Miliar bukan daun kering, itu NYAWA kami! Jika dalam 3x24 jam tidak ada roadmap pengembalian dana konkret, kami anggap negara melakukan PEMBIARAN. SIAP ESKALASI! 🚨 [TAGS] [HASHTAGS]" },
                 { tone: 'Ultimatum', platform: 'X', text: "Deadline untuk DSI & @ojkindonesia: Jangan paksa korban yang putus asa melakukan hal nekat. Selesaikan beradab atau kami buat kegaduhan nasional yang tak bisa diredam! 💣 [HASHTAGS]" },
                 { tone: 'Ultimatum', platform: 'Instagram', text: "🔴 SIAGA 1 KORBAN DSI 🔴 Kami beri waktu OJK & DSI keluar dari persembunyian. Jangan sampai ribuan korban menduduki kantor kalian meminta hak kami! Negara HARUS HADIR! [TAGS] [HASHTAGS]" },
@@ -213,8 +220,13 @@
                 { tone: 'Ultimatum', platform: 'Instagram', text: "‼️ PERINGATAN KERAS ‼️ Direksi DSI, jangan pikir kalian bisa lari. Kami kejar sampai lubang tikus! OJK, jangan jadi pelindung penjahat! [TAGS] [HASHTAGS]" },
                 { tone: 'Ultimatum', platform: 'all', text: "Kami tidak butuh janji manis restrukturisasi yang ujungnya nol! KEMBALIKAN POKOK KAMI SEKARANG atau kami anggap ini deklarasi perang terhadap nasabah! ⚔️ [TAGS]" },
                 { tone: 'Ultimatum', platform: 'X', text: "Pak @Prabowo @gibran_rakabuming, ini ujian pertama pemerintahan baru. Biarkan 800 M rakyat hilang, artinya kalian GAGAL lindungi rakyat! Bertindak DETIK INI JUGA! ⚡🇮🇩 [HASHTAGS]" },
+                { tone: 'Ultimatum', platform: 'all', text: "Ini peringatan terakhir. Jika minggu ini tidak ada progres nyata, kami akan umumkan 'Mosi Tidak Percaya' pada @ojkindonesia dan kami pimpin aksi massa ke istana! 📣 [TAGS] [HASHTAGS]" },
+                { tone: 'Ultimatum', platform: 'Facebook', text: "Cukup basa-basinya! Rapat, mediasi, semua buntu. Sekarang waktunya AKSI. Kami beri waktu sampai akhir bulan, atau kami lumpuhkan aktivitas kalian lewat jalur non-kooperatif! 🚧 [TAGS]" },
+                { tone: 'Ultimatum', platform: 'X', text: "Aset direksi DSI @ppatka_indonesia bekukan! OJK @ojkindonesia jangan cuma jadi wasit, kalian PENJAGA GAWANG! Kebobolan 800 M itu bukan kelalaian, itu KEJAHATAN! Tindak atau kami anggap kalian terlibat! 💥 [HASHTAGS]" },
+                { tone: 'Ultimatum', platform: 'TikTok', text: "SOUND ON! 🔊 Ini suara korban DSI! Kami tidak akan diam! Kami tidak akan mundur! Uang kami kembali, atau reputasi kalian hancur! Pilih! 🔥 [HASHTAGS]" },
+                { tone: 'Ultimatum', platform: 'all', text: "HITUNGAN MUNDUR DIMULAI. 7 Hari dari sekarang. Tidak ada solusi = REVOLUSI KORBAN FINTECH. Jangan anggap remeh! ⏳💣 [TAGS] [HASHTAGS]" },
 
-                // --- 2. INVESTIGASI (10) ---
+                // --- 2. INVESTIGASI (15) ---
                 { tone: 'Investigasi', platform: 'X', text: "Mendesak @official.kpk & @ppatka_indonesia AUDIT FORENSIK DSI! Rp 800 M tak mungkin lenyap tanpa jejak. Telusuri aliran dana ke direksi & afiliasinya! Bekukan aset sekarang! 🕵️‍♂️💸 [HASHTAGS]" },
                 { tone: 'Investigasi', platform: 'all', text: "PATUT DIDUGA ada PONZI berkedok syariah di DSI! Gagal bayar 800 M tidak terjadi semalam. Dimana fungsi pengawasan OJK selama ini? Ada pembiaran terencana? BONGKAR! 📉🔍 [TAGS] [HASHTAGS]" },
                 { tone: 'Investigasi', platform: 'Facebook', text: "[SURAT TERBUKA BARESKRIM] Kami duga ada TPPU di gagal bayar DSI. Segera CEKAL seluruh direksi sebelum kabur ke luar negeri bawa uang kami! 🚔⚖️ [TAGS]" },
@@ -225,8 +237,13 @@
                 { tone: 'Investigasi', platform: 'Facebook', text: "DSI Gagal Bayar = Kejahatan Terstruktur? Mustahil 800M lenyap jika pengawasan jalan. Siapa 'orang dalam' yang bermain? USUT TUNTAS! 🔎🏦 [TAGS]" },
                 { tone: 'Investigasi', platform: 'all', text: "Audit independen HARGA MATI! Kami tidak percaya data internal DSI. Buka semua buku ke publik jika kalian bersih! 📊📢 [TAGS] [HASHTAGS]" },
                 { tone: 'Investigasi', platform: 'Instagram', text: "Bareskrim @dittipideksus, mohon segera panggil paksa manajemen DSI. Indikasi fraud sudah terlalu nyata. Jangan tunggu korban makin banyak! 👮‍♂️🚨 [TAGS]" },
+                { tone: 'Investigasi', platform: 'X', text: "Siapa 'Borrower' fiktif di DSI? Buka datanya! Kami curiga 800 M ini bukan macet di UMKM, tapi sengaja 'dilarikan' ke grup sendiri. Ini MODUS LAMA! @official.kpk @humaspolri [HASHTAGS]" },
+                { tone: 'Investigasi', platform: 'all', text: "Periksa DPS (Dewan Pengawas Syariah) DSI! Apa kerja mereka? Digaji untuk stempel halal tapi membiarkan kebobrokan? Ikut bertanggung jawab! 🕌🔍 [TAGS] [HASHTAGS]" },
+                { tone: 'Investigasi', platform: 'Facebook', text: "Tolong @ppatka_indonesia telusuri juga rekening keluarga & kerabat dekat para petinggi DSI. Aliran dana panas sering disembunyikan di sana. Jangan beri ampun! 🕵️‍♀️ [TAGS]" },
+                { tone: 'Investigasi', platform: 'Instagram', text: "Lihat gaya hidup mewah para eksekutif DSI di sosmed. Kontras dengan penderitaan kami. Bukti kuat untuk diselidiki @kejaksaan.ri! 📸✈️ [TAGS] [HASHTAGS]" },
+                { tone: 'Investigasi', platform: 'X', text: "Kenapa OJK begitu lama 'membina' DSI yang jelas-jelas sudah 'sakit'? Ada kongkalikong apa? Kami minta @dpr_ri bentuk PANSUS DSI! 🏛️ [HASHTAGS]" },
 
-                // --- 3. KEMANUSIAAN (10) ---
+                // --- 3. KEMANUSIAAN (15) ---
                 { tone: 'Kemanusiaan', platform: 'Instagram', text: "💔 Dibalik Rp 800 M, ada ribuan lansia bingung beli obat. Ada janda kehilangan pegangan. Mereka percaya karena ada LOGO OJK. Pak @Prabowo, mana negara untuk mereka? 😭 [TAGS] [HASHTAGS]" },
                 { tone: 'Kemanusiaan', platform: 'Facebook', text: "\"Saya pensiunan, uang pesangon masuk DSI untuk hari tua. Kini istri sakit, uang ditahan.\" — Pak Presiden, dengarkan jeritan rakyatmu! 🙏😢 [TAGS]" },
                 { tone: 'Kemanusiaan', platform: 'TikTok', text: "POV: Nabung seumur hidup buat masa tua, lenyap karena percaya platform 'berizin negara'. Sakit sampai ulu hati! 💔 Bantu viralin, kasihan ortu kita! 😭 [HASHTAGS]" },
@@ -237,8 +254,13 @@
                 { tone: 'Kemanusiaan', platform: 'X', text: "Stress, depresi, sakit-sakitan. Itu kondisi korban DSI sekarang. Jika ada yang sampai bunuh diri, tangan kalian berlumurah darah! 🩸😔 @ojkindonesia [HASHTAGS]" },
                 { tone: 'Kemanusiaan', platform: 'all', text: "Kami hanya minta uang kami sendiri, hasil keringat puluhan tahun. Kenapa dipersulit? Dimana hati nurani kalian? 💔🤲 [TAGS] [HASHTAGS]" },
                 { tone: 'Kemanusiaan', platform: 'TikTok', text: "Surat terbuka untuk anak direksi DSI: Ayahmu menahan uang ribuan orang tua lain. Nikmatkah makan dari penderitaan kami? 🍽️😢 #SaveLenderDSI" },
+                { tone: 'Kemanusiaan', platform: 'Facebook', text: "Banyak korban adalah guru, perawat, pensiunan. Mereka pilar bangsa. Kini hari tua mereka dirampok. Negara macam apa ini yang membiarkan pahlawannya menderita? 👩‍🏫👨‍⚕️ [TAGS]" },
+                { tone: 'Kemanusiaan', platform: 'Instagram', text: "Lihat foto ini. Ini wajah Pak A, 65 tahun. Uang haji & dana daruratnya ludes di DSI. Beliau kini depresi berat. TANGGUNG JAWAB KALIAN! 📸😭 [TAGS] [HASHTAGS]" },
+                { tone: 'Kemanusiaan', platform: 'all', text: "Ini bukan cuma soal uang. Ini soal martabat. Martabat lansia yang tak bisa berobat. Martabat orang tua yang tak bisa sekolahkan anak. HANCUR! 💔 [TAGS] [HASHTAGS]" },
+                { tone: 'Kemanusiaan', platform: 'X', text: "Tolong @gibran_rakabuming, Anda representasi anak muda. Banyak korban muda DSI menunda nikah, batal beli rumah. Masa depan kami direnggut. Bantu kami! 🙏 [HASHTAGS]" },
+                { tone: 'Kemanusiaan', platform: 'TikTok', text: "Coba bayangin kamu di posisi kami. Gaji bertahun-tahun HILANG. Gimana perasaanmu? Tolong bantu kami bersuara! 😭💔 [HASHTAGS]" },
 
-                // --- 4. FAKTA (10) ---
+                // --- 4. FAKTA (15) ---
                 { tone: 'Fakta', platform: 'X', text: "FAKTA KASUS DSI:\n✅ Berizin & Diawasi OJK\n✅ Ada Dewan Pengawas Syariah\n❌ GAGAL BAYAR Rp 800 M\nKesimpulan: Pengawasan GAGAL TOTAL. Negara tanggung jawab! 📊📉 @dpr_ri [HASHTAGS]" },
                 { tone: 'Fakta', platform: 'Facebook', text: "BEDAH KASUS: Bagaimana perusahaan diawasi ketat jebol 800 M tanpa terdeteksi dini? 1. Pengawas tidak kompeten, atau 2. Ada 'main mata'. Rakyat tuntut jawaban logis! 🤔🔍 [TAGS] [HASHTAGS]" },
                 { tone: 'Fakta', platform: 'Instagram', text: "📚 PELAJARAN MAHAL: Logo OJK ternyata bukan jaminan keamanan, cuma tanda izin berdiri. Saat masalah muncul, nasabah dibiarkan berjuang sendiri. RAKYAT WAJIB TAU! 🚫🛡️ [TAGS]" },
@@ -249,8 +271,13 @@
                 { tone: 'Fakta', platform: 'Instagram', text: "Fakta pahit: Asuransi di fintech ternyata seringkali tidak mengcover 'gagal bayar' karena fraud borrower. Celah regulasi yang merugikan lender! Perbaiki! 🛠️📄 [TAGS]" },
                 { tone: 'Fakta', platform: 'all', text: "800 Miliar / Rata-rata 50 Juta per orang = ±16.000 Korban. Ini bukan kasus kecil. Ini bencana sosial ekonomi! 📉🚨 [TAGS] [HASHTAGS]" },
                 { tone: 'Fakta', platform: 'Facebook', text: "Janji manis 'Imbal hasil menarik sesuai syariah' kini jadi 'Modal pokok pun tak kembali'. Iklan menyesatkan harus dipidana! 🚫📢 [TAGS]" },
+                { tone: 'Fakta', platform: 'X', text: "Perlu diingat: DSI adalah P2P Lending, BUKAN bank. Dana tidak dijamin LPS. Tapi OJK WAJIB mengawasi mitigasi risiko & GCG-nya. Dan disinilah letak KEGAGALAN OJK! 🛡️❌ [HASHTAGS]" },
+                { tone: 'Fakta', platform: 'all', text: "Rata-rata kerugian korban DSI antara Rp 100 Juta - Rp 1 Miliar. Ini bukan uang 'nganggur'. Ini dana pensiun, dana pendidikan, dana darurat. FAKTA! 📈💔 [TAGS] [HASHTAGS]" },
+                { tone: 'Fakta', platform: 'Instagram', text: "Ironis. Di saat pemerintah @kemenko_perekonomian gencar galang inklusi keuangan syariah, @ojkindonesia malah gagal jaga amanah 800 M di DSI. Kontradiktif! 📉 [TAGS]" },
+                { tone: 'Fakta', platform: 'Facebook', text: "Skema restrukturisasi yg ditawarkan DSI tidak masuk akal (misal: konversi jadi properti fiktif). Ini FAKTA upaya mengaburkan jejak & lari dari tanggung jawab! 🚫 [TAGS]" },
+                { tone: 'Fakta', platform: 'X', text: "Fakta: @afsi.id (Asosiasi Fintech Syariah) diam seribu bahasa. Apa fungsi asosiasi jika anggotanya merampok nasabah & merusak nama 'Syariah'? 🤫 [HASHTAGS]" },
 
-                // --- 5. SATIRE (10) ---
+                // --- 5. SATIRE (15) ---
                 { tone: 'Satire', platform: 'X', text: "Selamat OJK atas award 'The Silent Guardian' (Penjaga Diam Saja). 800 M lenyap, respon secepat siput. 🐌🏆 Hebat! @ojkindonesia [HASHTAGS]" },
                 { tone: 'Satire', platform: 'Instagram', text: "Mungkin definisi 'Diawasi OJK' artinya cuma 'Dilihatin pas uangnya diambil'. 🤔 Makasih, kami jadi tau logo garuda kadang cuma stiker mahal. 🎭💸 [TAGS] [HASHTAGS]" },
                 { tone: 'Satire', platform: 'Facebook', text: "Maling ayam digebukin massa. Maling 800 M pakai jas & izin resmi, dilindungi prosedur di hotel mewah. Keadilan sosial bagi yang punya kuasa ya? 🤡👏 [TAGS]" },
@@ -261,8 +288,13 @@
                 { tone: 'Satire', platform: 'X', text: "Halo @ojkindonesia, butuh kopi? Kok ngawasinya ngantuk banget sampai kebobolan 800 M? ☕😴 Bangun woy, rakyat teriak! [HASHTAGS]" },
                 { tone: 'Satire', platform: 'Instagram', text: "Visi Indonesia Emas 2045. Realita: Uang pensiunan emas 2024 dirampok legal. Mantap pak pejabat! 👍🇮🇩 [TAGS] [HASHTAGS]" },
                 { tone: 'Satire', platform: 'all', text: "Kami kira nabung di fintech syariah itu hijrah finansial, ternyata musibah finansial. Syariah casingnya, jahiliyah isinya. 🕌💔 [TAGS]" },
+                { tone: 'Satire', platform: 'X', text: "DSI ini 'Dana Suka-suka Ilang' ya? @ojkindonesia 'Otoritas Jenaka Sekali'? Maaf nanya, soalnya 800 M kami ilang masih bisa pada ketawa di rapat. 🤣 [HASHTAGS]" },
+                { tone: 'Satire', platform: 'Facebook', text: "Terima kasih DSI & OJK, berkat kalian kami jadi rajin puasa Daud. Bukan karena taqwa, tapi karena gak ada duit buat makan. 🥲 [TAGS]" },
+                { tone: 'Satire', platform: 'TikTok', text: "Challenge: Coba temukan 800 Miliar yang hilang! Yang nemu dapat piring cantik dari OJK. 🍽️ (Hadiah disponsori oleh keringat korban) 🤡 [HASHTAGS]" },
+                { tone: 'Satire', platform: 'all', text: "Katanya 'Fintech Syariah Solusi Umat'. Ternyata 'Solusi Umat... buat masuk jurang kemiskinan bareng-bareng'. 🤝 [TAGS] [HASHTAGS]" },
+                { tone: 'Satire', platform: 'Instagram', text: "Gimana rasanya, Pak Pejabat? Nyenyak tidur di atas tumpukan laporan korban? AC-nya dingin ya, sedingin hati nurani Anda? ❄️😴 [TAGS]" },
 
-                // --- 6. RELIGIUS (10) ---
+                // --- 6. RELIGIUS (15) ---
                 { tone: 'Religius', platform: 'Facebook', text: "Assalamu'alaikum @muipusat & DPS. Mana suara antum saat umat didzalimi 800 M? Membiarkan kemudharatan itu DOSA! Ingat hisab akhirat! 🕌⚖️ [TAGS]" },
                 { tone: 'Religius', platform: 'Instagram', text: "Tuan Berdasi DSI: Uang yang kalian tahan mungkin doa terakhir ibu. Takutlah pengadilan Allah yang tak bisa disogok! Azab makan harta anak yatim pedih! 🔥🤲 [TAGS]" },
                 { tone: 'Religius', platform: 'all', text: "Label SYARIAH harusnya junjung AMANAH, bukan KHIANAT! Kalian nodai ekonomi Islam. Kembalikan hak umat sebelum terlambat! 🕋⚡ [HASHTAGS]" },
@@ -273,8 +305,13 @@
                 { tone: 'Religius', platform: 'X', text: "Doa orang terdzalimi itu tidak ada hijabnya langsung ke langit. Hati-hati para penikmat dana 800 M, azab Allah sangat pedih! 🤲⚡ [HASHTAGS]" },
                 { tone: 'Religius', platform: 'all', text: "Mengambil hak orang lain secara batil adalah dosa besar. Segera tobat dan kembalikan, sebelum kain kafan membungkus kalian! ⚰️🛑 [TAGS]" },
                 { tone: 'Religius', platform: 'Facebook', text: "Kami percayakan harta kami karena label Islam. Jika kalian khianat, kalian munafik kelas berat. Pertanggungjawabkan di dunia sebelum akhirat! 🕌🔥 [TAGS]" },
+                { tone: 'Religius', platform: 'all', text: "Ya Allah, saksikanlah kedzaliman ini. Kami titipkan urusan ini pada-Mu di sepertiga malam kami. Laknatlah mereka yang memakan harta kami secara batil! 🤲 [TAGS] [HASHTAGS]" },
+                { tone: 'Religius', platform: 'Instagram', text: "Kepada DPS DSI: Anda digaji untuk pastikan ini syar'i. Gagal bayar 800 M ini syar'i? Atau Anda cuma 'boneka' syariah? Bertaubatlah! 🕌 [TAGS]" },
+                { tone: 'Religius', platform: 'X', text: "Uang kami mungkin untuk qurban, untuk umroh, untuk sedekah. Kalian rampas, kalian halangi ibadah kami. Dimana iman kalian? @muipusat 🕋 [HASHTAGS]" },
+                { tone: 'Religius', platform: 'Facebook', text: "Harta haram takkan bawa berkah. Hanya akan jadi penyakit di dunia & siksa di akhirat. Kembalikan 800 M itu! 💥 [TAGS]" },
+                { tone: 'Religius', platform: 'all', text: "Setiap sen uang kami yang kalian nikmati, akan kami tuntut di Yaumul Mizan. Pertanggungjawaban di hadapan Allah jauh lebih berat! ⚖️ [TAGS] [HASHTAGS]" },
 
-                // --- 7. HUKUM (10) ---
+                // --- 7. HUKUM (15) ---
                 { tone: 'Hukum', platform: 'all', text: "Ini bukan wanprestasi, ini FRAUD! Tuntut @humaspolri terapkan pasal berlapis: Penipuan, Penggelapan, TPPU ke manajemen DSI. Sita aset pribadi untuk ganti rugi! 🚔⚖️ [HASHTAGS]" },
                 { tone: 'Hukum', platform: 'X', text: "UU Perlindungan Konsumen & P2SK jamin hak kami. Jika OJK diam, kami GUGAT CLASS ACTION OJK karena lalai jalankan amanat UU! Siap-siap! 🏛️🔨 @ojkindonesia [HASHTAGS]" },
                 { tone: 'Hukum', platform: 'Facebook', text: "Peringatan Hukum: Upaya alihkan aset saat gagal bayar adalah TINDAK PIDANA. Kami monitor kalian! Jangan coba main curang! 👀👮‍♂️ [TAGS]" },
@@ -285,8 +322,13 @@
                 { tone: 'Hukum', platform: 'Instagram', text: "Sesuai POJK, Direksi bertanggung jawab penuh atas kerugian akibat kelalaian. Kami tuntut sita jaminan pribadi direksi & komisaris DSI! 🏠🚗 [TAGS] [HASHTAGS]" },
                 { tone: 'Hukum', platform: 'all', text: "Jangan jadikan 'Risiko Investasi' sebagai tameng hukum untuk lari dari tanggung jawab atas 'MISMANAGEMENT' dan dugaan 'FRAUD'. Kami paham bedanya! 🛑⚖️ [TAGS]" },
                 { tone: 'Hukum', platform: 'Facebook', text: "Kami siapkan laporan massal ke Bareskrim Polri. Ribuan bukti transfer siap kami lampirkan. Negara tidak boleh kalah dengan mafia berjas! 🇮🇩👮‍♂️ [TAGS]" },
+                { tone: 'Hukum', platform: 'X', text: "Kelalaian @ojkindonesia dalam pengawasan bisa digugat secara perdata (Pasal 1365 KUHPerdata) dan pidana. Jangan sampai kami seret OJK ke pengadilan! 🏛️ [HASHTAGS]" },
+                { tone: 'Hukum', platform: 'all', text: "Kepada DSI: Stop tawarkan skema restrukturisasi bodong! Itu bisa jadi bukti tambahan upaya penipuan berlanjut. Fokus kembalikan POKOK kami! ⚖️ [TAGS] [HASHTAGS]" },
+                { tone: 'Hukum', platform: 'Instagram', text: "Kami minta @official.kpk usut dugaan gratifikasi oknum pengawas. Mustahil kebobolan 800 M tanpa ada 'pelumas' ke regulator. Cek rekening mereka! 🕵️‍♂️ [TAGS]" },
+                { tone: 'Hukum', platform: 'Facebook', text: "Surat somasi sudah dilayangkan. Jika tidak ada itikad baik, kami pastikan proses hukum pidana & perdata berjalan. Tidak ada damai untuk perampok! 📜 [TAGS]" },
+                { tone: 'Hukum', platform: 'X', text: "Kami minta Bareskrim @dittipideksus terapkan UU TPPU. Miskin kan para koruptor & afiliasinya. Jangan biarkan mereka nikmati 1 sen pun uang kami! 💸➡️🔒 [HASHTAGS]" },
 
-                // --- 8. VIRAL (10) ---
+                // --- 8. VIRAL (15) ---
                 { tone: 'Viral', platform: 'TikTok', text: "⚠️ JANGAN SCROLL! Kasus 800 M dana umat nyangkut di platform 'aman' berizin negara! Korbannya ortu kita. Yuk viralin biar pejabat melek! 🔥👇 [HASHTAGS]" },
                 { tone: 'Viral', platform: 'Instagram', text: "[MOHON REPOST] 🚨 Hari ini kami korbannya, besok bisa giliran anda jika kita diam. Rapatkan barisan, tag pejabat terkait di komentar! 🗣️🔄 [TAGS] [HASHTAGS]" },
                 { tone: 'Viral', platform: 'X', text: "Twitter do your magic! 🪄✨ Kasus DSI 800M terlalu senyap. Butuh trending topic agar media lirik penderitaan ribuan korban. Retweet jika peduli! 🔄❤️ [HASHTAGS]" },
@@ -296,7 +338,63 @@
                 { tone: 'Viral', platform: 'X', text: "Dear Influencer finansial, jangan cuma promosiin yang cuan. Bantu suarakan saat kami boncos karena sistem yang kalian endorse dulu! Speak up! 🗣️📢 [TAGS] [HASHTAGS]" },
                 { tone: 'Viral', platform: 'Instagram', text: "TAG 5 TEMANMU! Kita butuh daya gedor massal. 1 postinganmu = 1 harapan bagi korban lansia. Solidaritas tanpa batas! ✊🔄 [HASHTAGS]" },
                 { tone: 'Viral', platform: 'all', text: "🚨 INDONESIA DARURAT KEUANGAN SYARIAH 🚨 Sebarkan gambar ini, biarkan seluruh negeri tahu ada bom waktu 800 M yang sedang ditutupi! 💣📲 [HASHTAGS]" },
-                { tone: 'Viral', platform: 'X', text: "Spam tagar #SaveLenderDSI di setiap postingan pejabat hari ini! Biar mereka tidak bisa pura-pura tidak baca! GASKEN! 🚀💥 [HASHTAGS]" }
+                { tone: 'Viral', platform: 'X', text: "Spam tagar #SaveLenderDSI di setiap postingan pejabat hari ini! Biar mereka tidak bisa pura-pura tidak baca! GASKEN! 🚀💥 [HASHTAGS]" },
+                { tone: 'Viral', platform: 'Facebook', text: "Ayo ramaikan kolom komentar @jokowi @prabowo @ojkindonesia. Tulis: 'USUT TUNTAS DSI!' Jangan kasih kendor! 🗣️ [TAGS]" },
+                { tone: 'Viral', platform: 'TikTok', text: "Bikin video pakai sound ini. Ceritakan kerugianmu atau kerugian temanmu. Kita penuhi FYP dengan skandal DSI! 🎬🔥 [HASHTAGS]" },
+                { tone: 'Viral', platform: 'Instagram', text: "Share di Story-mu! Tunjukkan kalau kita peduli! Jangan biarkan kasus ini tenggelam! 🌊➡️🔝 [TAGS] [HASHTAGS]" },
+                { tone: 'Viral', platform: 'all', text: "Semua media mainstream wajib liput! @detikcom @kompastv @tempodotco. Ini skandal besar! Jangan mau disogok untuk diam! 🎤 [HASHTAGS]" },
+                { tone: 'Viral', platform: 'X', text: "Ayo jadiin '800 Miliar' trending. Biar semua orang tanya, 'Ada apa dengan 800 Miliar?' Kita bongkar di reply! 💥 [HASHTAGS]" },
+
+                // --- 9. KECEWA (15) --- (BARU)
+                { tone: 'Kecewa', platform: 'all', text: "Kami percaya LOGO OJK. Kami percaya label SYARIAH. Kepercayaan itu kini dibalas PENGKHIANATAN. Hati kami hancur, uang kami ludes. 💔 @ojkindonesia [HASHTAGS]" },
+                { tone: 'Kecewa', platform: 'Facebook', text: "Saya memilih DSI karena 'aman' & 'diawasi'. Ternyata semua ilusi. @ojkindonesia, Anda GAGAL menjaga amanah kami. Kami sangat kecewa! 🛡️❌ [TAGS]" },
+                { tone: 'Kecewa', platform: 'Instagram', text: "Dulu kami bangga promosikan fintech syariah. Sekarang kami malu. Malu karena sistem yang kami percaya ternyata bobrok & merugikan umat. 🥀 [TAGS] [HASHTAGS]" },
+                { tone: 'Kecewa', platform: 'X', text: "Pak @Prabowo, kami memilih bapak untuk perubahan. Tapi di awal pemerintahan, kami sudah dikecewakan negara yang membiarkan 800 M uang rakyat hilang. 😔 [HASHTAGS]" },
+                { tone: 'Kecewa', platform: 'all', text: "Yang paling sakit bukan kehilangan uangnya. Tapi rasa dikhianati oleh sistem yang seharusnya melindungi. Kepercayaan kami PATAH! 💔 [TAGS] [HASHTAGS]" },
+                { tone: 'Kecewa', platform: 'TikTok', text: "Nabung puluhan tahun, hilang sekejap di platform 'resmi'. Kecewa banget sama regulator. Kenapa bisa lolos? 😭 #SaveLenderDSI" },
+                { tone: 'Kecewa', platform: 'Facebook', text: "Kami rakyat kecil, taat aturan. Menaruh uang di tempat legal. Tapi apa balasannya? Kehancuran. Terima kasih OJK, 'pengawasanmu' luar biasa. 👎 [TAGS]" },
+                { tone: 'Kecewa', platform: 'X', text: "Negara hadir... tapi hanya saat meresmikan. Saat rakyat menjerit, negara pura-pura budek. Kecewa adalah kata yang terlalu kecil. 📵 [HASHTAGS]" },
+                { tone: 'Kecewa', platform: 'Instagram', text: "Ekspektasi: Diawasi OJK = Aman. Realita: Diawasi OJK = Tetap dirampok, tapi legal. Sungguh sebuah ironi yang menyakitkan. 🎭 [TAGS]" },
+                { tone: 'Kecewa', platform: 'all', text: "Kami sudah lelah. Lelah rapat, lelah mediasi, lelah dijanjikan. Hasilnya NOL. Hanya kekecewaan yang kami dapat. 😥 [TAGS] [HASHTAGS]" },
+                { tone: 'Kecewa', platform: 'X', text: "Percuma ada DPS @muipusat jika label syariah hanya jadi pemanis untuk menipu. Umat dikhianati! Kami kecewa berat! 🕌💔 [HASHTAGS]" },
+                { tone: 'Kecewa', platform: 'Facebook', text: "Dulu saya kira ini 'risiko bisnis'. Sekarang saya sadar ini 'risiko dibiarkan'. Dibiarkan oleh regulator yang tidak becus. 🛡️ [TAGS]" },
+                { tone: 'Kecewa', platform: 'all', text: "Kekecewaan ini akan jadi energi. Energi untuk menuntut hak kami sampai kapanpun. Jangan remehkan orang yang sudah dikecewakan! 🔥 [TAGS] [HASHTAGS]" },
+                { tone: 'Kecewa', platform: 'Instagram', text: "Janji tinggal janji. Uang tak kembali. Yang tersisa hanya sesal dan kecewa. @ojkindonesia @jokowi [TAGS]" },
+                { tone: 'Kecewa', platform: 'TikTok', text: "Sound of silence. Itu yang kami dapat dari regulator. 800 Miliar hilang, dan mereka diam. 🤫 Kecewa! [HASHTAGS]" },
+
+                // --- 10. REFORMASI (15) --- (BARU)
+                { tone: 'Reformasi', platform: 'all', text: "Kasus DSI adalah BUKTI NYATA kegagalan sistem. OJK harus DI REFORMASI TOTAL! Ganti komisioner yang tidur! 🏛️💥 [TAGS] [HASHTAGS]" },
+                { tone: 'Reformasi', platform: 'X', text: "Jangan cuma DSI yang dihukum. @ojkindonesia harus audit sistem pengawasan internalnya! Ini bukan gagal 1x. Ini SISTEMIK! @dpr_ri [HASHTAGS]" },
+                { tone: 'Reformasi', platform: 'Facebook', text: "Kami tuntut: 1. Ganti rugi 100% korban DSI. 2. Reformasi total regulasi fintech. 3. Adili oknum OJK yang lalai! Cukup sudah! 📜 [TAGS]" },
+                { tone: 'Reformasi', platform: 'Instagram', text: "Stop izin baru P2P Lending sampai kasus 800 M DSI tuntas & ada perbaikan sistem! Jangan tambah korban baru! 🚫 [TAGS] [HASHTAGS]" },
+                { tone: 'Reformasi', platform: 'all', text: "Bentuk LEMBAGA PENJAMINAN FINTECH! Seperti LPS di bank. Agar jika ada fraud sistemik, rakyat tidak jadi korban total! @kemenkeuri [TAGS] [HASHTAGS]" },
+                { tone: 'Reformasi', platform: 'X', text: "Perlu ada 'dana talangan' dari OJK/Pemerintah untuk kasus seperti DSI, yang jelas karena GAGAL PENGAWASAN. Itu tanggung jawab! @kemenko_perekonomian [HASHTAGS]" },
+                { tone: 'Reformasi', platform: 'Facebook', text: "Hukum DPS (Dewan Pengawas Syariah)! Mereka harus ikut tanggung jawab pidana & perdata. Label syariah tak boleh diobral murah! @muipusat 🕌 [TAGS]" },
+                { tone: 'Reformasi', platform: 'all', text: "Kami tuntut transparansi data TKB90 real-time yang diaudit independen! Hentikan pembohongan publik berizin! 📊 [TAGS] [HASHTAGS]" },
+                { tone: 'Reformasi', platform: 'Instagram', text: "Tragedi 800 M DSI harus jadi momentum bersih-bersih industri fintech. Sapu bersih mafia, perketat aturan, lindungi konsumen! 🧹 [TAGS]" },
+                { tone: 'Reformasi', platform: 'X', text: "Pak @Prabowo, ini momentum bapak wujudkan 'revolusi' di sistem keuangan. Berani sikat mafia di OJK & fintech? Kami dukung! 🇮🇩 [HASHTAGS]" },
+                { tone: 'Reformasi', platform: 'all', text: "Peraturan OJK harus diubah: Jika fintech gagal bayar karena fraud/lalai, OJK wajib fasilitasi sita aset pribadi direksi! ⚖️ [TAGS] [HASHTAGS]" },
+                { tone: 'Reformasi', platform: 'Facebook', text: "Cukup sudah 'self-regulatory' di fintech. Terbukti gagal. Negara harus turun tangan lebih keras! Ini bukan 'disrupsi', ini 'destruksi'! 💥 [TAGS]" },
+                { tone: 'Reformasi', platform: 'TikTok', text: "Mau sampai kapan OJK 'kebobolan'? Kasus DSI ini harus jadi yang terakhir! Ubah sistemnya, atau bubarkan saja! 😡 [HASHTAGS]" },
+                { tone: 'Reformasi', platform: 'X', text: "Kami usul @dpr_ri revisi UU P2SK. Beri sanksi lebih berat bagi regulator yang lalai hingga rugikan publik. 🏛️ [HASHTAGS]" },
+                { tone: 'Reformasi', platform: 'Instagram', text: "Audit semua P2P Lending sekarang! Jangan tunggu ada DSI-DSI baru. Mencegah lebih baik daripada rakyat kehilangan 800 M lagi! 🔍 [TAGS]" },
+
+                // --- 11. SOLIDARITAS (15) --- (BARU)
+                { tone: 'Solidaritas', platform: 'all', text: "Anda korban DSI? Anda tidak sendiri! Ribuan dari kita bersatu. Ayo gabung, kita berjuang bersama ambil hak kita! ✊ [TAGS] [HASHTAGS]" },
+                { tone: 'Solidaritas', platform: 'Facebook', text: "Kepada seluruh korban DSI, jangan takut! Jangan diam! Bersatu kita kuat. Musuh kita adalah kesenyapan. Ayo bersuara! 🗣️ [TAGS]" },
+                { tone: 'Solidaritas', platform: 'Instagram', text: "Tag teman/keluarga Anda yang juga jadi korban. Kita perlu data & kekuatan kolektif. DM kami jika Anda korban! Bersama kita kuat! 🤝 [TAGS] [HASHTAGS]" },
+                { tone: 'Solidaritas', platform: 'X', text: "Bukan hanya korban DSI. Korban asuransi, korban KSP, korban robot trading: MARI BERSATU! Musuh kita sama: sistem rakus yg tak lindungi rakyat! 🔥 [HASHTAGS]" },
+                { tone: 'Solidaritas', platform: 'all', text: "Satu lender dijatuhkan, semua lender terancam. Solidaritas adalah kunci. Bantu share meski Anda bukan korban. Ini soal keadilan! 🔄 [TAGS] [HASHTAGS]" },
+                { tone: 'Solidaritas', platform: 'TikTok', text: "Untuk kamu yang merasa sendiri & putus asa karena DSI, lihat ini! 🫂 Kita ramai! Kita berjuang bareng. Kamu gak sendiri! [HASHTAGS]" },
+                { tone: 'Solidaritas', platform: 'Facebook', text: "Info Aksi: Kami akan adakan doa bersama & aksi damai. Bagi korban DSI, ayo merapat! Tunjukkan kita kompak & tak bisa diremehkan! 📅 [TAGS]" },
+                { tone: 'Solidaritas', platform: 'X', text: "Yang bukan korban tapi peduli, bantu kami! Cukup RT & reply tagar. Dukungan moral kalian adalah bensin perjuangan kami! 🙏 [HASHTAGS]" },
+                { tone: 'Solidaritas', platform: 'Instagram', text: "Kami dari paguyuban korban DSI membuka posko pengaduan. Jika Anda korban, jangan berjuang sendiri. Hubungi kami! 📞 [TAGS] [HASHTAGS]" },
+                { tone: 'Solidaritas', platform: 'all', text: "Kekuatan kita di jumlah. 16.000 korban bersatu = kekuatan besar yg tak bisa diabaikan @jokowi @prabowo! Ayo kumpul! 👨‍👩‍👧‍👦 [TAGS] [HASHTAGS]" },
+                { tone: 'Solidaritas', platform: 'X', text: "Saya korban, teman saya korban. Tetangga saya korban. Kita semua korban! Saatnya berhenti saling menyalahkan, saatnya bersatu lawan kedzaliman! ✊ [HASHTAGS]" },
+                { tone: 'Solidaritas', platform: 'Facebook', text: "Jangan mau dipecah belah dengan janji 'cicilan' kecil. Tuntutan kita satu: KEMBALI 100%! Bersatu teguh, bercerai kita ditipu lagi! 🛡️ [TAGS]" },
+                { tone: 'Solidaritas', platform: 'all', text: "SATU SUARA, SATU TUNTUTAN: KEMBALIKAN UANG KAMI! USUT TUNTAS MAFIANYA! 🗣️ [TAGS] [HASHTAGS]" },
+                { tone: 'Solidaritas', platform: 'Instagram', text: "Lihat lautan manusia ini. Ini bukan demo bayaran. Ini amarah korban DSI! Anda masih mau diam? Bergabunglah! 🌊 [TAGS]" },
+                { tone: 'Solidaritas', platform: 'TikTok', text: "Duet video ini jika kamu korban DSI! Tunjukkan wajahmu (jika berani) atau tunjukkan buktimu! Kita penuhi TikTok dgn wajah persatuan! 🤝 [HASHTAGS]" }
             ]
         };
 
@@ -457,11 +555,33 @@
         // --- CLIPBOARD FUNCTIONS ---
         async function copyText(text, successMsg, elementId = null) {
             try {
+                // Fallback for non-secure contexts (like file://)
+                if (!navigator.clipboard) {
+                    const textArea = document.createElement("textarea");
+                    textArea.value = text;
+                    textArea.style.position = "fixed";  //hidden
+                    textArea.style.opacity = "0";
+                    document.body.appendChild(textArea);
+                    textArea.focus();
+                    textArea.select();
+                    try {
+                        document.execCommand('copy');
+                        showToast(successMsg);
+                        if (elementId) animateSuccessButton(elementId);
+                    } catch (err) {
+                        showToast("Gagal menyalin (fallback)");
+                    }
+                    document.body.removeChild(textArea);
+                    return;
+                }
+                
+                // Modern async clipboard API
                 await navigator.clipboard.writeText(text);
                 showToast(successMsg);
                 if (elementId) animateSuccessButton(elementId);
             } catch (err) {
-                showToast("Gagal menyalin. Izin ditolak?");
+                console.error("Clipboard error: ", err);
+                showToast("Gagal menyalin. Coba lagi.");
             }
         }
 
@@ -470,9 +590,6 @@
 
         function copyTemplate(index) {
             // Re-find template because index is from filtered list, not original DB
-            // Actually, a simpler way is to re-filter to find the exact object, but attaching unique ID to filtered map is better.
-            // For simplicity in this static version, we'll re-derive the text from the DOM or better yet, use the filtered index carefully.
-            // WAIT: The index passed above IS the index in the filtered list.
             const filtered = DB.templates.filter(t =>
                 (state.platform === 'all' || t.platform === 'all' || t.platform === state.platform) &&
                 (state.tone === 'all' || t.tone === state.tone)
@@ -528,7 +645,4 @@
 
     </script>
 </body>
-
 </html>
-
-
