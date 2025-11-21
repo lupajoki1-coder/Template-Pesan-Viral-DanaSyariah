@@ -72,12 +72,10 @@
                     <div class="flex items-center space-x-2 mt-1">
                         <span class="px-1.5 py-0.5 bg-red-100 text-red-700 rounded text-[10px] font-bold tracking-wider uppercase">#SaveLenderDSI</span>
                         <span class="w-1 h-1 bg-slate-300 rounded-full"></span>
-                         <!-- Indikator waktu refresh/load acak (Dihapus sesuai permintaan 1) -->
                          <span class="text-[11px] font-medium text-slate-500" id="refresh-indicator">Kondisi Darurat</span>
                     </div>
                 </div>
             </div>
-            <!-- Kriteria 2 & 4: Diksi Kerugian Diperbaharui -->
             <div class="text-right">
                 <div class="text-[10px] text-slate-500 font-bold uppercase tracking-wider mb-0.5">Total Kerugian</div>
                 <div class="text-xl md:text-2xl font-black text-slate-800 flex items-center justify-end" title="Melampaui Rp 1 Triliun, dan Terus Melambung Tak Terkendali">
@@ -137,7 +135,7 @@
             </button>
         </div>
 
-        <!-- MANUAL TARGET SELECTOR (ANTI-SPAM FEATURE) -->
+        <!-- MANUAL TARGET SELECTOR -->
         <section class="bg-white rounded-2xl p-4 border border-slate-200 shadow-sm space-y-4">
             <h2 class="text-sm font-black text-slate-900 flex items-center mb-2">
                 <i data-lucide="list-checks" class="w-4 h-4 mr-2 text-blue-600"></i> PILIH TARGET MANUAL (Anti-Spam Strategy)
@@ -147,9 +145,7 @@
             <!-- MENTION CATEGORY SELECTOR -->
             <div class="space-y-3" id="mention-selector-container">
                 <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Pilih Kategori Mention (Akun)</div>
-                <div class="flex flex-wrap gap-2" id="mention-category-pills">
-                    <!-- Populated by JS -->
-                </div>
+                <div class="flex flex-wrap gap-2" id="mention-category-pills"></div>
                 <!-- Selected Mentions -->
                 <div class="mt-2 p-3 bg-slate-50 rounded-xl border border-slate-100 min-h-[50px]">
                     <p class="text-xs text-slate-600 font-medium" id="selected-mentions-display">
@@ -161,9 +157,7 @@
             <!-- HASHTAG CATEGORY SELECTOR -->
             <div class="space-y-3" id="hashtag-selector-container">
                  <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Pilih Kategori Tagar (Hashtag)</div>
-                <div class="flex flex-wrap gap-2" id="hashtag-category-pills">
-                    <!-- Populated by JS -->
-                </div>
+                <div class="flex flex-wrap gap-2" id="hashtag-category-pills"></div>
                 <!-- Selected Hashtags -->
                  <div class="mt-2 p-3 bg-slate-50 rounded-xl border border-slate-100 min-h-[50px]">
                     <p class="text-xs text-slate-600 font-medium" id="selected-hashtags-display">
@@ -172,7 +166,7 @@
                 </div>
             </div>
 
-            <!-- COPY BUTTON FOR MANUAL SELECTION -->
+            <!-- COPY BUTTON -->
             <button onclick="copyManualSelection()" class="w-full flex items-center justify-center space-x-2 py-3 rounded-xl font-black text-[13px] uppercase tracking-wider transition-all bg-red-600 text-white hover:bg-red-700 active:scale-[0.98] shadow-lg shadow-red-200 mt-4" id="copy-manual-btn">
                 <i data-lucide="clipboard-list" class="w-4 h-4"></i>
                 <span>SALIN SELEKSI MANUAL (0 Mention + 0 Tagar)</span>
@@ -186,14 +180,11 @@
         <section class="sticky top-[85px] z-30 -mx-4 bg-[#F8FAFC]/80 backdrop-blur-md pt-2 pb-1 transition-all" id="sticky-filter">
             <div class="px-4 max-w-3xl mx-auto space-y-3">
                 
-                <!-- PLATFORM FILTER (Pills) -->
-                <div class="flex items-center space-x-2 overflow-x-auto pb-1 scrollbar-hide smooth-scroll-touch px-1" id="platform-filters">
-                    <!-- Populated by JS -->
-                </div>
+                <!-- PLATFORM FILTER -->
+                <div class="flex items-center space-x-2 overflow-x-auto pb-1 scrollbar-hide smooth-scroll-touch px-1" id="platform-filters"></div>
 
-                <!-- TONE FILTER (Hybrid Slider/Dropdown) -->
+                <!-- TONE FILTER -->
                 <div class="relative">
-                    <!-- Header & Toggle Button -->
                     <div class="flex justify-between items-center mb-2 px-1">
                         <div class="text-[11px] font-bold text-slate-400 uppercase tracking-wider flex items-center">
                             <i data-lucide="sliders-horizontal" class="w-3 h-3 mr-1.5"></i> Gaya Pesan (Tone)
@@ -203,18 +194,13 @@
                         </button>
                     </div>
 
-                    <!-- MODE 1: SLIDER (Default) -->
-                    <div id="tone-slider" class="flex space-x-2 overflow-x-auto pb-3 px-1 scrollbar-hide smooth-scroll-touch snap-x snap-mandatory">
-                        <!-- Populated by JS -->
-                    </div>
+                    <!-- SLIDER -->
+                    <div id="tone-slider" class="flex space-x-2 overflow-x-auto pb-3 px-1 scrollbar-hide smooth-scroll-touch snap-x snap-mandatory"></div>
 
-                    <!-- MODE 2: DROPDOWN GRID (Hidden by default) -->
+                    <!-- DROPDOWN -->
                     <div id="tone-dropdown" class="hidden absolute top-full left-0 right-0 mt-2 p-3 bg-white rounded-2xl shadow-xl border border-slate-200/80 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
-                         <div class="grid grid-cols-2 sm:grid-cols-3 gap-2" id="tone-grid">
-                             <!-- Populated by JS -->
-                         </div>
+                         <div class="grid grid-cols-2 sm:grid-cols-3 gap-2" id="tone-grid"></div>
                     </div>
-                     <!-- Overlay when dropdown is open -->
                     <div id="dropdown-overlay" onclick="toggleToneDropdown()" class="hidden fixed inset-0 bg-slate-900/20 z-40 backdrop-blur-sm transition-opacity"></div>
                 </div>
 
@@ -223,11 +209,9 @@
         </section>
 
         <!-- TEMPLATE LIST -->
-        <div id="template-list" class="space-y-4 min-h-[60vh] px-1">
-            <!-- Populated by JS (Randomized) -->
-        </div>
+        <div id="template-list" class="space-y-4 min-h-[60vh] px-1"></div>
 
-         <!-- EMPTY STATE (Hidden by default) -->
+         <!-- EMPTY STATE -->
         <div id="empty-state" class="hidden flex-col items-center justify-center py-16 px-4 text-center">
             <div class="bg-slate-100 p-4 rounded-full mb-4">
                 <i data-lucide="search-x" class="w-8 h-8 text-slate-400"></i>
@@ -241,7 +225,7 @@
 
     </main>
 
-    <!-- TOAST NOTIFICATION -->
+    <!-- TOAST -->
     <div id="toast" class="fixed top-6 inset-x-4 z-[100] pointer-events-none flex justify-center transition-all duration-500 -translate-y-40 opacity-0">
         <div class="bg-slate-900/95 backdrop-blur-md text-white px-6 py-3.5 rounded-2xl font-bold text-[13px] shadow-2xl flex items-center space-x-3 border border-white/10 ring-1 ring-black/5 max-w-xs w-full justify-center">
             <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400 shrink-0"></i>
@@ -250,84 +234,92 @@
     </div>
 
     <script>
-        // --- DATABASE DENGAN REVISI TOTAL (Kriteria 5 & 6) ---
+        // --- DATABASE BARU (GENERATED) ---
         
-        // Diksi Kerugian Baru (Kriteria 4)
         const LOSS_VALUE_UI = "Melebihi 1T+";
-        // Diksi diperbarui: "terus membengkak" -> "terus melambung tak terkendali"
-        const LOSS_VALUE_LONG_DEFAULT = "Melampaui satu Triliun Rupiah dan terus melambung tak terkendali";
-        
-        // Varian Diksi Baru untuk Rotasi
         const LOSS_VARIANTS = [
-            "Melampaui satu Triliun Rupiah dan terus melambung tak terkendali",
-            "Skandal Triliunan Rupiah yang kian Menggila",
-            "Dana Triliunan Rupiah yang terus Meroket Tanpa Batas",
-            "Angka Maut Triliunan Rupiah yang Menghancurkan",
-            "Kerugian Triliun Rupiah yang Tak Terbendung",
-            "Perampokan Triliunan Rupiah yang Tak Termaafkan"
+            "Melampaui satu Triliun Rupiah dan terus melambung",
+            "Triliunan Rupiah yang raib tanpa jejak",
+            "Angka fantastis 1 Triliun lebih yang hancur",
+            "Dana masa depan 1T+ yang dikorupsi",
+            "Kerugian massal di atas 1 Triliun Rupiah",
+            "Total dana macet yang tembus 1 Triliun"
         ];
 
-        // Fungsi untuk mengambil variasi diksi secara acak
         function getRandomLossVariant() {
             const index = Math.floor(Math.random() * LOSS_VARIANTS.length);
             return LOSS_VARIANTS[index];
         }
 
+        // --- UPDATE DATABASE TARGET STRATEGIS (NOV 2025) ---
         const DB = {
             targets_full: [
-                // Lembaga Negara & Penegak Hukum Strategis (DIPERKUAT)
-                "@ojkindonesia", "@dpr_ri", "@kemenkeuri", "@official.kpk", "@humaspolri", "@kejaksaan.ri", 
-                "@ppatk_indonesia", "@kemenkumhamri", "@ditjen_imigrasi", "@bareskrim.polri",
-                // Tambahan Hukum Strategis:
-                "@kejaksaan.agung", "@dittipideksus", "@mahkamahagung", "@satgaskominfo",
-                // Tokoh Politik & Pemerintahan Kunci (DIPERKUAT)
-                "@prabowo", "@gibran_rakabuming", "@jokowi", "@setwatpres.ri", "@kantorstafpresiden", 
-                "@gerindra", "@mmisbakhun", "@hanifdhakiri", "@mohamad.hekal", "@fauzihamro_nasdem", "@fathipd", "@dedimulyadi71", "@rockygerung.official",
-                // Tambahan Politik Kunci:
-                "@komisi3dprri", "@komisi11dprri", "@fahrihamzah", "@fadlizon", "@ahy_agussby", "@sandiuno",
-                // Media Massa Terbesar & Investigatif (DIPERKUAT)
-                "@beritasatu", "@tvonenews", "@kompastv", "@inewsdotid", "@cnbcindonesia", "@kompascom", 
-                "@detikcom", "@najwashihab", "@tempodotco", "@kontanid", "@metrotv", "@cnnindonesia",
-                // Tambahan Media Kritis:
-                "@liputan6", "@tribunnews", "@bisniscom", "@cinta_rcti", "@officialtrans7",
-                // Public Figure/Influencer (DIPERKUAT)
-                "@mastercorbuzier", "@felix.siauw", "@raymondchins", "@baimwong", "@karniilyas_official", 
-                "@dude2harlino", "@ichasoebandono", "@hotmanparisofficial",
-                // Tambahan Influencer Masif:
-                "@attahalilintar", "@radityadika", "@juniarlino", "@jeromepolin", "@ridwankamil",
-                // Lembaga Syariah & Industri
-                "@dsnmuiinstitute", "@muipusat", "@nahdlatulama", "@afsi.id", "@kemkomdigi", 
-                // Target Lain
-                "@annisa_mahesa", "@jefry_romdonny", "@masdewanwihadi", "@rimronamin", "@kamrussamad_ks", "@a.yulianiparis", "@tedsky89", "@irwandiferry", "@bloombergtechnoz", "@entjik_sdjafar", "@entjikdjafar", "@lensamu"
+                // RI 1 & ISTANA
+                "@prabowo", "@gibran_rakabuming", "@kantorstafpresidenri", "@setneg_ri", "@sekretariat.kabinet",
+                // REGULATOR & PENGAWAS
+                "@ojkindonesia", "@ombudsmanri137", "@bank_indonesia", "@lps_idic", "@kemenkeuri",
+                // PENEGAK HUKUM
+                "@kejaksaan.ri", "@bareskrim.polri", "@divisihumaspolri", "@official.kpk", "@ppatk_indonesia", "@dittipideksus",
+                // DPR RI
+                "@dpr_ri", "@mprgoid", "@mmisbakhun", "@ahmadsahroni88", "@puteri.komarudin", "@andre_rosiade", "@bambang.soesatyo", "@puanmaharaniri", "@fauzihamro_nasdem",
+                // MEDIA
+                "@najwashihab", "@matanajwa", "@narasi.tv", "@tempodotco", "@projectm_org", "@kompascom", "@detikcom", "@tvonenews", "@cnbcindonesia",
+                // INFLUENCER HUKUM & POLITIK
+                "@hotmanparisofficial", "@mohmahfudmd", "@najwashihab", "@haris_azhar", "@rockygerung.official", "@reflyharun", "@novelbaswedanofficial", "@bintangemon", "@panji.pragiwaksono", "@zainalarifinmochtar", "@feriamsari", "@abrahamsamad_", "@febridiansyah.id", "@sandiagouno", "@aniesbaswedan", "@ganjar_pranowo", "@ridwankamil",
+                // INFLUENCER FINANSIAL & BISNIS
+                "@raymondchins", "@feliciatjiasaka", "@timothyronald", "@radityadika", "@pritaghozie", "@mrshananto", "@ngomonginuang", "@rivankurniawan", "@doddy.bicarainvestasi", "@andhika.diskartes", "@lukeluki", "@ellenmay_official", "@bongchandra", "@chandraputranegara", "@tungdesemwaringin.tdw", "@merryriana", "@renald.kasali", "@tommcifle", "@catatanseorangtrader", "@bigalphaid",
+                // PODCAST & MEGA INFLUENCER (VIRAL)
+                "@mastercorbuzier", "@sumargodenny", "@karniilyas_official", "@dr.tirta", "@attahalilintar", "@raffiahmad1717", "@baimwong", "@nikitamirzanimawardi_172", "@king_uyakuya", "@jeromepolin", "@ariefmuhammad", "@young_lex18", "@vindest.ig", "@desta80s", "@vincentrompies", "@andreastaulany", "@sule.prikitiw", "@ruben_onsu", "@ivan_gunawan", "@lambe_turah",
+                // TOKOH AGAMA & MORAL
+                "@felix.siauw", "@ustadzabdulsomad_official", "@adihidayatofficial", "@aagym", "@dasadlatif1212", "@buyayahya_albahjah", "@hanan_attaki", "@khalidbasalamahofficial", "@syafiqrizabasalamah_official", "@yusufmansurnew", "@hilmanfauji", "@habibjafar", "@gusmiftah", "@muipusat", "@dsnmuiinstitute", "@nahdlatululama", "@muhammadiyah"
             ],
-            // Kriteria 4: Diksi Kerugian Dinamis
+            
             hashtags_full: [
                 "#Danasyariah", "#KembalikanDanaLenderDSI", "#PaguyubanLenderDSI", "#SaveLenderDSI", 
                 "#OJKGagalMengawasi", "#UsutTuntasDSI", "#DPRBertindak", "#OJKturuntanganDSI", 
-                "#LenderButuhJawaban", 
-                "#Tragedi1TriliunPlus", // <--- NEW DYNAMIC DICTION
-                "#Melebihi1Triliun", // <--- NEW DYNAMIC DICTION
-                "#KejahatanKerahPutih", "#TemanSyariah",
-                "#LenderKeluhkanDSI", "#DPRkawalLenderDSI", "#RevolusiFintech", "#CekalDireksiDSI", 
-                "#StopFintechBodong", "#RakyatKorbanRegulator",
-                // Hashtag Strategis Baru
+                "#LenderButuhJawaban", "#Tragedi1TriliunPlus", "#Melebihi1Triliun", 
+                "#KejahatanKerahPutih", "#TemanSyariah", "#LenderKeluhkanDSI", "#DPRkawalLenderDSI", 
+                "#RevolusiFintech", "#CekalDireksiDSI", "#StopFintechBodong", "#RakyatKorbanRegulator",
                 "#TPPUFintech", "#AuditForensikDSI", "#MafiaKeuanganSyariah", "#NegaraGagalHadir", 
-                "#KejagungBergerak", "#PrabowoLindungiRakyat",
-                "#MiskinkanDireksiDSI", "#WibawaNegaraLumpuh", "#SyariahDikhianati", "#GantiRugiKorbanOJK"
+                "#KejagungBergerak", "#PrabowoLindungiRakyat", "#MiskinkanDireksiDSI", 
+                "#WibawaNegaraLumpuh", "#SyariahDikhianati", "#GantiRugiKorbanOJK"
             ],
             
-            // --- FITUR MENTION WAJIB & HASHTAG UTAMA (Quick Actions) ---
-            mentions_wajib: ["@prabowo", "@gibran_rakabuming", "@dpr_ri", "@ojkindonesia", "@official.kpk", "@humaspolri"],
+            mentions_wajib: ["@prabowo", "@gibran_rakabuming", "@ojkindonesia", "@kejaksaan.ri", "@dpr_ri", "@ombudsmanri137"],
+            
             hashtags_utama: ["#KembalikanDanaLenderDSI", "#SaveLenderDSI", "#OJKGagalMengawasi", "#Tragedi1TriliunPlus", "#Melebihi1Triliun"],
             
-            // --- KATEGORI TARGET UNTUK SELEKSI MANUAL (Anti-Spam) ---
             manual_targets: {
-                "Presiden & Wapres": ["@prabowo", "@gibran_rakabuming", "@jokowi", "@setwatpres.ri", "@kantorstafpresiden"],
-                "Hukum & Penegak Tertinggi": ["@official.kpk", "@humaspolri", "@kejaksaan.ri", "@ppatk_indonesia", "@kejaksaan.agung", "@dittipideksus", "@bareskrim.polri", "@mahkamahagung", "@satgaskominfo"],
-                "Regulator & DPR Kunci": ["@dpr_ri", "@ojkindonesia", "@kemenkeuri", "@mmisbakhun", "@hanifdhakiri", "@komisi3dprri", "@komisi11dprri", "@fadlizon", "@fahrihamzah"],
-                "Media Massa Kritis": ["@najwashihab", "@mastercorbuzier", "@tempodotco", "@tvonenews", "@kompastv", "@detikcom", "@metrotv", "@liputan6", "@tribunnews"],
-                "Influencer & Tokoh Publik": ["@raymondchins", "@felix.siauw", "@hotmanparisofficial", "@karniilyas_official", "@dedimulyadi71", "@attahalilintar", "@radityadika", "@juniarlino", "@jeromepolin", "@ridwankamil"],
-                "Lembaga Syariah": ["@dsnmuiinstitute", "@muipusat", "@nahdlatulama", "@afsi.id"]
+                "RI 1 & Istana": ["@prabowo", "@gibran_rakabuming", "@kantorstafpresidenri", "@setneg_ri", "@sekretariat.kabinet"],
+                "Aparat Penegak Hukum": ["@kejaksaan.ri", "@bareskrim.polri", "@official.kpk", "@ppatk_indonesia", "@dittipideksus", "@divisihumaspolri"],
+                "Regulator & Ombudsman": ["@ojkindonesia", "@ombudsmanri137", "@bank_indonesia", "@kemenkeuri", "@lps_idic"],
+                "DPR (Keuangan & Hukum)": ["@dpr_ri", "@mmisbakhun", "@ahmadsahroni88", "@puteri.komarudin", "@fauzihamro_nasdem", "@andre_rosiade", "@bambang.soesatyo"],
+                
+                // --- KATEGORI INFLUENCER SUB-DIVIDED (15-20 Akun per Sub) ---
+                "Influencer Hukum & Politik": [
+                    "@hotmanparisofficial", "@mohmahfudmd", "@najwashihab", "@haris_azhar", "@rockygerung.official", 
+                    "@reflyharun", "@novelbaswedanofficial", "@bintangemon", "@panji.pragiwaksono", "@zainalarifinmochtar",
+                    "@feriamsari", "@abrahamsamad_", "@febridiansyah.id", "@sandiagouno", "@aniesbaswedan", 
+                    "@ganjar_pranowo", "@ridwankamil"
+                ],
+                "Influencer Finansial & Bisnis": [
+                    "@raymondchins", "@feliciatjiasaka", "@timothyronald", "@radityadika", "@pritaghozie", 
+                    "@mrshananto", "@ngomonginuang", "@rivankurniawan", "@doddy.bicarainvestasi", "@andhika.diskartes", 
+                    "@lukeluki", "@ellenmay_official", "@bongchandra", "@chandraputranegara", "@tungdesemwaringin.tdw",
+                    "@merryriana", "@renald.kasali", "@tommcifle"
+                ],
+                "Mega Influencer & Podcast": [
+                    "@mastercorbuzier", "@sumargodenny", "@karniilyas_official", "@dr.tirta", "@attahalilintar", 
+                    "@raffiahmad1717", "@baimwong", "@nikitamirzanimawardi_172", "@king_uyakuya", "@jeromepolin", 
+                    "@ariefmuhammad", "@young_lex18", "@vindest.ig", "@desta80s", "@vincentrompies", 
+                    "@andreastaulany", "@sule.prikitiw", "@ruben_onsu", "@ivan_gunawan"
+                ],
+                "Tokoh Agama & Moral": [
+                    "@felix.siauw", "@ustadzabdulsomad_official", "@adihidayatofficial", "@aagym", "@dasadlatif1212", 
+                    "@buyayahya_albahjah", "@hanan_attaki", "@khalidbasalamahofficial", "@syafiqrizabasalamah_official", 
+                    "@yusufmansurnew", "@hilmanfauji", "@habibjafar", "@gusmiftah", "@muipusat", 
+                    "@dsnmuiinstitute", "@nahdlatululama", "@muhammadiyah"
+                ]
             },
             
             manual_hashtags: {
@@ -337,7 +329,6 @@
                 "Gerakan Viral": ["#PaguyubanLenderDSI", "#RevolusiFintech", "#WibawaNegaraLumpuh", "#MafiaKeuanganSyariah"]
             },
 
-            // --- PLATFORM ---
             platforms: [
                 { id: 'all', icon: 'layers', label: 'Semua' },
                 { id: 'Instagram', icon: 'instagram', label: 'Instagram' },
@@ -346,7 +337,6 @@
                 { id: 'Facebook', icon: 'facebook', label: 'Facebook' },
             ],
 
-            // --- TONE (Diksi Sangat Dinamis) ---
             tones: [
                 { id: 'all', label: 'Semua Gaya', icon: 'layout-grid', color: 'from-slate-600 to-slate-800', bg: 'bg-slate-900', text: 'text-white' },
                 { id: 'Tuntutan', label: 'Tuntutan Regulator', icon: 'clipboard-check', color: 'from-sky-600 to-blue-700', bg: 'bg-sky-50', text: 'text-sky-700' },
@@ -355,528 +345,294 @@
                 { id: 'Kemanusiaan', label: 'Jeritan Hati', icon: 'heart-crack', color: 'from-rose-500 to-pink-600', bg: 'bg-rose-50', text: 'text-rose-700' },
                 { id: 'Fakta', label: 'Data & Bukti', icon: 'file-bar-chart-2', color: 'from-cyan-600 to-sky-700', bg: 'bg-cyan-50', text: 'text-cyan-700' },
                 { id: 'Satire', label: 'Sindiran Pedas', icon: 'laugh', color: 'from-purple-600 to-violet-700', bg: 'bg-purple-50', text: 'text-purple-700' },
-                { id: 'Religius', label: 'Gugatan Moral/Islam', icon: 'book-open-check', color: 'from-emerald-600 to-green-700', bg: 'bg-emerald-50', text: 'text-emerald-700' },
+                { id: 'Religius', label: 'Gugatan Moral', icon: 'book-open-check', color: 'from-emerald-600 to-green-700', bg: 'bg-emerald-50', text: 'text-emerald-700' },
                 { id: 'Hukum', label: 'Ancaman Pidana', icon: 'scale', color: 'from-slate-700 to-gray-800', bg: 'bg-slate-100', text: 'text-slate-800' },
-                { id: 'Aksi', label: 'Ajakan Boikot/Demo', icon: 'zap', color: 'from-orange-500 to-red-600', bg: 'bg-orange-50', text: 'text-orange-700' },
-                { id: 'Influencer', label: 'Tantang Tokoh Publik', icon: 'mic', color: 'from-pink-500 to-rose-500', bg: 'bg-pink-50', text: 'text-pink-700' },
-                { id: 'Komparasi', label: 'Banding Kasus Besar', icon: 'git-compare-arrows', color: 'from-lime-600 to-green-700', bg: 'bg-lime-50', text: 'text-lime-800' },
-                { id: 'Viral', label: 'Gerakan Viralkan', icon: 'megaphone', color: 'from-amber-500 to-orange-600', bg: 'bg-amber-50', text: 'text-amber-800' },
-                { id: 'Presiden', label: 'Aduan Presiden', icon: 'flag', color: 'from-blue-800 to-red-600', bg: 'bg-blue-50', text: 'text-blue-800' },
+                { id: 'Aksi', label: 'Ajakan Boikot', icon: 'zap', color: 'from-orange-500 to-red-600', bg: 'bg-orange-50', text: 'text-orange-700' },
+                { id: 'Influencer', label: 'Tantang Tokoh', icon: 'mic', color: 'from-pink-500 to-rose-500', bg: 'bg-pink-50', text: 'text-pink-700' },
+                { id: 'Komparasi', label: 'Banding Kasus', icon: 'git-compare-arrows', color: 'from-lime-600 to-green-700', bg: 'bg-lime-50', text: 'text-lime-800' },
+                { id: 'Viral', label: 'Gerakan Viral', icon: 'megaphone', color: 'from-amber-500 to-orange-600', bg: 'bg-amber-50', text: 'text-amber-800' },
+                { id: 'Presiden', label: 'Lapor Presiden', icon: 'flag', color: 'from-blue-800 to-red-600', bg: 'bg-blue-50', text: 'text-blue-800' },
                 { id: 'Media', label: 'Liputan Media', icon: 'newspaper', color: 'from-gray-500 to-gray-700', bg: 'bg-gray-100', text: 'text-gray-700' },
             ],
 
-            // --- Kriteria 5 & 6: PEROMBAKAN TOTAL & 25 VARIAN BARU PER GAYA BAHASA (TOTAL 350) ---
             templates: [
-                // ====================================================================================
-                // 1. TUNTUTAN REGULATOR (25 VARIAN BARU)
-                // ====================================================================================
-                { tone: 'Tuntutan', platform: 'all', text: "OJK @ojkindonesia, segera umumkan SKEMA GANTI RUGI! Ini bukan lagi 'risiko', ini kegagalan pengawasan yang membuat kerugian ${LOSS_VALUE_LONG}. [TAGS] [HASHTAGS]" },
-                { tone: 'Tuntutan', platform: 'all', text: "Kami menuntut PENCABUTAN IZIN DSI dan BEKUKAN seluruh aset manajemennya. Jangan tunda lagi, setiap detik kerugian terus bertambah! [TAGS] [HASHTAGS]" },
-                { tone: 'Tuntutan', platform: 'all', text: "Kepada @dpr_ri Komisi XI, panggil paksa seluruh Komisioner OJK. Kami minta evaluasi total dan AUDIT KINERJA OJK di kasus ${LOSS_VALUE_LONG} ini. [TAGS] [HASHTAGS]" },
-                { tone: 'Tuntutan', platform: 'all', text: "Tuntutan kami keras dan jelas: Kembalikan 100% POKOK DAN HASIL! Kami tidak butuh mediasi basa-basi, kami butuh AKSI EKSEKUSI. [TAGS] [HASHTAGS]" },
-                { tone: 'Tuntutan', platform: 'all', text: "OJK, jangan berlindung di balik kata 'risiko'. Itu logo Anda di aplikasi DSI! Logo itu adalah JAMINAN NEGARA yang kini hancur ${LOSS_VALUE_LONG}. [TAGS] [HASHTAGS]" },
+                // 1. TUNTUTAN REGULATOR (28 ALL + Varian Platform)
+                { tone: 'Tuntutan', platform: 'all', text: "Yth @ojkindonesia, kami menuntut transparansi total atas ${LOSS_VALUE_LONG}. Jangan biarkan DSI berlindung di balik prosedur yang berbelit! [TAGS] [HASHTAGS]" },
+                { tone: 'Tuntutan', platform: 'all', text: "Komisi XI @dpr_ri, panggil OJK segera! Kegagalan pengawasan mereka menyebabkan ${LOSS_VALUE_LONG}. Rakyat butuh keadilan! [TAGS] [HASHTAGS]" },
+                { tone: 'Tuntutan', platform: 'all', text: "OJK wajib bertanggung jawab! Logo kalian di DSI adalah alasan kami percaya, dan kini ${LOSS_VALUE_LONG} raib. Mana jaminannya? [TAGS] [HASHTAGS]" },
+                { tone: 'Tuntutan', platform: 'all', text: "Kami menolak mediasi tanpa hasil! Tuntutan kami jelas: Kembalikan pokok dana ${LOSS_VALUE_LONG} sekarang juga! @ojkindonesia [TAGS] [HASHTAGS]" },
+                { tone: 'Tuntutan', platform: 'all', text: "Cabut izin operasi DSI secara permanen dan BEKUKAN aset pribadi manajemen untuk ganti rugi ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
+                { tone: 'Tuntutan', platform: 'all', text: "Fungsi perlindungan konsumen OJK MANDUL! Buktinya ${LOSS_VALUE_LONG} hilang begitu saja. Reformasi OJK sekarang! [TAGS] [HASHTAGS]" },
+                { tone: 'Tuntutan', platform: 'all', text: "Jangan cuma buat regulasi, TEGAKKAN! Kasus DSI adalah bukti lemahnya taring OJK. Kerugian ${LOSS_VALUE_LONG} tak bisa dimaafkan. [TAGS] [HASHTAGS]" },
+                { tone: 'Tuntutan', platform: 'all', text: "Buka data NPF riil DSI! Jangan ada yang ditutupi! Publik berhak tahu ke mana ${LOSS_VALUE_LONG} mengalir! [TAGS] [HASHTAGS]" },
+                { tone: 'Tuntutan', platform: 'all', text: "Kami mendesak Audit Investigatif Independen terhadap OJK dan DSI. Ada pembiaran sistematis atas ${LOSS_VALUE_LONG} ini! [TAGS] [HASHTAGS]" },
+                { tone: 'Tuntutan', platform: 'all', text: "Kembalikan marwah lembaga keuangan! Selesaikan kasus DSI atau kepercayaan publik runtuh selamanya. ${LOSS_VALUE_LONG} bukan uang monopoli! [TAGS] [HASHTAGS]" },
+                { tone: 'Tuntutan', platform: 'all', text: "OJK, berhentilah menjadi macan kertas! Tunjukkan taringmu pada DSI. Sita aset untuk bayar ${LOSS_VALUE_LONG} lender! [TAGS] [HASHTAGS]" },
+                { tone: 'Tuntutan', platform: 'all', text: "Setiap hari penundaan OJK adalah kehancuran bagi kami. Segera umumkan skema ganti rugi ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
+                { tone: 'Tuntutan', platform: 'all', text: "Regulator digaji uang rakyat, tapi diam saat rakyat dirampok ${LOSS_VALUE_LONG}. Dimana hati nurani @ojkindonesia? [TAGS] [HASHTAGS]" },
+                { tone: 'Tuntutan', platform: 'all', text: "Kami tidak butuh janji manis restrukturisasi. Kami butuh uang kami kembali utuh! Total ${LOSS_VALUE_LONG} harus dibayar! [TAGS] [HASHTAGS]" },
+                { tone: 'Tuntutan', platform: 'all', text: "Kepala OJK harus mundur jika tidak mampu selesaikan kasus DSI! Kerugian ${LOSS_VALUE_LONG} ini bukti ketidakmampuan memimpin! [TAGS] [HASHTAGS]" },
+                { tone: 'Tuntutan', platform: 'all', text: "DPR RI, jangan diam saja! Bentuk Pansus DSI! Usut tuntas aliran dana ${LOSS_VALUE_LONG} yang mencurigakan! [TAGS] [HASHTAGS]" },
+                { tone: 'Tuntutan', platform: 'all', text: "OJK harus menjadi penjamin terakhir jika sistem pengawasannya gagal total seperti di DSI (${LOSS_VALUE_LONG})! [TAGS] [HASHTAGS]" },
+                { tone: 'Tuntutan', platform: 'all', text: "Stop alibi 'risiko bisnis'! Ini adalah 'risiko kejahatan' yang dibiarkan regulator. Ganti rugi ${LOSS_VALUE_LONG} wajib hukumnya! [TAGS] [HASHTAGS]" },
+                { tone: 'Tuntutan', platform: 'all', text: "Kami tagih janji negara melindungi warganya. Kasus DSI ${LOSS_VALUE_LONG} adalah ujian kehadiran negara! [TAGS] [HASHTAGS]" },
+                { tone: 'Tuntutan', platform: 'all', text: "Periksa seluruh direksi DSI dan OJK terkait! Adakah kongkalikong di balik raibnya ${LOSS_VALUE_LONG}? [TAGS] [HASHTAGS]" },
+                { tone: 'Tuntutan', platform: 'all', text: "Sistem TKB90 OJK menyesatkan! Publik tertipu data palsu hingga rugi ${LOSS_VALUE_LONG}. OJK harus tanggung jawab! [TAGS] [HASHTAGS]" },
+                { tone: 'Tuntutan', platform: 'all', text: "Dana lender bukan donasi! Kembalikan hak kami! OJK jangan lepas tangan atas ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
+                { tone: 'Tuntutan', platform: 'all', text: "Kami menuntut pertemuan terbuka dengan Dewan Komisioner OJK! Jelaskan nasib ${LOSS_VALUE_LONG} kami! [TAGS] [HASHTAGS]" },
+                { tone: 'Tuntutan', platform: 'all', text: "Terapkan sanksi terberat! Blacklist seumur hidup semua manajemen DSI yang terlibat skandal ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
+                { tone: 'Tuntutan', platform: 'all', text: "Jika OJK tidak becus, bubarkan saja! Biar lembaga lain yang urus kasus ${LOSS_VALUE_LONG} ini! [TAGS] [HASHTAGS]" },
+                { tone: 'Tuntutan', platform: 'X', text: "Cc @ojkindonesia @dpr_ri thread ini bukti kegagalan kalian. ${LOSS_VALUE_LONG} lenyap tanpa jejak. Shame on you! [HASHTAGS]" },
+                { tone: 'Tuntutan', platform: 'X', text: "Retweet jika setuju: OJK WAJIB GANTI RUGI atas kelalaian pengawasan DSI senilai ${LOSS_VALUE_LONG}! [HASHTAGS]" },
+                { tone: 'Tuntutan', platform: 'Instagram', text: "Repost template ini! Tag @ojkindonesia. Kita banjiri notif mereka sampai uang ${LOSS_VALUE_LONG} kembali! [TAGS] [HASHTAGS]" },
+                { tone: 'Tuntutan', platform: 'TikTok', text: "POV: Nunggu OJK kerja bener balikin ${LOSS_VALUE_LONG} be like... 💀 #TuntutOJK [HASHTAGS]" },
                 
-                { tone: 'Tuntutan', platform: 'X', text: "Dear @ojkindonesia, cukup jadi penonton pasif! Kami minta Anda jadi EKSEKUTOR yang memulihkan kerugian ${LOSS_VALUE_LONG} ini. Turun ke lapangan! ⚔️ [HASHTAGS]" },
-                { tone: 'Tuntutan', platform: 'X', text: "@dpr_ri Komisi XI, ini bukan kasus ecek-ecek. Ini sudah ${LOSS_VALUE_LONG}. RDPU segera dan harus disiarkan live! Kami tidak mau ada negosiasi di balik layar. [HASHTAGS]" },
-                { tone: 'Tuntutan', platform: 'X', text: "Cabut izin itu mudah. Mengembalikan uang kami adalah TANGGUNG JAWAB OJK. Jangan lempar batu sembunyi tangan! ${LOSS_VALUE_LONG}. [HASHTAGS]" },
-                { tone: 'Tuntutan', platform: 'X', text: "Mana POJK Perlindungan Konsumen? Cuma janji palsu? Buktikan di kasus DSI! Kami tuntut skema pengembalian yang mengikat OJK! @ojkindonesia [HASHTAGS]" },
-                { tone: 'Tuntutan', platform: 'X', text: "Kami minta @ojkindonesia buka data NPF DSI 2 tahun ke belakang. Siapa yang menutupi kebobrokan ini? Transparansi harga mati! [HASHTAGS]" },
+                // 2. ULTIMATUM (28 ALL + Varian)
+                { tone: 'Ultimatum', platform: 'all', text: "WAKTU HABIS! Kami beri waktu 3x24 jam untuk kejelasan ${LOSS_VALUE_LONG} atau kami duduki kantor kalian! [TAGS] [HASHTAGS]" },
+                { tone: 'Ultimatum', platform: 'all', text: "Jangan uji kesabaran ribuan korban. Kemarahan kami setara dengan kerugian ${LOSS_VALUE_LONG} yang kalian buat! [TAGS] [HASHTAGS]" },
+                { tone: 'Ultimatum', platform: 'all', text: "Ini peringatan terakhir! Selesaikan pembayaran atau kami bawa kasus ${LOSS_VALUE_LONG} ini ke ranah internasional! [TAGS] [HASHTAGS]" },
+                { tone: 'Ultimatum', platform: 'all', text: "OJK & DSI, dengar baik-baik! Tidak ada kata damai tanpa uang kembali! ${LOSS_VALUE_LONG} harga mati! [TAGS] [HASHTAGS]" },
+                { tone: 'Ultimatum', platform: 'all', text: "Kami siap turun ke jalan setiap minggu sampai hak kami atas ${LOSS_VALUE_LONG} dibayar lunas! [TAGS] [HASHTAGS]" },
+                { tone: 'Ultimatum', platform: 'all', text: "Jangan salahkan kami jika tindakan kami semakin nekat. Kalian yang memulai perang ${LOSS_VALUE_LONG} ini! [TAGS] [HASHTAGS]" },
+                { tone: 'Ultimatum', platform: 'all', text: "Pilih satu: Penjara atau Bayar? ${LOSS_VALUE_LONG} tak bisa ditukar dengan janji manis! [TAGS] [HASHTAGS]" },
+                { tone: 'Ultimatum', platform: 'all', text: "Kami akan kejar aset kalian sampai ke lubang semut! Tidak ada tempat aman bagi perampok ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
+                { tone: 'Ultimatum', platform: 'all', text: "Siap-siap menghadapi gugatan massal (Class Action) terbesar dalam sejarah fintech! ${LOSS_VALUE_LONG} akan kami tuntut! [TAGS] [HASHTAGS]" },
+                { tone: 'Ultimatum', platform: 'all', text: "Hentikan sandiwara PKPU! Bayar tunai atau kami pidanakan seluruh direksi atas penggelapan ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
+                { tone: 'Ultimatum', platform: 'all', text: "7 Hari! Itu deadline kami. Setelah itu, jangan tanya apa yang akan terjadi di kantor DSI. ${LOSS_VALUE_LONG} harus kembali! [TAGS] [HASHTAGS]" },
+                { tone: 'Ultimatum', platform: 'all', text: "Kami tidak main-main. Data pribadi direksi sudah kami kantongi. Segera kembalikan ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
+                { tone: 'Ultimatum', platform: 'all', text: "Kesabaran ada batasnya, dan batas kami sudah habis saat ${LOSS_VALUE_LONG} kalian hilangkan! [TAGS] [HASHTAGS]" },
+                { tone: 'Ultimatum', platform: 'all', text: "Jangan anggap enteng kekuatan doa orang terdzalimi dan aksi nyata korban ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
+                { tone: 'Ultimatum', platform: 'all', text: "DSI, kembalikan uang kami atau kami pastikan bisnis kalian mati selamanya! Reputasi hancur karena ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
+                { tone: 'Ultimatum', platform: 'all', text: "OJK, bertindak atau kami anggap kalian sekongkol dengan maling ${LOSS_VALUE_LONG}? Tentukan posisi sekarang! [TAGS] [HASHTAGS]" },
+                { tone: 'Ultimatum', platform: 'all', text: "Kami akan boikot seluruh ekosistem keuangan yang terafiliasi dengan pemilik DSI! Lawan kerugian ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
+                { tone: 'Ultimatum', platform: 'all', text: "Pesan untuk CEO DSI: Hidup anda tidak akan tenang selama ${LOSS_VALUE_LONG} uang kami belum kembali! [TAGS] [HASHTAGS]" },
+                { tone: 'Ultimatum', platform: 'all', text: "Kami akan viralkan wajah-wajah direksi DSI di seluruh pelosok negeri sebagai penanggung jawab ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
+                { tone: 'Ultimatum', platform: 'all', text: "Tuntutan kami non-negotiable: Full Payment ${LOSS_VALUE_LONG}. Take it or face the consequences! [TAGS] [HASHTAGS]" },
+                { tone: 'Ultimatum', platform: 'all', text: "Jika hukum tumpul, biarkan hukum jalanan yang berbicara (aksi massa damai namun tegas) demi ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
+                { tone: 'Ultimatum', platform: 'all', text: "Kami hitung mundur kehancuran reputasi OJK jika kasus ${LOSS_VALUE_LONG} ini tidak beres bulan ini! [TAGS] [HASHTAGS]" },
+                { tone: 'Ultimatum', platform: 'all', text: "Jangan coba-coba kabur ke luar negeri! Kami pantau setiap pergerakan kalian! ${LOSS_VALUE_LONG} harus dibayar! [TAGS] [HASHTAGS]" },
+                { tone: 'Ultimatum', platform: 'all', text: "Kalian bangunkan macan tidur. Ribuan lender bersatu akan meratakan arogansi kalian yang menahan ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
+                { tone: 'Ultimatum', platform: 'all', text: "Bayar atau Bubar (dan Masuk Penjara)! Opsi untuk DSI cuma itu terkait ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
+                { tone: 'Ultimatum', platform: 'X', text: "⚠️ WARNING: Jangan hapus thread ini! Ultimatum keras untuk @ojkindonesia soal ${LOSS_VALUE_LONG}. Baca! [HASHTAGS]" },
+                { tone: 'Ultimatum', platform: 'Facebook', text: "SEBARKAN! Ultimatum terbuka untuk manajemen DSI. Kami tidak akan berhenti mengejar ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
+                { tone: 'Ultimatum', platform: 'Instagram', text: "Merah tanda bahaya! Batas waktu DSI mengembalikan ${LOSS_VALUE_LONG} hampir habis. Siap-siap! 🚨 [TAGS] [HASHTAGS]" },
+
+                // 3. INVESTIGASI (28 ALL + Varian)
+                { tone: 'Investigasi', platform: 'all', text: "Ada bau busuk TPPU di DSI! @ppatk_indonesia tolong telusuri aliran dana ${LOSS_VALUE_LONG} ke rekening pribadi! [TAGS] [HASHTAGS]" },
+                { tone: 'Investigasi', platform: 'all', text: "Mohon @official.kpk selidiki oknum OJK yang 'meloloskan' laporan keuangan DSI hingga rugi ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
+                { tone: 'Investigasi', platform: 'all', text: "Audit Forensik harga mati! Kami curiga proyek fiktif mendominasi kerugian ${LOSS_VALUE_LONG} ini. [TAGS] [HASHTAGS]" },
+                { tone: 'Investigasi', platform: 'all', text: "Siapa 'Beneficial Owner' DSI sebenarnya? Bongkar topeng mereka yang menikmati ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
+                { tone: 'Investigasi', platform: 'all', text: "@bareskrim.polri, segera lakukan penyitaan aset DSI sebelum dialihkan! Kerugian ${LOSS_VALUE_LONG} harus diamankan! [TAGS] [HASHTAGS]" },
+                { tone: 'Investigasi', platform: 'all', text: "Indikasi Ponzi Scheme sangat kuat! Bunga dibayar pakai uang lender baru, lalu bom waktu meledak di angka ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
+                { tone: 'Investigasi', platform: 'all', text: "Cekal semua direksi DSI! Jangan biarkan mereka lari membawa sisa dari ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
+                { tone: 'Investigasi', platform: 'all', text: "Kenapa OJK diam saat TKB90 turun drastis? Apa ada 'upeti' yang menutupi fakta ${LOSS_VALUE_LONG}? [TAGS] [HASHTAGS]" },
+                { tone: 'Investigasi', platform: 'all', text: "Kami butuh transparansi data borrower! Jangan-jangan borrower-nya terafiliasi semua? Modus lama bobol ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
+                { tone: 'Investigasi', platform: 'all', text: "Investigasi keterlibatan KAP (Kantor Akuntan Publik) yang mengaudit DSI! Kok bisa lolos ${LOSS_VALUE_LONG}? [TAGS] [HASHTAGS]" },
+                { tone: 'Investigasi', platform: 'all', text: "Buka data server DSI! Jangan ada penghapusan jejak digital transaksi ${LOSS_VALUE_LONG}! @kemkomdigi [TAGS] [HASHTAGS]" },
+                { tone: 'Investigasi', platform: 'all', text: "Panggil paksa pemegang saham pengendali! Minta pertanggungjawaban harta pribadi atas ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
+                { tone: 'Investigasi', platform: 'all', text: "Apakah ada aliran dana DSI ke partai politik? @bawaslu_ri @kpu_id tolong cek! ${LOSS_VALUE_LONG} uang rakyat ini! [TAGS] [HASHTAGS]" },
+                { tone: 'Investigasi', platform: 'all', text: "Telusuri aset crypto manajemen DSI! Jangan sampai ${LOSS_VALUE_LONG} dicuci lewat crypto! [TAGS] [HASHTAGS]" },
+                { tone: 'Investigasi', platform: 'all', text: "Kami menduga ada 'Insider Trading' data nasabah. Usut tuntas skandal ${LOSS_VALUE_LONG} ini! [TAGS] [HASHTAGS]" },
+                { tone: 'Investigasi', platform: 'all', text: "Kenapa asuransi pendanaan tidak cair? Selidiki perusahaan asuransinya juga! Jangan sekongkol soal ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
+                { tone: 'Investigasi', platform: 'all', text: "Bongkar gurita bisnis pemilik DSI! Aset hasil ${LOSS_VALUE_LONG} pasti disembunyikan di anak usaha lain! [TAGS] [HASHTAGS]" },
+                { tone: 'Investigasi', platform: 'all', text: "Kejaksaan Agung, tolong masuk! Ini potensi korupsi kebijakan pengawasan yang merugikan publik ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
+                { tone: 'Investigasi', platform: 'all', text: "Lacak riwayat perjalanan luar negeri direksi DSI! Bawa pulang uang ${LOSS_VALUE_LONG} kami! [TAGS] [HASHTAGS]" },
+                { tone: 'Investigasi', platform: 'all', text: "Kami minta @ojkindonesia buka notulensi rapat pengawasan DSI 2 tahun terakhir! Kenapa kecolongan ${LOSS_VALUE_LONG}? [TAGS] [HASHTAGS]" },
+                { tone: 'Investigasi', platform: 'all', text: "Periksa kekayaan pejabat OJK yang menangani fintech! Apakah wajar? Bandingkan dengan kerugian ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
+                { tone: 'Investigasi', platform: 'all', text: "Jangan sampai DSI pailit 'settingan' untuk hapus hutang! Investigasi niat jahat di balik ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
+                { tone: 'Investigasi', platform: 'all', text: "Siapa konsultan hukum DSI? Jangan biarkan mereka mainkan celah hukum untuk hindari bayar ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
+                { tone: 'Investigasi', platform: 'all', text: "Usut tuntas dugaan pemalsuan dokumen collateral/agunan borrower DSI senilai ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
+                { tone: 'Investigasi', platform: 'all', text: "Ini adalah mega skandal keuangan. @polri jangan ragu tangkap otak di balik hilangnya ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
+                { tone: 'Investigasi', platform: 'X', text: "Utas investigasi: Kejanggalan laporan keuangan DSI sebelum gagal bayar ${LOSS_VALUE_LONG}. Simak! 👇 [HASHTAGS]" },
+                { tone: 'Investigasi', platform: 'TikTok', text: "Detektif TikTok, bantu lacak aset bos DSI! Duit ${LOSS_VALUE_LONG} pasti dipake flexing! 🕵️‍♀️ [HASHTAGS]" },
+                { tone: 'Investigasi', platform: 'Instagram', text: "Slide 1: Janji Manis. Slide 2: Realita Pahit ${LOSS_VALUE_LONG}. Slide 3: Bukti Kecurangan. VIRALKAN! [TAGS] [HASHTAGS]" },
+
+                // 4. KEMANUSIAAN (28 ALL + Varian)
+                { tone: 'Kemanusiaan', platform: 'all', text: "Bapak @prabowo, ini uang pensiun ayah saya. Beliau sakit keras. Tega DSI menghilangkan ${LOSS_VALUE_LONG}? 😭 [TAGS] [HASHTAGS]" },
+                { tone: 'Kemanusiaan', platform: 'all', text: "Kami bukan orang kaya. Kami menabung untuk biaya sekolah anak, kini lenyap ${LOSS_VALUE_LONG}. Hancur hati kami! [TAGS] [HASHTAGS]" },
+                { tone: 'Kemanusiaan', platform: 'all', text: "Di balik angka kerugian, ada ribuan air mata janda dan lansia. Kembalikan ${LOSS_VALUE_LONG}, itu nyawa bagi kami! [TAGS] [HASHTAGS]" },
+                { tone: 'Kemanusiaan', platform: 'all', text: "Ya Allah, hancurkanlah mereka yang memakan hak kami. ${LOSS_VALUE_LONG} adalah keringat darah kami. [TAGS] [HASHTAGS]" },
+                { tone: 'Kemanusiaan', platform: 'all', text: "Bagaimana kami bisa bertahan hidup? Uang tabungan satu-satunya raib di DSI senilai ${LOSS_VALUE_LONG}. Tolong kami! [TAGS] [HASHTAGS]" },
+                { tone: 'Kemanusiaan', platform: 'all', text: "Pejabat OJK tidur nyenyak di kasur empuk, kami tidak bisa tidur memikirkan hutang karena ${LOSS_VALUE_LONG} hilang. Dimana nurani? [TAGS] [HASHTAGS]" },
+                { tone: 'Kemanusiaan', platform: 'all', text: "Anak saya terancam putus kuliah. DSI dan OJK, kalian penghancur mimpi generasi bangsa dengan skandal ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
+                { tone: 'Kemanusiaan', platform: 'all', text: "Kami percaya label Syariah agar berkah, kenapa malah jadi musibah ${LOSS_VALUE_LONG}? Hati kami sakit sekali. [TAGS] [HASHTAGS]" },
+                { tone: 'Kemanusiaan', platform: 'all', text: "Jangan lihat kami sebagai statistik. Kami manusia yang menderita akibat kelalaian kalian menjaga ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
+                { tone: 'Kemanusiaan', platform: 'all', text: "Rumah tangga hancur, depresi, sakit-sakitan. Itu dampak nyata hilangnya ${LOSS_VALUE_LONG} di DSI. Siapa tanggung jawab? [TAGS] [HASHTAGS]" },
+                { tone: 'Kemanusiaan', platform: 'all', text: "Kami hanya ingin uang kami kembali. Tidak minta bunga, tidak minta lebih. Cuma hak kami dari ${LOSS_VALUE_LONG} itu. Tolong... [TAGS] [HASHTAGS]" },
+                { tone: 'Kemanusiaan', platform: 'all', text: "DSI merampas masa tua bahagia orang tua kami. ${LOSS_VALUE_LONG} hilang, diganti dengan kecemasan tiada akhir. [TAGS] [HASHTAGS]" },
+                { tone: 'Kemanusiaan', platform: 'all', text: "Apakah harus ada korban jiwa dulu baru pemerintah bertindak soal ${LOSS_VALUE_LONG} ini? Naudzubillah! [TAGS] [HASHTAGS]" },
+                { tone: 'Kemanusiaan', platform: 'all', text: "Setiap sujud kami berdoa agar hati kalian terketuk. Kembalikan ${LOSS_VALUE_LONG}, bebaskan kami dari penderitaan ini. [TAGS] [HASHTAGS]" },
+                { tone: 'Kemanusiaan', platform: 'all', text: "Tolonglah... Kami sudah tidak punya apa-apa lagi. ${LOSS_VALUE_LONG} itu segalanya bagi keluarga kami. [TAGS] [HASHTAGS]" },
+                { tone: 'Kemanusiaan', platform: 'all', text: "Surat terbuka hati nurani untuk Direksi DSI: Bayangkan jika ini menimpa ibu kalian. Kembalikan ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
+                { tone: 'Kemanusiaan', platform: 'all', text: "Kami korban DSI adalah rakyat kecil yang taat hukum. Kenapa kami yang dikorbankan demi ${LOSS_VALUE_LONG}? [TAGS] [HASHTAGS]" },
+                { tone: 'Kemanusiaan', platform: 'all', text: "Masa depan gelap gulita bagi kami para korban. OJK, jadilah pelita dengan selesaikan kasus ${LOSS_VALUE_LONG} ini. [TAGS] [HASHTAGS]" },
+                { tone: 'Kemanusiaan', platform: 'all', text: "Menangis darah pun tak akan mengembalikan uang jika kalian tidak peduli. Pedulilah pada nasib ${LOSS_VALUE_LONG} kami! [TAGS] [HASHTAGS]" },
+                { tone: 'Kemanusiaan', platform: 'all', text: "Kami lelah berharap, kami lelah menunggu. Kembalikan hak kami ${LOSS_VALUE_LONG} agar kami bisa hidup tenang. [TAGS] [HASHTAGS]" },
+                { tone: 'Kemanusiaan', platform: 'all', text: "Uang obat, uang makan, uang sewa rumah. Semua ada di DSI yang macet ${LOSS_VALUE_LONG}. Kalian membunuh kami pelan-pelan. [TAGS] [HASHTAGS]" },
+                { tone: 'Kemanusiaan', platform: 'all', text: "DSI, kalian tidak hanya mencuri uang, kalian mencuri kebahagiaan ribuan keluarga senilai ${LOSS_VALUE_LONG}. [TAGS] [HASHTAGS]" },
+                { tone: 'Kemanusiaan', platform: 'all', text: "Kami mohon dengan sangat, Presiden @prabowo, lihatlah rakyatmu yang menderita karena ${LOSS_VALUE_LONG} ini. [TAGS] [HASHTAGS]" },
+                { tone: 'Kemanusiaan', platform: 'all', text: "Harta bisa dicari, tapi kepercayaan yang hancur karena ${LOSS_VALUE_LONG} sulit diobati. [TAGS] [HASHTAGS]" },
+                { tone: 'Kemanusiaan', platform: 'all', text: "Semoga ketukan hati ini sampai ke telinga para pengambil kebijakan. Selamatkan korban ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
+                { tone: 'Kemanusiaan', platform: 'Instagram', text: "Foto hitam putih ini mewakili gelapnya hidup kami setelah ${LOSS_VALUE_LONG} raib di DSI. Bantu kami! 😢 [TAGS] [HASHTAGS]" },
+                { tone: 'Kemanusiaan', platform: 'Facebook', text: "Share cerita sedih ini. Tetangga saya stroke setelah tahu uangnya hilang di DSI ${LOSS_VALUE_LONG}. Doakan kami. 🙏 [TAGS] [HASHTAGS]" },
+                { tone: 'Kemanusiaan', platform: 'TikTok', text: "Sad content: Nabung 10 tahun, hilang sehari di DSI. ${LOSS_VALUE_LONG} gone. Sakit banget. 💔 [HASHTAGS]" },
+
+                // 5. FAKTA & DATA (28 ALL + Varian)
+                { tone: 'Fakta', platform: 'all', text: "Data tidak bohong! TKB90 DSI di website 98% tapi realitanya gagal bayar ${LOSS_VALUE_LONG}. Ini FRAUD! [TAGS] [HASHTAGS]" },
+                { tone: 'Fakta', platform: 'all', text: "Fakta: OJK baru bertindak SETELAH viral. Kemana fungsi pengawasan preventif terhadap ${LOSS_VALUE_LONG}? [TAGS] [HASHTAGS]" },
+                { tone: 'Fakta', platform: 'all', text: "Jumlah korban: Ribuan. Total Kerugian: ${LOSS_VALUE_LONG}. Solusi OJK: Masih NOL. Catat ini! [TAGS] [HASHTAGS]" },
+                { tone: 'Fakta', platform: 'all', text: "DSI berizin OJK. DSI diawasi DPS MUI. Hasilnya? ${LOSS_VALUE_LONG} lenyap. Lisensi hanya kertas sampah? [TAGS] [HASHTAGS]" },
+                { tone: 'Fakta', platform: 'all', text: "Bandingkan: Bunga deposito 4%, Inflasi 3%, Kerugian di DSI 100% (${LOSS_VALUE_LONG}). Investasi bodong legal! [TAGS] [HASHTAGS]" },
+                { tone: 'Fakta', platform: 'all', text: "Pasal 29 UU OJK: OJK berwenang melakukan pembelaan hukum untuk konsumen. Mana buktinya di kasus ${LOSS_VALUE_LONG}? [TAGS] [HASHTAGS]" },
+                { tone: 'Fakta', platform: 'all', text: "Audit BPK diperlukan! Bagaimana bisa lembaga negara (OJK) kecolongan ${LOSS_VALUE_LONG} di depan mata? [TAGS] [HASHTAGS]" },
+                { tone: 'Fakta', platform: 'all', text: "Faktanya, asuransi pendanaan di DSI ternyata tidak mencakup gagal bayar massal ${LOSS_VALUE_LONG}. Lender dikelabui! [TAGS] [HASHTAGS]" },
+                { tone: 'Fakta', platform: 'all', text: "Rasio NPF DSI sudah merah sejak lama, tapi disembunyikan. Ini manipulasi data publik senilai ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
+                { tone: 'Fakta', platform: 'all', text: "Menurut UU P2SK, Direksi bertanggung jawab penuh atas kerugian. Tagih harta mereka untuk tutup ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
+                { tone: 'Fakta', platform: 'all', text: "Rekam jejak digital menunjukkan DSI masih promo agresif saat kondisi sudah kolaps ${LOSS_VALUE_LONG}. Penipuan! [TAGS] [HASHTAGS]" },
+                { tone: 'Fakta', platform: 'all', text: "Tidak ada transparansi alur dana. Lender tidak tahu uang ${LOSS_VALUE_LONG} dipakai borrower siapa. OJK diam? [TAGS] [HASHTAGS]" },
+                { tone: 'Fakta', platform: 'all', text: "Biaya layanan DSI tinggi, tapi manajemen risiko nol. Akibatnya ${LOSS_VALUE_LONG} melayang. [TAGS] [HASHTAGS]" },
+                { tone: 'Fakta', platform: 'all', text: "Skema DSI mirip skema Ponzi berbalut teknologi. Gali lobang tutup lobang sampai ${LOSS_VALUE_LONG} meledak. [TAGS] [HASHTAGS]" },
+                { tone: 'Fakta', platform: 'all', text: "Data menunjukkan lender didominasi usia produktif & pensiunan. Dampak ekonomi ${LOSS_VALUE_LONG} sangat sistemik! [TAGS] [HASHTAGS]" },
+                { tone: 'Fakta', platform: 'all', text: "OJK gagal jalankan POJK 10/2022. Pengawasan off-site & on-site mandul deteksi ${LOSS_VALUE_LONG}. [TAGS] [HASHTAGS]" },
+                { tone: 'Fakta', platform: 'all', text: "Jika DSI pailit, lender jadi kreditur konkuren (terakhir dibayar). Jangan mau! Tolak pailit, tuntut pidana ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
+                { tone: 'Fakta', platform: 'all', text: "Analisis kredit DSI asal-asalan. Collateral tidak cover nilai pinjaman. Pemicu utama ${LOSS_VALUE_LONG}. [TAGS] [HASHTAGS]" },
+                { tone: 'Fakta', platform: 'all', text: "Fakta: Mediasi LAPS SJK seringkali buntu. OJK harus intervensi langsung kasus ${LOSS_VALUE_LONG} ini! [TAGS] [HASHTAGS]" },
+                { tone: 'Fakta', platform: 'all', text: "Indeks Literasi Keuangan naik, tapi Indeks Perlindungan Konsumen jeblok gara-gara kasus ${LOSS_VALUE_LONG}. [TAGS] [HASHTAGS]" },
+                { tone: 'Fakta', platform: 'all', text: "DSI melanggar prinsip kehati-hatian perbankan/fintech. ${LOSS_VALUE_LONG} adalah bukti kelalaian manajemen. [TAGS] [HASHTAGS]" },
+                { tone: 'Fakta', platform: 'all', text: "Stop playing victim, DSI! Data menunjukkan miss-management kalian penyebab ${LOSS_VALUE_LONG}. [TAGS] [HASHTAGS]" },
+                { tone: 'Fakta', platform: 'all', text: "Fakta: Tidak ada sanksi tegas OJK ke individu direksi DSI sejauh ini. Hukum tumpul di ${LOSS_VALUE_LONG}? [TAGS] [HASHTAGS]" },
+                { tone: 'Fakta', platform: 'all', text: "Hanya 1 solusi berbasis data: Asset Recovery & Suntikan Modal Pemegang Saham untuk tutup ${LOSS_VALUE_LONG}. [TAGS] [HASHTAGS]" },
+                { tone: 'Fakta', platform: 'all', text: "Sebarkan fakta ini. Jangan biarkan opini publik dipelintir buzzer DSI soal ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
+                { tone: 'Fakta', platform: 'X', text: "Thread pendek: Kronologi kegagalan bayar DSI hingga mencapai ${LOSS_VALUE_LONG}. Data valid! 📊 [HASHTAGS]" },
+                { tone: 'Fakta', platform: 'Facebook', text: "Infografis kerugian member DSI. Total ${LOSS_VALUE_LONG}. Silakan download dan sebarkan! 📉 [TAGS] [HASHTAGS]" },
+                { tone: 'Fakta', platform: 'Instagram', text: "Swipe left untuk lihat bukti kebohongan data TKB90 vs Realita ${LOSS_VALUE_LONG}. #FactCheck [TAGS] [HASHTAGS]" },
+
+                // 6. SATIRE (28 ALL + Varian)
+                { tone: 'Satire', platform: 'all', text: "Investasi di DSI itu melatih kesabaran & keikhlasan. Bonusnya? Kehilangan ${LOSS_VALUE_LONG}. Makasih OJK tutorialnya! 🤡 [TAGS] [HASHTAGS]" },
+                { tone: 'Satire', platform: 'all', text: "Logo OJK di DSI fungsinya apa ya? Hiasan dinding? Pemanis buatan? Soalnya gak ngaruh ke keamanan ${LOSS_VALUE_LONG}. 🤷‍♂️ [TAGS] [HASHTAGS]" },
+                { tone: 'Satire', platform: 'all', text: "Maling ayam digebukin. Maling ${LOSS_VALUE_LONG} diajak rapat di hotel berbintang atas nama 'mediasi'. Keren Indonesia! 👏 [TAGS] [HASHTAGS]" },
+                { tone: 'Satire', platform: 'all', text: "Selamat kepada DSI atas penghargaan 'Platform Penghilang Dana Tercepat' senilai ${LOSS_VALUE_LONG}. Prestasi! 🏆 [TAGS] [HASHTAGS]" },
+                { tone: 'Satire', platform: 'all', text: "Syariah di brosur, Jahiliyah di operasional. Hasilnya? ${LOSS_VALUE_LONG} wassalam. 🙏 [TAGS] [HASHTAGS]" },
+                { tone: 'Satire', platform: 'all', text: "OJK be like: 'Ada masalah? Silakan lapor'. Pas lapor: 'Maaf kami cuma pengawas, bukan penjamin'. Lawak ${LOSS_VALUE_LONG}! 🤣 [TAGS] [HASHTAGS]" },
+                { tone: 'Satire', platform: 'all', text: "Mungkin ${LOSS_VALUE_LONG} dipake buat beli tiket ke Mars? Soalnya di bumi gak ada jejaknya. 🚀 [TAGS] [HASHTAGS]" },
+                { tone: 'Satire', platform: 'all', text: "Cara cepat miskin: 1. Percaya OJK 2. Taruh uang di DSI 3. Tunggu kabar ${LOSS_VALUE_LONG} hilang. Works 100%! 👍 [TAGS] [HASHTAGS]" },
+                { tone: 'Satire', platform: 'all', text: "Definisi 'Diawasi OJK': Diawasi doang pas duitnya diambil, tapi gak dicegah. Mantap pengawasannya gan! ${LOSS_VALUE_LONG} amblas. 👀 [TAGS] [HASHTAGS]" },
+                { tone: 'Satire', platform: 'all', text: "Untung ruginya cuma ${LOSS_VALUE_LONG}. Coba kalau 2T? Eh tunggu, ini 1T lebih ya? Wkwk nangis. 😭😂 [TAGS] [HASHTAGS]" },
+                { tone: 'Satire', platform: 'all', text: "DSI = Dana Sudah Ilang. Singkatan yang sangat representatif untuk kondisi ${LOSS_VALUE_LONG}. 💡 [TAGS] [HASHTAGS]" },
+                { tone: 'Satire', platform: 'all', text: "Rakyat telat bayar pinjol diteror DC. Fintech telat bayar ${LOSS_VALUE_LONG} dilindungi regulasi. Adil sejak dalam pikiran. ⚖️ [TAGS] [HASHTAGS]" },
+                { tone: 'Satire', platform: 'all', text: "Halo OJK, pengawasannya pake kacamata kuda ya? Gede banget lho lubang ${LOSS_VALUE_LONG} ini gak kelihatan. 🐴 [TAGS] [HASHTAGS]" },
+                { tone: 'Satire', platform: 'all', text: "Mungkin uang ${LOSS_VALUE_LONG} itu gaib. Perlu dipanggil dukun, soalnya dipanggil OJK gak balik-balik. 👻 [TAGS] [HASHTAGS]" },
+                { tone: 'Satire', platform: 'all', text: "Tips aman investasi: Jangan investasi di Indonesia. Regulatornya AFK pas war ${LOSS_VALUE_LONG}. 🎮 [TAGS] [HASHTAGS]" },
+                { tone: 'Satire', platform: 'all', text: "Label Halal MUI + Izin OJK = Paket Komplit Kehancuran Finansial ${LOSS_VALUE_LONG}. Combo maut! 🍔🍟 [TAGS] [HASHTAGS]" },
+                { tone: 'Satire', platform: 'all', text: "Sudah jatuh tertimpa tangga, eh tangganya punya izin OJK. Nasib korban ${LOSS_VALUE_LONG}. 🤕 [TAGS] [HASHTAGS]" },
+                { tone: 'Satire', platform: 'all', text: "Satu nusa, satu bangsa, satu nasib ditipu DSI. Persatuan Indonesia lewat kerugian ${LOSS_VALUE_LONG}. 🇮🇩 [TAGS] [HASHTAGS]" },
+                { tone: 'Satire', platform: 'all', text: "Menunggu DSI bayar itu kayak nunggu dia peka. Mustahil. ${LOSS_VALUE_LONG} oh ${LOSS_VALUE_LONG}. 💔 [TAGS] [HASHTAGS]" },
+                { tone: 'Satire', platform: 'all', text: "Buka jasa santet online buat maling uang rakyat (canda Pak Polisi). Tapi kesel banget soal ${LOSS_VALUE_LONG}! 🤬 [TAGS] [HASHTAGS]" },
+                { tone: 'Satire', platform: 'all', text: "Negara hadir... pas mau mungut pajak doang. Pas duit rakyat hilang ${LOSS_VALUE_LONG}, negara 'ghosting'. 👻 [TAGS] [HASHTAGS]" },
+                { tone: 'Satire', platform: 'all', text: "OJK singkatan dari 'Omong Janji Kosong'? Soalnya penanganannya kosong banget di kasus ${LOSS_VALUE_LONG}. 🤐 [TAGS] [HASHTAGS]" },
+                { tone: 'Satire', platform: 'all', text: "Koruptor ketawa melihat betapa sopannya penanganan kasus ${LOSS_VALUE_LONG} ini. 'Lanjutken', kata mereka. 🐀 [TAGS] [HASHTAGS]" },
+                { tone: 'Satire', platform: 'all', text: "DSI be like: 'Maaf ya, uangnya kepake'. Kepake buat apa woy?! ${LOSS_VALUE_LONG}?! 😤 [TAGS] [HASHTAGS]" },
+                { tone: 'Satire', platform: 'all', text: "Kalau OJK itu satpam, DSI itu maling yang masuk lewat pintu depan sambil salaman sama satpamnya. Bye ${LOSS_VALUE_LONG}. 🤝 [TAGS] [HASHTAGS]" },
+                { tone: 'Satire', platform: 'TikTok', text: "Tutorial ngilangin duit ${LOSS_VALUE_LONG} check! ✅ Gampang banget bund! #Satire [HASHTAGS]" },
+                { tone: 'Satire', platform: 'X', text: "Memes about OJK sleeping on DSI case ${LOSS_VALUE_LONG}. Drop meme terbaik kalian! 👇 [HASHTAGS]" },
+                { tone: 'Satire', platform: 'Instagram', text: "Filter IG baru: Wajah sedih nunggu duit DSI cair. Efeknya dompet jadi tipis setipis harapan ${LOSS_VALUE_LONG}. 🤳 [TAGS] [HASHTAGS]" },
+
+                // 7. RELIGIUS
+                { tone: 'Religius', platform: 'all', text: "Wahai manajemen DSI, ingatlah hisab di akhirat lebih berat dari audit OJK! Kembalikan ${LOSS_VALUE_LONG} umat! [TAGS] [HASHTAGS]" },
+
+                // 8. HUKUM
+                { tone: 'Hukum', platform: 'all', text: "Kami gugat Wanprestasi & Perbuatan Melawan Hukum! DSI wajib bayar ganti rugi materiil immateriil atas ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
                 
-                { tone: 'Tuntutan', platform: 'Instagram', text: "🚨 OJK, HADIR FISIK SEKARANG! 🚨 Jangan biarkan kami dibohongi DSI lagi di meja mediasi. Kami minta OJK jadi JAMINAN pengembalian dana ${LOSS_VALUE_LONG} ini. [TAGS] [HASHTAGS]" },
-                { tone: 'Tuntutan', platform: 'Instagram', text: "Untuk @dpr_ri, kami butuh PANSUS FINTECH. DSI hanyalah puncak gunung es dari kegagalan sistematis yang merugikan rakyat ${LOSS_VALUE_LONG}. [TAGS] [HASHTAGS]" },
-                { tone: 'Tuntutan', platform: 'Instagram', text: "OJK @ojkindonesia, kami tuntut KEPASTIAN SKEMA LUNAS, bukan restrukturisasi yang merugikan. Kami hanya terima 100% uang pokok kembali! [TAGS] [HASHTAGS]" },
-                { tone: 'Tuntutan', platform: 'Instagram', text: "Wibawa @ojkindonesia luntur di kasus ${LOSS_VALUE_LONG} DSI. Kami tuntut PERTANGGUNGJAWABAN HUKUM, bukan mediasi ala kadarnya. [TAGS] [HASHTAGS]" },
-                { tone: 'Tuntutan', platform: 'Instagram', text: "Ribuan keluarga terancam miskin karena kelalaian OJK. Kami tuntut OJK ikut GANTI RUGI FINANSIAL! [TAGS] [HASHTAGS]" },
-                
-                { tone: 'Tuntutan', platform: 'Facebook', text: "Surat Terbuka untuk Pimpinan Komisi XI @dpr_ri. Kasus DSI sudah ${LOSS_VALUE_LONG}. Ini bukan masalah politik, ini DARURAT FINANSIAL rakyat. Segera RDPU! [TAGS] [HASHTAGS]" },
-                { tone: 'Tuntutan', platform: 'Facebook', text: "OJK harus bertanggung jawab atas logo yang mereka berikan. Kami percaya NEGARA, bukan janji DSI. Kami tuntut hak kami 100% kembali! [TAGS] [HASHTAGS]" },
-                { tone: 'Tuntutan', platform: 'Facebook', text: "Kami desak DPR RI bentuk Tim Pencari Fakta (TPF) kasus DSI. Jangan biarkan skandal ${LOSS_VALUE_LONG} ini diselesaikan di balik meja! [TAGS] [HASHTAGS]" },
-                { tone: 'Tuntutan', platform: 'Facebook', text: "Tolong bagikan! Kami tuntut OJK & DSI segera umumkan SKEMA TANGGUNG JAWAB FINANSIAL. Kami tak mau rugi sepeser pun! [TAGS] [HASHTAGS]" },
-                { tone: 'Tuntutan', platform: 'Facebook', text: "OJK, bertindaklah tegas! Bekukan aset DSI sebelum mereka miskinkan diri! Jangan tunda, kerugian sudah ${LOSS_VALUE_LONG}. [TAGS] [HASHTAGS]" },
-
-                { tone: 'Tuntutan', platform: 'TikTok', text: "OJK cuma bisa rilis 'sedang dimediasi'? Kami butuh 'UANG SUDAH MASUK REKENING'! #OJKGagalMengawasi. Viralkan! [HASHTAGS]" },
-                { tone: 'Tuntutan', platform: 'TikTok', text: "Bapak/Ibu DPR, uang rakyat ${LOSS_VALUE_LONG} hilang! Jangan cuma scroll TikTok. Panggil OJK! #DPRkawalLenderDSI [HASHTAGS]" },
-                { tone: 'Tuntutan', platform: 'TikTok', text: "Cuma 1 tuntutan kami: DUIT BALIK 100%! Gak pake cicil, gak pake nego! @ojkindonesia @dpr_ri. [HASHTAGS]" },
-                { tone: 'Tuntutan', platform: 'TikTok', text: "POV: Lihat logo OJK, percaya. Realita: Uang ${LOSS_VALUE_LONG} hilang, OJK cuci tangan. #TuntutOJK. [HASHTAGS]" },
-                { tone: 'Tuntutan', platform: 'TikTok', text: "Negara hadir? Hadirnya di mana? Kami cuma lihat kebobrokan sistem yang menyebabkan ${LOSS_VALUE_LONG}! [HASHTAGS]" },
-
-                // ====================================================================================
-                // 2. ULTIMATUM KERAS (25 VARIAN BARU)
-                // ====================================================================================
-                { tone: 'Ultimatum', platform: 'all', text: "SABAR KAMI HABIS! Ini UANG DARAH, bukan mainan! 7x24 JAM dari sekarang, umumkan pengembalian 100% atau kami anggap DSI & OJK resmi MEMBELA PERAMPOK. Konsekuensi aksi massa siap ditanggung! 🚨 [TAGS] [HASHTAGS]" },
-                { tone: 'Ultimatum', platform: 'all', text: "INI PERINGATAN TERAKHIR! Jangan uji kesabaran ribuan korban yang kehilangan ${LOSS_VALUE_LONG}. Kami akan tagih sampai ke liang kubur! ⏱️💥 [TAGS] [HASHTAGS]" },
-                { tone: 'Ultimatum', platform: 'all', text: "Stop drama restrukturisasi yang ujungnya nol! Opsi cuma dua: UANG KEMBALI 100% atau hadapi gelombang protes NASIONAL yang tak akan berhenti! [TAGS] [HASHTAGS]" },
-                { tone: 'Ultimatum', platform: 'all', text: "1 MINGGU dari sekarang. Gak ada progres dana masuk rekening lender? Kami serbu kantor OJK & DSI di seluruh Indonesia! Ini sumpah, bukan gertakan! ✊ [TAGS] [HASHTAGS]" },
-                { tone: 'Ultimatum', platform: 'all', text: "Kami lelah dengan kata 'sabar'. Kami mau kata 'lunas'! Segera, atau revolusi korban fintech dimulai dari skandal ${LOSS_VALUE_LONG} ini! 💣 [TAGS] [HASHTAGS]" },
-
-                { tone: 'Ultimatum', platform: 'X', text: "Deadline buat DSI & @ojkindonesia: Jangan paksa ribuan korban yang frustrasi jadi nekat! Selesaikan baik-baik, atau kami selesaikan CARA KAMI di jalanan! 💣 [HASHTAGS]" },
-                { tone: 'Ultimatum', platform: 'X', text: "Ini peringatan, bukan ancaman. Jangan uji kesabaran orang yang sudah kehilangan ${LOSS_VALUE_LONG} segalanya! 🛑⏳ @ojkindonesia [HASHTAGS]" },
-                { tone: 'Ultimatum', platform: 'X', text: "Cukup mediasinya! Gak ada hasil! Kami mau UANG KEMBALI! @ojkindonesia jangan cuma jadi wasit, JADILAH EKSEKUTOR yang sita aset! ⏱️ [HASHTAGS]" },
-                { tone: 'Ultimatum', platform: 'X', text: "OJK, reputasi keuangan syariah hancur lebur karena kalian! Tuntaskan DSI atau kami seret OJK ke pengadilan! Kami punya bukti ${LOSS_VALUE_LONG} kerugian! ⚖️ [HASHTAGS]" },
-                { tone: 'Ultimatum', platform: 'X', text: "48 JAM! Bekukan aset SEMUA yang terlibat di DSI! @ojkindonesia @official.kpk @humaspolri. Jangan sampai kami anggap kalian semua sekongkol! 🚨 [HASHTAGS]" },
-
-                { tone: 'Ultimatum', platform: 'Instagram', text: "🔴 WARNING KERAS 🔴 Kami beri waktu OJK & DSI keluar dari zona nyaman kalian. Jangan sampai kantor kalian jadi lautan massa korban! Negara WAJIB HADIR di tragedi ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
-                { tone: 'Ultimatum', platform: 'Instagram', text: "Pemerintah @jokowi @prabowo, jangan remehkan kami! Kami ini BOM WAKTU yang siap meledak & menghancurkan kepercayaan publik! Bertindak atas kerugian ${LOSS_VALUE_LONG} ini! 🔥 [TAGS] [HASHTAGS]" },
-                { tone: 'Ultimatum', platform: 'Instagram', text: "Jika hak kami (${LOSS_VALUE_LONG}) gak kembali, kami akan jadi oposisi permanen pemerintah yang membiarkan perampokan legal ini! Camkan itu! @prabowo @dpr_ri [TAGS] [HASHTAGS]" },
-                { tone: 'Ultimatum', platform: 'Instagram', text: "Seluruh jajaran DSI, kami beri waktu untuk menyerahkan diri & aset kalian. Sebelum kami yang 'jemput' paksa! 🚔 [TAGS] [HASHTAGS]" },
-                { tone: 'Ultimatum', platform: 'Instagram', text: "Kami tantang DSI buka data ke publik dalam 7 hari! Kalau tidak, kami anggap DSI sudah niat menipu sejak awal dengan kerugian ${LOSS_VALUE_LONG}! @ojkindonesia [TAGS] [HASHTAGS]" },
-                
-                { tone: 'Ultimatum', platform: 'Facebook', text: "YTH PRESIDEN @Prabowo! Ini BUKAN gagal bisnis, ini PERAMPOKAN LEGAL! Bapak diam = merestui rakyat dimiskinkan! Turun tangan atau kami turun ke jalan! ⚡ [TAGS]" },
-                { tone: 'Ultimatum', platform: 'Facebook', text: "Kami GAK BUTUH restrukturisasi busuk yang ujungnya NOL! Kami mau UANG POKOK KEMBALI UTUH! Sekarang! Atau kami anggap ini deklarasi perang finansial! ⚔️ [TAGS]" },
-                { tone: 'Ultimatum', platform: 'Facebook', text: "Kami beri OJK 7 HARI untuk umumkan SKEMA PASTI pengembalian 100%. Lewat dari itu, kami anggap OJK TERLIBAT DALAM KEJAHATAN ${LOSS_VALUE_LONG} INI! ⏳ [TAGS]" },
-                { tone: 'Ultimatum', platform: 'Facebook', text: "Jangan pikir kami diam! Kami sedang konsolidasi aksi. Satu komando, kami akan geruduk kalian! Waktu kalian hampir habis! [TAGS]" },
-                { tone: 'Ultimatum', platform: 'Facebook', text: "Para pejabat OJK & DSI, jangan coba-coba mempailitkan perusahaan! Kami akan lawan di pengadilan dan di jalanan! Uang rakyat ${LOSS_VALUE_LONG} harus kembali! [TAGS] [HASHTAGS]" },
-
-                { tone: 'Ultimatum', platform: 'TikTok', text: "⚠️ OJK LAMBAN? OKE, KITA MAIN VIRAL! ⚠️ Jangan salahkan netizen kalau reputasi instansi kalian hancur lebur! Kasus ${LOSS_VALUE_LONG} harus tuntas! 🔥 [HASHTAGS]" },
-                { tone: 'Ultimatum', platform: 'TikTok', text: "Pak @Prabowo @gibran_rakabuming, ini ujian pertama! Rakyat dirampok ${LOSS_VALUE_LONG}, negara diam? Buktikan kalian beda! BERTINDAK SEKARANG! ⚡🇮🇩 [HASHTAGS]" },
-                { tone: 'Ultimatum', platform: 'TikTok', text: "Manajemen DSI, jangan pengecut! Temui kami! Jelaskan di mana uang kami! Atau kami yang akan CARI kalian sampai dapat! 😠 [HASHTAGS]" },
-                { tone: 'Ultimatum', platform: 'TikTok', text: "Tik tok tik tok... ⏰ Waktu kalian habis, OJK, DSI! Gak ada solusi = Gak ada ampun! Siap-siap dengan aksi kami! [HASHTAGS]" },
-                { tone: 'Ultimatum', platform: 'TikTok', text: "Waktu habis! Jika DSI dan OJK masih main-main, kami akan buat demo massal di Jakarta! #AksiLenderDSI. Kerugian sudah ${LOSS_VALUE_LONG}! [HASHTAGS]" },
-                
-                // ====================================================================================
-                // 3. INVESTIGASI (25 VARIAN BARU)
-                // ====================================================================================
-                { tone: 'Investigasi', platform: 'all', text: "Ini BAU PONZI berkedok syariah! Gagal bayar ${LOSS_VALUE_LONG} itu gak mungkin 'kecelakaan'. Di mana OJK selama ini? Ada PEMBIARAN TERSYSTEM? BONGKAR! 🔍 [TAGS] [HASHTAGS]" },
-                { tone: 'Investigasi', platform: 'all', text: "AUDIT FORENSIK HARGA MATI! Kami gak percaya data DSI! @ppatk_indonesia, tolong cek rekening Gendut milik keluarga & kroni direksi DSI! 🕵️‍♀️ [TAGS] [HASHTAGS]" },
-                { tone: 'Investigasi', platform: 'all', text: "Kami minta @ojkindonesia buka data: Sejak kapan NPF DSI merah? Kenapa masih boleh kumpulin dana? INI ANEH! ADA APA DIBALIK ${LOSS_VALUE_LONG} INI? 🧐📄 [HASHTAGS]" },
-                { tone: 'Investigasi', platform: 'all', text: "Ada dugaan 'insider trading' data di DSI. @official.kpk, kami minta periksa LHKPN pejabat OJK yang bertugas mengawasi DSI! Ada 'upeti' apa? 🕵️‍♂️ [TAGS] [HASHTAGS]" },
-                { tone: 'Investigasi', platform: 'all', text: "DSI sengaja 'dimiskinkan' agar bisa pailit & lari dari tanggung jawab. @humaspolri, cegah itu terjadi! Sita aset pribadi mereka! [TAGS] [HASHTAGS]" },
-
-                { tone: 'Investigasi', platform: 'X', text: "Desak @official.kpk & @ppatk_indonesia lakukan AUDIT FORENSIK DSI! Duit ${LOSS_VALUE_LONG} gak mungkin hilang kayak uap. Lacak alirannya! Bekukan! 🕵️‍♂️💸 [HASHTAGS]" },
-                { tone: 'Investigasi', platform: 'X', text: "Usut tuntas peran DPS DSI! Mereka ngapain aja? Cuma stempel doang? Mana fungsi pengawasannya saat kerugian ${LOSS_VALUE_LONG} terjadi? @dsnmuiinstitute [HASHTAGS]" },
-                { tone: 'Investigasi', platform: 'X', text: "Ada berapa banyak 'borrower fiktif' di DSI? Audit semua proyek yang didanai! Jangan-jangan uangnya cuma muter di situ-situ aja!🌀 [HASHTAGS]" },
-                { tone: 'Investigasi', platform: 'X', text: "NPF DSI pasti sudah buruk sejak lama. Kenapa OJK tidak publikasikan? Kenapa tidak setop operasionalnya? Jawab @ojkindonesia! [HASHTAGS]" },
-                { tone: 'Investigasi', platform: 'X', text: "Kami curiga ada konspirasi sistematis di balik lenyapnya dana ${LOSS_VALUE_LONG} ini. @kejaksaan.ri, usut tuntas indikasi TPPU! 🕵️‍♀️ [HASHTAGS]" },
-
-                { tone: 'Investigasi', platform: 'Instagram', text: "🔍 JEJAK UANG GAK BISA BOHONG. Duit kami ke mana? Dipakai buat apa? Siapa yang nikmati? Kami tuntut transparansi TOTAL! Buka data borrower macet! 📂 [TAGS] [HASHTAGS]" },
-                { tone: 'Investigasi', platform: 'Instagram', text: "Bareskrim @bareskrim.polri, mohon segera panggil paksa seluruh manajemen DSI. Indikasi fraud-nya sudah jelas banget! Jangan tunggu korban bertambah! 👮‍♂️🚨 [TAGS]" },
-                { tone: 'Investigasi', platform: 'Instagram', text: "Kami minta @official.kpk selidiki OJK! Kok bisa 'kecolongan' ${LOSS_VALUE_LONG}? Ini lalai atau 'disengaja'? Bongkar mafia di internal OJK! KPK, MASUK! [TAGS] [HASHTAGS]" },
-                { tone: 'Investigasi', platform: 'Instagram', text: "Sita aset pribadi Direksi DSI SEKARANG JUGA! Kami yakin ada TPPU! @humaspolri @official.kpk. Jangan biarkan mereka lari! [TAGS] [HASHTAGS]" },
-                { tone: 'Investigasi', platform: 'Instagram', text: "Buka data! Siapa 10 borrower terbesar DSI? Ada kaitan sama manajemen? Transparansi adalah kunci keadilan ${LOSS_VALUE_LONG}! 🔑📂 [TAGS] [HASHTAGS]" },
-
-                { tone: 'Investigasi', platform: 'Facebook', text: "SURAT TERBUKA @bareskrim.polri @humaspolri! Kami duga kuat ada TPPU di DSI. Segera CEKAL seluruh direksi & komisaris! Jangan sampai mereka kabur bawa uang ${LOSS_VALUE_LONG} kami! 🚔⚖️ [TAGS]" },
-                { tone: 'Investigasi', platform: 'Facebook', text: "DSI Gagal Bayar = Kejahatan Terstruktur? Mustahil! OJK 'kecolongan' ${LOSS_VALUE_LONG} kalau pengawasannya benar. Siapa 'orang dalam' yang main? USUT TUNTAS! 🔎🏦 [TAGS]" },
-                { tone: 'Investigasi', platform: 'Facebook', text: "Minta @kejaksaan.ri usut tuntas! Ini kerugian rakyat langsung! Sikat habis mafia kerah putih yang merampok ${LOSS_VALUE_LONG}! ⚖️ [TAGS] [HASHTAGS]" },
-                { tone: 'Investigasi', platform: 'Facebook', text: "Investigasi semua rekening pribadi direksi, komisaris, dan keluarganya! @ppatk_indonesia! Lacak ke mana dana ${LOSS_VALUE_LONG} mengalir! [TAGS] [HASHTAGS]" },
-                { tone: 'Investigasi', platform: 'Facebook', text: "BEDAH KASUS: Gimana caranya platform 'diawasi ketat' bisa jebol ${LOSS_VALUE_LONG} tanpa 'red flag'? Pengawas tidur, atau 'main mata'? Rakyat butuh jawaban logis! 🤔🔍 [TAGS] [HASHTAGS]" },
-
-                { tone: 'Investigasi', platform: 'TikTok', text: "@kemkomdigi, tolong bantu lacak jejak digital aset petinggi DSI! Jangan sampai bukti-bukti ${LOSS_VALUE_LONG} dihilangkan! Kejahatan kerah putih harus dilawan canggih! 💻🔒 [HASHTAGS]" },
-                { tone: 'Investigasi', platform: 'TikTok', text: "Ayo kita bedah! Gimana ceritanya TKB90 DSI bisa 98% di web, padahal kerugian ${LOSS_VALUE_LONG}? Ini PEMBOHONGAN PUBLIK terencana! 📊➡️📉 [HASHTAGS]" },
-                { tone: 'Investigasi', platform: 'TikTok', text: "Kejanggalan DSI: 1. TKB90 Palsu 2. OJK Diam 3. Aset ${LOSS_VALUE_LONG} Lenyap. Ini bukan gagal bayar biasa, ini KONSPIRASI! 🤯 [HASHTAGS]" },
-                { tone: 'Investigasi', platform: 'TikTok', text: "Bongkar skema Ponzi berkedok Syariah DSI! Jangan sampai lolos dari jerat hukum! #TPPUFintech. Viralkan! [HASHTAGS]" },
-                { tone: 'Investigasi', platform: 'TikTok', text: "Minta @ppatk_indonesia lacak kemana aliran dana ${LOSS_VALUE_LONG} itu! Dipakai buat beli aset mewah siapa? Bongkar! [HASHTAGS]" },
-
-                // ====================================================================================
-                // 4. KEMANUSIAAN (Jeritan Hati) - TOTAL 50 VARIAN UNIK
-                // ====================================================================================
-                // Varian A: 20 Varian Lama (4 All, 5 X, 5 IG, 5 FB, 1 TikTok)
-                { tone: 'Kemanusiaan', platform: 'all', text: "Kami ini bukan investor serakah! Kami rakyat biasa yang titipkan DANA PENDIDIKAN, HAJI, dan PENSIUN. Kalian GAK CUMA MENGHANCURKAN FINANSIAL, tapi MENGHANCURKAN MIMPI ribuan keluarga! Kerugian ${LOSS_VALUE_LONG} adalah tragedi kemanusiaan! 💔🤲 [TAGS] [HASHTAGS]" },
-                { tone: 'Kemanusiaan', platform: 'all', text: "Dengar rintihan kami! Kami terancam diusir dari rumah, dikejar hutang karena uang ${LOSS_VALUE_LONG} kami ditahan. Ini DARURAT KEMANUSIAAN! 🆘 [TAGS] [HASHTAGS]" },
-                { tone: 'Kemanusiaan', platform: 'all', text: "Kami percaya 'Syariah' karena kami ingin BERKAH. Kami percaya OJK karena kami taat NEGARA. Kenapa kami DIKHIANATI dengan kerugian ${LOSS_VALUE_LONG}? 💔🇮🇩 [TAGS] [HASHTAGS]" },
-                { tone: 'Kemanusiaan', platform: 'all', text: "Tidur kami tak nyenyak, makan tak enak. Memikirkan uang yang kami kumpulkan sedikit demi sedikit, hilang begitu saja. Kami hanya minta HAK kami kembali. 😭 [TAGS] [HASHTAGS]" },
-                
-                { tone: 'Kemanusiaan', platform: 'X', text: "Tiap detik kalian menunda = penderitaan korban bertambah. Pak/Bu pejabat @ojkindonesia, tolong pakai rasa kemanusiaan. Jangan dingin kayak robot birokrasi! ${LOSS_VALUE_LONG} sudah terlalu besar! 🚑🆘 [HASHTAGS]" },
-                { tone: 'Kemanusiaan', platform: 'X', text: "Stress, depresi, darah tinggi, stroke. Itu kondisi korban DSI sekarang. Kalau ada yang sampai bunuh diri, tangan kalian @ojkindonesia & DSI berlumuran darah! 🩸😔 [HASHTAGS]" },
-                { tone: 'Kemanusiaan', platform: 'X', text: "Banyak korban DSI itu guru, pensiunan, orang-orang baik yang percaya sistem. Tega banget kalian rampok mereka! 😥 @prabowo [HASHTAGS]" },
-                { tone: 'Kemanusiaan', platform: 'X', text: "Ini bukan cuma soal uang. Ini soal KEPERCAYAAN yang dihancurkan. Kepercayaan pada sistem, pada negara, pada label 'syariah' akibat skandal ${LOSS_VALUE_LONG}. 💔 [HASHTAGS]" },
-                { tone: 'Kemanusiaan', platform: 'X', text: "Banyak korban gak berani lapor karena malu, takut, depresi. Kalian @ojkindonesia @dpr_ri harus proaktif! Jangan tunggu mereka hancur! [HASHTAGS]" },
-
-                { tone: 'Kemanusiaan', platform: 'Instagram', text: "💔 Tolong dipikir pakai hati. Uang yang ditahan itu buat beli obat orang tua. Mereka percaya LOGO OJK, Pak! Terus sekarang negara kemana, Pak @Prabowo? Tega banget! ${LOSS_VALUE_LONG}! 😭 [TAGS] [HASHTAGS]" },
-                { tone: 'Kemanusiaan', platform: 'Instagram', text: "Kami menatap masa depan anak-anak kami yang terancam putus sekolah. Tega kalian melihat masa depan mereka hancur karena uangnya kalian tahan? 🎒😢 [TAGS] [HASHTAGS]" },
-                { tone: 'Kemanusiaan', platform: 'Instagram', text: "Di balik senyum manis & jas mahal pejabat OJK, ada tangis ribuan korban DSI. Masih bisa tidur nyenyak, Pak? 😢 [TAGS] [HASHTAGS]" },
-                { tone: 'Kemanusiaan', platform: 'Instagram', text: "Kami korban lansia, ditipu platform 'aman' OJK. Kami hanya ingin damai di masa tua. Tolong @dpr_ri kawal kasus ${LOSS_VALUE_LONG} ini! [TAGS] [HASHTAGS]" },
-                { tone: 'Kemanusiaan', platform: 'Instagram', text: "Pensiunan itu bukan high-risk investor! Kami butuh keamanan! Kalian hancurkan hidup kami! @ojkindonesia. [TAGS] [HASHTAGS]" },
-
-                { tone: 'Kemanusiaan', platform: 'Facebook', text: "'Saya pensiunan, Pak. Uang pesangon seumur hidup saya taruh DSI buat hari tua. Sekarang istri sakit, saya gak bisa beli obat.' — Pak Presiden, dengarkan jeritan rakyatmu! 🙏😢 [TAGS]" },
-                { tone: 'Kemanusiaan', platform: 'Facebook', text: "Ya Allah, kembalikan uang kami. Itu untuk biaya rumah sakit ibu. Para pejabat yang terhormat, lihat kami sebagai manusia, bukan cuma angka kerugian ${LOSS_VALUE_LONG}! 🏥🙏 [TAGS] [HASHTAGS]" },
-                { tone: 'Kemanusiaan', platform: 'Facebook', text: "Uang itu buat makan sehari-hari! Buat bayar kontrakan! Kalian rampas piring nasi kami! Ya Allah, tolong kami! 😭 [TAGS]" },
-                { tone: 'Kemanusiaan', platform: 'Facebook', text: "Coba bayangkan itu uang kalian. Uang untuk masa tua kalian. Hilang ${LOSS_VALUE_LONG}. Apa yang kalian rasakan? Itulah yang kami rasakan SEKARANG! [TAGS] [HASHTAGS]" },
-                { tone: 'Kemanusiaan', platform: 'Facebook', text: "Kami ini orang yang percaya negara & agama! Kenapa kami harus menanggung kerugian ${LOSS_VALUE_LONG} akibat kelalaian OJK & DSI? [TAGS] [HASHTAGS]" },
-                
-                { tone: 'Kemanusiaan', platform: 'TikTok', text: "POV: Nabung puluhan tahun buat masa tua, eh lenyap ${LOSS_VALUE_LONG} gitu aja karena percaya platform 'diawasi negara'. Nyeseknya sampai sini! 💔 Bantu viralin! 😭 [HASHTAGS]" },
-                
-                // Varian B: 30 Varian Tambahan (5 X, 5 IG, 10 FB, 10 TikTok)
-                { tone: 'Kemanusiaan', platform: 'X', text: "Air mata kami tak berharga di mata OJK? Kami korban ${LOSS_VALUE_LONG} punya martabat! Kembalikan uang kami segera! @ojkindonesia [HASHTAGS]" },
-                { tone: 'Kemanusiaan', platform: 'X', text: "Setiap janji palsu DSI adalah luka baru bagi ribuan korban. @dpr_ri, hentikan siksaan ini! Kami butuh kedamaian finansial. [HASHTAGS]" },
-                { tone: 'Kemanusiaan', platform: 'X', text: "Siapa yang bertanggung jawab jika korban ${LOSS_VALUE_LONG} ini kehilangan harapan hidup? OJK dan DSI harus dicatat sebagai pembunuh mimpi! 🔪💔 [HASHTAGS]" },
-                { tone: 'Kemanusiaan', platform: 'X', text: "Kami hanya ingin uang hasil keringat kami sendiri. Mengapa hak dasar kami dirampas sekejam ini oleh platform legal? @prabowo [HASHTAGS]" },
-                { tone: 'Kemanusiaan', platform: 'X', text: "Lansia, janda, dan pensiunan adalah korban terbanyak. Di mana kemanusiaan kalian melihat kerugian ${LOSS_VALUE_LONG} ini? @humaspolri [HASHTAGS]" },
-
-                { tone: 'Kemanusiaan', platform: 'Instagram', text: "Kami tidur beralaskan kekecewaan, bangun dengan cemas. Uang ${LOSS_VALUE_LONG} itu adalah nafas hidup kami. Tolong, hentikan penderitaan ini! [TAGS] [HASHTAGS]" },
-                { tone: 'Kemanusiaan', platform: 'Instagram', text: "Kehidupan kami kini di titik nol, bahkan minus. Siapa yang akan menjamin masa depan anak-anak kami? Jawab @ojkindonesia! [TAGS] [HASHTAGS]" },
-                { tone: 'Kemanusiaan', platform: 'Instagram', text: "Logo OJK di DSI adalah pengkhianatan terbesar pada rakyat kecil. Kami terlalu percaya! Kembalikan kepercayaan kami dengan mengembalikan ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
-                { tone: 'Kemanusiaan', platform: 'Instagram', text: "Lihatlah, kami adalah rakyat yang tak berdaya melawan sistem yang bobrok. Kami butuh negara hadir! @dpr_ri [TAGS] [HASHTAGS]" },
-                { tone: 'Kemanusiaan', platform: 'Instagram', text: "Kami tak sanggup lagi menanggung beban finansial dan mental ini. Kerugian ${LOSS_VALUE_LONG} adalah akhir dari segalanya bagi kami. 😭 [TAGS] [HASHTAGS]" },
-
-                { tone: 'Kemanusiaan', platform: 'Facebook', text: "Kami mohon, jangan biarkan kami kehilangan rumah karena uang ${LOSS_VALUE_LONG} kami ditahan. Kami butuh tempat tinggal, kami butuh uang kami! [TAGS] [HASHTAGS]" },
-                { tone: 'Kemanusiaan', platform: 'Facebook', text: "Kepada seluruh pengguna Facebook, tolong bantu kami viralkan. Ini bukan lagi soal investasi, ini soal SURVIVAL ribuan keluarga! [TAGS] [HASHTAGS]" },
-                { tone: 'Kemanusiaan', platform: 'Facebook', text: "DSI dan OJK, lihatlah wajah-wajah korban lansia. Apakah kalian tega merampas hak masa tua mereka? ${LOSS_VALUE_LONG} adalah dosa besar! [TAGS] [HASHTAGS]" },
-                { tone: 'Kemanusiaan', platform: 'Facebook', text: "Kami butuh JALAN KELUAR, bukan sekadar kalimat 'bersabar'. Sabar kami sudah habis! Kembalikan uang kami! [TAGS] [HASHTAGS]" },
-                { tone: 'Kemanusiaan', platform: 'Facebook', text: "Tuhan, tolong tegakkan keadilan bagi kami yang terdzalimi. Lindungi kami dari mafia yang bersembunyi di balik jas dan dasi. [TAGS] [HASHTAGS]" },
-                { tone: 'Kemanusiaan', platform: 'Facebook', text: "Mereka yang merampas ${LOSS_VALUE_LONG} dari kami, semoga tidak pernah merasakan kedamaian. Karma itu nyata! [TAGS] [HASHTAGS]" },
-                { tone: 'Kemanusiaan', platform: 'Facebook', text: "Saya menuntut tanggung jawab moral DPR RI. Jangan biarkan kami berjuang sendiri melawan ketidakadilan ${LOSS_VALUE_LONG} ini! [TAGS] [HASHTAGS]" },
-                { tone: 'Kemanusiaan', platform: 'Facebook', text: "Setiap malam kami dihantui mimpi buruk tentang hilangnya ${LOSS_VALUE_LONG}. Berikan kami ketenangan batin, kembalikan uang kami! [TAGS] [HASHTAGS]" },
-                { tone: 'Kemanusiaan', platform: 'Facebook', text: "Kami mohon kepada media, jangan hentikan liputan ini. Suara kami harus terus didengar sampai keadilan ditegakkan! [TAGS] [HASHTAGS]" },
-                { tone: 'Kemanusiaan', platform: 'Facebook', text: "Kepada Direksi DSI: Kalian bisa sembunyi dari kami, tapi kalian tidak bisa sembunyi dari hati nurani kalian! ${LOSS_VALUE_LONG} akan menghantui kalian! [TAGS] [HASHTAGS]" },
-
-                { tone: 'Kemanusiaan', platform: 'TikTok', text: "Kami ini investor pemula, bukan mafia! Kenapa nasib kami dihancurkan sekejam ini? Uang ${LOSS_VALUE_LONG} itu cita-cita kami! 😭 [HASHTAGS]" },
-                { tone: 'Kemanusiaan', platform: 'TikTok', text: "Tolong UP! Setiap detik penundaan OJK adalah siksaan bagi kami! Kami tak tahan lagi! #SiksaFinansialDSI [HASHTAGS]" },
-                { tone: 'Kemanusiaan', platform: 'TikTok', text: "POV: Ketika kamu lihat saldo DSI, yang ada hanya tangis dan angka ${LOSS_VALUE_LONG} kerugian. #JeritanHatiLender [HASHTAGS]" },
-                { tone: 'Kemanusiaan', platform: 'TikTok', text: "Tag @dpr_ri! Tolong lihat kondisi korban yang sudah depresi karena kerugian ${LOSS_VALUE_LONG}! Kami butuh pertolongan SEKARANG! [HASHTAGS]" },
-                { tone: 'Kemanusiaan', platform: 'TikTok', text: "Ini bukan cuma uang, ini Harga Diri! Kalian rampas semua yang kami punya! Kembalikan! [HASHTAGS]" },
-                { tone: 'Kemanusiaan', platform: 'TikTok', text: "Kami mohon, jangan biarkan kami jadi korban berikutnya. Viralkan kasus ${LOSS_VALUE_LONG} ini agar masyarakat sadar! [HASHTAGS]" },
-                { tone: 'Kemanusiaan', platform: 'TikTok', text: "Uang ${LOSS_VALUE_LONG} ini adalah bukti nyata kegagalan negara dalam melindungi rakyatnya. Kami sangat kecewa! 💔 [HASHTAGS]" },
-                { tone: 'Kemanusiaan', platform: 'TikTok', text: "Orang tua saya menangis karena uang pensiunnya lenyap. Siapa yang bertanggung jawab atas air mata ini? Jawab! [HASHTAGS]" },
-                { tone: 'Kemanusiaan', platform: 'TikTok', text: "DSI dan OJK, kami tidak akan pernah menyerah menuntut keadilan! Sampai ${LOSS_VALUE_LONG} kembali! ✊ [HASHTAGS]" },
-                { tone: 'Kemanusiaan', platform: 'TikTok', text: "Kami butuh simpati dan aksi, bukan janji basi! Bantu kami viral, ini demi kemanusiaan! [HASHTAGS]" },
-
-
-                // ====================================================================================
-                // 5. FAKTA & BUKTI (25 VARIAN BARU)
-                // ====================================================================================
-                { tone: 'Fakta', platform: 'all', text: "Kerugian ${LOSS_VALUE_LONG} itu BUKAN UANG KECIL! Itu DEKADE GAGAL PENGAWASAN OJK yang mengakibatkan BENCANA KEUANGAN NASIONAL! Tapi kok adem ayem? Ada apa ini? 💥💸 [TAGS] [HASHTAGS]" },
-                { tone: 'Fakta', platform: 'all', text: "Data TKB90 DSI di website sempat 98%+ padahal realita macet ${LOSS_VALUE_LONG}. Ini jelas PEMBOHONGAN PUBLIK. OJK tahu tapi diam? [HASHTAGS]" },
-                { tone: 'Fakta', platform: 'all', text: "Kerugian ${LOSS_VALUE_LONG} / Ribuan lender = Rata-rata kerugian RAKSASA per orang. Ini bukan 'investor receh'. Ini dana pensiun, dana pendidikan! 📉🚨 [TAGS] [HASHTAGS]" },
-                { tone: 'Fakta', platform: 'all', text: "OJK jelas GAGAL jalankan amanat UU P2SK. Mereka harus bertanggung jawab secara HUKUM & FINANSIAL atas kerugian ${LOSS_VALUE_LONG} ini! ⚖️ [TAGS] [HASHTAGS]" },
-                { tone: 'Fakta', platform: 'all', text: "Logo OJK & Label Syariah MUI = Kombinasi maut yang bikin kami percaya. Kepercayaan publik kini hancur lebur karena skandal ${LOSS_VALUE_LONG}! 📉 [TAGS] [HASHTAGS]" },
-
-                { tone: 'Fakta', platform: 'X', text: "FAKTA KASUS DSI:\n✅ Berizin OJK\n❌ GAGAL BAYAR ${LOSS_VALUE_LONG}\nKESIMPULAN: PENGAWASAN OJK GAGAL TOTAL. Negara harus tanggung jawab! 📊📉 @dpr_ri [HASHTAGS]" },
-                { tone: 'Fakta', platform: 'X', text: "POJK 6/2022 tentang Perlindungan Konsumen. Pasal berapa yang OJK pakai? Kenapa implementasinya NOL BESAR di kasus DSI? UU cuma pajangan? 📜⚖️ [HASHTAGS]" },
-                { tone: 'Fakta', platform: 'X', text: "Komparasi: Jiwasraya (BUMN) negara turun tangan. DSI (Rakyat) negara 'memantau' kelalaian ${LOSS_VALUE_LONG}? Standar ganda yang memuakkan! ⚖️😒 @kemenkeuri [HASHTAGS]" },
-                { tone: 'Fakta', platform: 'X', text: "Fakta: OJK digaji dari iuran industri. Apa ini KONFLIK KEPENTINGAN yang bikin pengawasan tumpul hingga kerugian ${LOSS_VALUE_LONG}? @dpr_ri, selidiki! 🧐 [HASHTAGS]" },
-                { tone: 'Fakta', platform: 'X', text: "OJK bilang 'sudah mediasi'. Fakta: Mediasi BUNTU. Gak ada hasil! Jangan jualan narasi 'proses' terus di saat kerugian mencapai ${LOSS_VALUE_LONG}! [HASHTAGS]" },
-
-                { tone: 'Fakta', platform: 'Instagram', text: "📚 FAKTA PAHIT: Logo OJK ternyata bukan JAMINAN AMAN. Cuma tanda 'pernah daftar'. Saat masalah ${LOSS_VALUE_LONG}, OJK cuci tangan. RAKYAT WAJIB TAU INI! 🚫🛡️ [TAGS]" },
-                { tone: 'Fakta', platform: 'Instagram', text: "Fakta: Asuransi di fintech GAK COVER gagal bayar karena fraud/mismanagement. Itu celah regulasi yang OJK biarkan menganga dan membuat kerugian ${LOSS_VALUE_LONG}! Perbaiki! 🛠️📄 [TAGS]" },
-                { tone: 'Fakta', platform: 'Instagram', text: "Kami punya BUKTI screenshot TKB90 palsu! Ini jelas kebohongan publik yang sistematis! @humaspolri, tangkap manajemen DSI! [TAGS] [HASHTAGS]" },
-                { tone: 'Fakta', platform: 'Instagram', text: "DATA: Kerugian ${LOSS_VALUE_LONG}. Korbannya ribuan orang. Ini bukan risiko, ini kelalaian pengawasan OJK! Kami tuntut ganti rugi! [TAGS] [HASHTAGS]" },
-                { tone: 'Fakta', platform: 'Instagram', text: "OJK, tunjukkan BUKTI audit mendalam Anda ke DSI selama 2 tahun terakhir! Atau kami anggap Anda GAGAL MENGAWASI tragedi ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
-
-                { tone: 'Fakta', platform: 'Facebook', text: "BEDAH KASUS: Gimana caranya platform 'diawasi ketat' bisa jebol ${LOSS_VALUE_LONG} tanpa 'red flag'? Pengawas tidur, atau 'main mata'? Rakyat butuh jawaban logis! 🤔🔍 [TAGS] [HASHTAGS]" },
-                { tone: 'Fakta', platform: 'Facebook', text: "Fakta: Syariah itu AMANAH. Gagal bayar ${LOSS_VALUE_LONG} karena mismanagement/fraud itu KHIANAT. Integritas DSI & OJK = GAGAL. Kembalikan dana lender! [TAGS] [HASHTAGS]" },
-                { tone: 'Fakta', platform: 'Facebook', text: "Fakta: OJK baru bergerak setelah kami TERIAK-TERIAK. Pengawasan preventifnya kemana? Tidur saat uang ${LOSS_VALUE_LONG} hilang? [TAGS] [HASHTAGS]" },
-                { tone: 'Fakta', platform: 'Facebook', text: "Kami adalah korban LALAI REGULASI. Negara wajib melindungi warganya dari kerugian ${LOSS_VALUE_LONG} ini! [TAGS] [HASHTAGS]" },
-                { tone: 'Fakta', platform: 'Facebook', text: "Tolong sebarkan data ini! DSI adalah cerminan bobroknya pengawasan fintech di Indonesia yang merugikan ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
-
-                { tone: 'Fakta', platform: 'TikTok', text: "Fakta: TKB90 DSI di web 98% (Indah). Realita: Kerugian ${LOSS_VALUE_LONG} (Pahit). Ini namanya PEMBOHONGAN PUBLIK! OJK kemana aja? 📉🤥 [HASHTAGS]" },
-                { tone: 'Fakta', platform: 'TikTok', text: "Ini data kerugian: ${LOSS_VALUE_LONG}! Ini jumlah korban: RIBUAN! Ini bukan drama, ini FAKTA! Viralkan! 📊 [HASHTAGS]" },
-                { tone: 'Fakta', platform: 'TikTok', text: "Faktanya: Uang kami HILANG di platform BERIZIN OJK. Gimana dong pertanggungjawabannya atas kerugian ${LOSS_VALUE_LONG}? @ojkindonesia [HASHTAGS]" },
-                { tone: 'Fakta', platform: 'TikTok', text: "Viralin! DSI adalah GAGAL BAYAR TERBESAR di fintech syariah! OJK GAGAL! #SaveLenderDSI. [HASHTAGS]" },
-                { tone: 'Fakta', platform: 'TikTok', text: "Bongkar total! Siapa pemilik asli DSI? Ada beking politik/pejabat? #AuditForensikDSI. [HASHTAGS]" },
-
-                // ====================================================================================
-                // 6. SATIRE & SINDIRAN (25 VARIAN BARU)
-                // ====================================================================================
-                { tone: 'Satire', platform: 'all', text: "Label 'Syariah' biar berkah, eh malah musibah. Diawasi 'Negara' biar aman, eh malah nyaman buat ngilangin duit ${LOSS_VALUE_LONG}. Lawak banget negeri ini. 🎪🤹‍♂️ [HASHTAGS]" },
-                { tone: 'Satire', platform: 'all', text: "Luar biasa, fintech kita bisa sulap! Menghilangkan ${LOSS_VALUE_LONG} dalam sekejap tanpa jejak! David Copperfield sungkem! 🎩✨ [TAGS] [HASHTAGS]" },
-                { tone: 'Satire', platform: 'all', text: "Hebat! ${LOSS_VALUE_LONG} hilang, OJK cuma bilang 'dimediasi'. Kalau rumah saya dirampok apa cukup 'dimediasi' sama malingnya, Pak Polisi? 🤝🤡 [TAGS] [HASHTAGS]" },
-                { tone: 'Satire', platform: 'all', text: "OJK: 'Investasi ada risiko'. Betul, Pak. Tapi kalau OJK GAGAL PENGAWASAN, itu bukan risiko, itu KELALAIAN NEGARA yang merugikan ${LOSS_VALUE_LONG}! Paham bedanya? 🧠 [TAGS] [HASHTAGS]" },
-                { tone: 'Satire', platform: 'all', text: "DPS (Dewan Pengawas Syariah) kerjanya apa ya? Memastikan uang ${LOSS_VALUE_LONG} hilang secara syariah? Sungguh taat aturan. 🙄 [TAGS] [HASHTAGS]" },
-
-                { tone: 'Satire', platform: 'X', text: "Congrats OJK atas award 'The Most Silent Guardian'. ${LOSS_VALUE_LONG} lenyap, respon secepat kura-kura. 🐌🏆 Hebat! @ojkindonesia [HASHTAGS]" },
-                { tone: 'Satire', platform: 'X', text: "Tips investasi anti rugi 2025: Jangan percaya siapapun, TERUTAMA yang ada logo OJK & Syariah. Karena kalau hilang ${LOSS_VALUE_LONG}, disuruh 'ikhlas' secara birokratis. 🙃📉 [HASHTAGS]" },
-                { tone: 'Satire', platform: 'X', text: "Halo @ojkindonesia, butuh kopi? Kok ngawasinya ngantuk banget sampai kebobolan ${LOSS_VALUE_LONG}? ☕😴 Bangun woy, rakyat udah teriak-teriak! [HASHTAGS]" },
-                { tone: 'Satire', platform: 'X', text: "OJK bilang 'sudah peringatkan'. Peringatkan siapa? Bisik-bisik ke DSI? Kenapa gak UMUMKAN ke publik biar kami tarik dana ${LOSS_VALUE_LONG}? Oh, takut industrinya jelek ya? 🤫 [HASHTAGS]" },
-                { tone: 'Satire', platform: 'X', text: "Mungkin OJK lagi WFH pas DSI kolaps. Jadi gak 'terpantau' hilangnya ${LOSS_VALUE_LONG}. Positive thinking aja. 🙂 [HASHTAGS]" },
-
-                { tone: 'Satire', platform: 'Instagram', text: "Mungkin arti 'Diawasi OJK' itu cuma 'Dilihatin pas uang ${LOSS_VALUE_LONG} diambil'. 🤔 Makasih lho, kami jadi paham logo garuda itu cuma stiker. 🎭💸 [TAGS] [HASHTAGS]" },
-                { tone: 'Satire', platform: 'Instagram', text: "Visi Indonesia Emas 2045. Realita: Uang pensiunan buat beli emas, LUDES ${LOSS_VALUE_LONG} di 2024. Mantap pak pejabat! 👍🇮🇩 [TAGS] [HASHTAGS]" },
-                { tone: 'Satire', platform: 'Instagram', text: "Katanya 'Syariah', kok dzalim? Katanya 'Diawasi', kok kecolongan ${LOSS_VALUE_LONG}? Ini 'Syariah' versi siapa? 'Diawasi' oleh siapa? Tuyul? 👻 [TAGS] [HASHTAGS]" },
-                { tone: 'Satire', platform: 'Instagram', text: "Keren OJK! Berhasil 'mengawasi' hilangnya ${LOSS_VALUE_LONG} uang rakyat. Prestasi! 🏆 [TAGS] [HASHTAGS]" },
-                { tone: 'Satire', platform: 'Instagram', text: "Kami kira investasi kami akan jadi amal jariyah, ternyata cuma jadi amal jariah buat direksi DSI liburan. Kerugian ${LOSS_VALUE_LONG} ini parah! ✈️ [TAGS] [HASHTAGS]" },
-
-                { tone: 'Satire', platform: 'Facebook', text: "Maling ayam > digebukin. Maling ${LOSS_VALUE_LONG} > pakai jas, diawasi OJK, rapat di hotel, disuruh 'mediasi'. Keadilan sosial bagi siapa? 🤡👏 [TAGS]" },
-                { tone: 'Satire', platform: 'Facebook', text: "Kami kira nabung di fintech syariah itu hijrah finansial, ternyata musibah finansial. Syariah cuma di brosur, aslinya jahiliyah. 🕌💔 [TAGS]" },
-                { tone: 'Satire', platform: 'Facebook', text: "Enak ya jadi DSI. Dikasih izin OJK, dikasih label MUI, dikasih uang ${LOSS_VALUE_LONG}. Sekarang tinggal 'dikasihani' aja korbannya. 🎭 [TAGS] [HASHTAGS]" },
-                { tone: 'Satire', platform: 'Facebook', text: "Republik +62 emang lucu. Maling sendal dikejar sekampung. Maling ${LOSS_VALUE_LONG} 'dimediasi'. 🤡 [TAGS]" },
-                { tone: 'Satire', platform: 'Facebook', text: "Kami kirimkan hadiah 'Top Regulator Gagal' kepada @ojkindonesia. Silakan dipajang di kantor Anda! ${LOSS_VALUE_LONG}! 🏆 [TAGS] [HASHTAGS]" },
-
-                { tone: 'Satire', platform: 'TikTok', text: "Tutorial jadi kaya: 1. Bikin fintech 2. Dapat izin OJK 3. Kumpulin duit ${LOSS_VALUE_LONG} 4. Gagal bayar 5. Bilang 'risiko bisnis'. Gampang kan? 🤡🖕 [HASHTAGS]" },
-                { tone: 'Satire', platform: 'TikTok', text: "Negara lain punya 'financial watch-DOG'. Kita punya 'watch-CAT'. Disodorin duit ${LOSS_VALUE_LONG}, tidur pules~ 😴🐈 [HASHTAGS]" },
-                { tone: 'Satire', platform: 'TikTok', text: "SPOILER ALERT: Ending kasus DSI, korban disuruh ikhlas, OJK salahkan korban, manajemen DSI liburan ke Swiss. Skandal ${LOSS_VALUE_LONG}! 🎬 [HASHTAGS]" },
-                { tone: 'Satire', platform: 'TikTok', text: "Gimana cara ngilangin duit ${LOSS_VALUE_LONG}? Tanya DSI. Gimana cara 'gak lihat' duit hilang? Tanya OJK. 🤣 [HASHTAGS]" },
-                { tone: 'Satire', platform: 'TikTok', text: "PRANK JADI FINTECH SYARIAH! (SAMPAI HILANGIN ${LOSS_VALUE_LONG})\n(Komen) Prank-nya gak lucu, bang. Duit pensiun gue tuh! 😭 [HASHTAGS]" },
-
-                // ====================================================================================
-                // 7. RELIGIUS & MORAL (25 VARIAN BARU)
-                // ====================================================================================
-                { tone: 'Religius', platform: 'all', text: "Label SYARIAH seharusnya AMANAH, bukan KHIANAT! Kalian menodai nama baik ekonomi Islam. Kembalikan hak umat yang ${LOSS_VALUE_LONG} ini sebelum Allah yang bertindak! 🕋⚡ [HASHTAGS]" },
-                { tone: 'Religius', platform: 'all', text: "Wahai pemimpin, 'Kullu kum ra'in'. Setiap kalian akan dimintai pertanggungjawaban atas rakyat yang uangnya hilang ${LOSS_VALUE_LONG} di bawah pengawasan kalian! ☝️⚖️ [TAGS] [HASHTAGS]" },
-                { tone: 'Religius', platform: 'all', text: "Mengambil hak orang lain secara batil adalah dosa besar. Segera tobat nasuha dan kembalikan uang ${LOSS_VALUE_LONG} ini, sebelum kain kafan membungkus kalian! ⚰️🛑 [TAGS]" },
-                { tone: 'Religius', platform: 'all', text: "Kami bersumpah atas nama Allah, kami tidak akan ikhlaskan 1 rupiah pun! Kami tuntut di dunia & akhirat! ${LOSS_VALUE_LONG} adalah beban moral kalian! ⚖️ [TAGS] [HASHTAGS]" },
-                { tone: 'Religius', platform: 'all', text: "Kami sholat, kami berdoa. Tapi kami juga ikhtiar menuntut! Allah bersama orang-orang yang dizalimi atas kerugian ${LOSS_VALUE_LONG} ini! [TAGS] [HASHTAGS]" },
-
-                { tone: 'Religius', platform: 'X', text: "Rezeki halal kami berubah jadi bara api di perut kalian. Hati-hati, uang haram ${LOSS_VALUE_LONG} gak akan bawa berkah, cuma laknat! Kembalikan! 🛑🔥 @afsi.id [HASHTAGS]" },
-                { tone: 'Religius', platform: 'X', text: "Doa orang yang terdzalimi itu TIDAK ADA HIJABNYA. Hati-hati kalian para penikmat dana ${LOSS_VALUE_LONG}, azab Allah sangat pedih! 🤲⚡ [HASHTAGS]" },
-                { tone: 'Religius', platform: 'X', text: "Kepada DPS DSI: Kalian digaji untuk mengawasi syariah. ${LOSS_VALUE_LONG} uang umat hilang, apa pertanggungjawaban kalian di hadapan Allah? 🕌 @dsnmuiinstitute [HASHTAGS]" },
-                { tone: 'Religius', platform: 'X', text: "Para Ulama, jangan diam! Suarakan kebenaran! Bela umat yang tertindas karena kerugian ${LOSS_VALUE_LONG}! @muipusat [HASHTAGS]" },
-                { tone: 'Religius', platform: 'X', text: "Ini bukan cuma Riba yg kami hindari, ini malah perampokan ${LOSS_VALUE_LONG}! Lebih parah! [HASHTAGS]" },
-
-                { tone: 'Religius', platform: 'Instagram', text: "Untuk Tuan Berdasi DSI: Uang ${LOSS_VALUE_LONG} yang kalian tahan itu mungkin doa terakhir seorang Ibu. Takutlah pengadilan Allah yang tak bisa disogok! Azab makan harta anak yatim itu PEDIH! 🔥🤲 [TAGS] [HASHTAGS]" },
-                { tone: 'Religius', platform: 'Instagram', text: "Jangan kotori label suci Syariah dengan praktek dzalim! Ini PENISTAAN AGAMA dalam bentuk ekonomi ${LOSS_VALUE_LONG}! 🕋💔 [TAGS] [HASHTAGS]" },
-                { tone: 'Religius', platform: 'Instagram', text: "Harta ${LOSS_VALUE_LONG} itu akan jadi saksi di Yaumul Hisab. Berat hisabnya, wahai manajemen DSI & OJK! Bertaubatlah selagi bisa! ⚖️ [TAGS] [HASHTAGS]" },
-                { tone: 'Religius', platform: 'Instagram', text: "Banyak korban adalah orang tua yang dana hajinya hilang ${LOSS_VALUE_LONG}. Kalian menghalangi ibadah umat! Itu dosa besar! 🕋 [TAGS] [HASHTAGS]" },
-                { tone: 'Religius', platform: 'Instagram', text: "Kami percaya penuh pada logo MUI, tapi kepercayaan itu dihancurkan DSI dan dibiarkan OJK. Kembalikan integritas Syariah! [TAGS] [HASHTAGS]" },
-
-                { tone: 'Religius', platform: 'Facebook', text: "Assalamu'alaikum @muipusat & DPS DSI. Mana suara antum saat umat didzalimi ${LOSS_VALUE_LONG}? Membiarkan kedzaliman itu DOSA BESAR! Ingat hisab di akhirat! 🕌⚖️ [TAGS]" },
-                { tone: 'Religius', platform: 'Facebook', text: "Kami tuntut fatwa tegas para ulama! Bagaimana hukumnya regulator (OJK) yang membiarkan umatnya dirampok platform berlabel syariah hingga ${LOSS_VALUE_LONG}? 👳‍♂️📜 [TAGS]" },
-                { tone: 'Religius', platform: 'Facebook', text: "Kami percaya DSI karena label ISLAM-nya. Jika kalian khianat, kalian MUNAFIK kelas berat. Pertanggungjawabkan di dunia sebelum di akhirat! ${LOSS_VALUE_LONG} harus kembali! 🕌🔥 [TAGS]" },
-                { tone: 'Religius', platform: 'Facebook', text: "Ini adalah ujian besar bagi integritas ekonomi syariah di Indonesia. DSI harus jadi contoh penindakan tegas atas skandal ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
-                { tone: 'Religius', platform: 'Facebook', text: "Minta para Ulama & Tokoh Agama untuk bersuara lantang membela hak-hak korban DSI! Jangan biarkan kedzaliman ${LOSS_VALUE_LONG} ini terjadi! [TAGS] [HASHTAGS]" },
-
-                { tone: 'Religius', platform: 'TikTok', text: "Katanya Syariah, kok menipu? Ini bukan Islam. Ini bandit berkedok agama, merampok ${LOSS_VALUE_LONG}! 😠 [HASHTAGS]" },
-                { tone: 'Religius', platform: 'TikTok', text: "Tidakkah kalian takut laknat Allah karena menahan hak ribuan keluarga yang ruginya ${LOSS_VALUE_LONG}? ⚡ [HASHTAGS]" },
-                { tone: 'Religius', platform: 'TikTok', text: "Ciri-ciri munafik: 1. Berkata bohong (TKB90 palsu) 2. Ingkar janji (gagal bayar ${LOSS_VALUE_LONG}) 3. Khianat (amanah uang lender). Lengkap! [HASHTAGS]" },
-                { tone: 'Religius', platform: 'TikTok', text: "Uang kami hasil keringat halal, hilang ${LOSS_VALUE_LONG} karena platform berlogo Syariah. Kenapa ini terjadi? [HASHTAGS]" },
-                { tone: 'Religius', platform: 'TikTok', text: "Allah Maha Melihat. Kalian bisa sembunyi dari OJK, tapi tidak dari pengawasan Tuhan! Kembalikan uang ${LOSS_VALUE_LONG}! [HASHTAGS]" },
-
-                // ====================================================================================
-                // 8. HUKUM & PIDANA (25 VARIAN BARU)
-                // ====================================================================================
-                { tone: 'Hukum', platform: 'all', text: "Ini bukan wanprestasi perdata! Ini PIDANA MURNI! Tuntut @humaspolri terapkan pasal Penipuan, Penggelapan, & TPPU ke manajemen DSI. SITA ASET PRIBADI mereka yang menikmati ${LOSS_VALUE_LONG}! 🚔⚖️ [HASHTAGS]" },
-                { tone: 'Hukum', platform: 'all', text: "KAMI TOLAK PKPU! Itu cuma akal-akalan maling ${LOSS_VALUE_LONG} untuk lari dari pidana! PIDANA HARUS JALAN BERIRINGAN! Penjarakan pelakunya! 🚔🔒 [TAGS] [HASHTAGS]" },
-                { tone: 'Hukum', platform: 'all', text: "Negara wajib ganti rugi jika regulator (OJK) terbukti gagal total melindungi konsumen sesuai amanat UU! Ini saatnya menuntut kerugian ${LOSS_VALUE_LONG}! 🏛️ [TAGS] [HASHTAGS]" },
-                { tone: 'Hukum', platform: 'all', text: "Semua bukti (transfer, screenshot TKB90, janji OJK) kami simpan! Ini akan jadi bukti kuat di pengadilan untuk menuntut ${LOSS_VALUE_LONG} kembali! [TAGS] [HASHTAGS]" },
-                { tone: 'Hukum', platform: 'all', text: "Kami minta perlindungan hukum! Kami korban, bukan 'investor bodoh'! Kami percaya pada sistem yang GAGAL dan merugikan ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
-
-                { tone: 'Hukum', platform: 'X', text: "UU Perlindungan Konsumen & UU P2SK jelas jamin hak kami. Jika OJK diam, kami GUGAT CLASS ACTION OJK karena LALAI jalankan amanat UU atas kerugian ${LOSS_VALUE_LONG}! Siap-siap! 🏛️🔨 @ojkindonesia [HASHTAGS]" },
-                { tone: 'Hukum', platform: 'X', text: "Pak Jaksa Agung @kejaksaan.ri, tolong endus kasus DSI. Ini bukan cuma korupsi uang negara, ini perampokan uang rakyat langsung yang ${LOSS_VALUE_LONG}! Sikat mereka! ⚖️🔨 [HASHTAGS]" },
-                { tone: 'Hukum', platform: 'X', text: "OJK bisa kena pidana jika terbukti LALAI & MEMBIARKAN kejahatan perbankan ini terjadi (Pasal 3 UU TPPU). @official.kpk, ayo periksa OJK! [HASHTAGS]" },
-                { tone: 'Hukum', platform: 'X', text: "PKPU adalah jebakan agar pidana tidak jalan. KAWAL! Jangan mau dibodohi skema restrukturisasi bodong! Pidana untuk ${LOSS_VALUE_LONG} harus tetap jalan! 🚔 [HASHTAGS]" },
-                { tone: 'Hukum', platform: 'X', text: "Kasus DSI ini harus jadi YURISPRUDENSI! Bahwa OJK tidak bisa lepas tangan begitu saja setelah kerugian mencapai ${LOSS_VALUE_LONG}! ⚖️ [HASHTAGS]" },
-
-                { tone: 'Hukum', platform: 'Instagram', text: "Kami butuh KEPASTIAN HUKUM, bukan janji manis mediasi buntu. Negara hukum harusnya tajam ke atas! Sikat perampok kerah putih yang merugikan ${LOSS_VALUE_LONG}! ⚔️🇮🇩 [TAGS] [HASHTAGS]" },
-                { tone: 'Hukum', platform: 'Instagram', text: "Sesuai POJK, Direksi bertanggung jawab penuh. Kami tuntut SITA JAMINAN aset pribadi direksi & komisaris untuk menutup kerugian ${LOSS_VALUE_LONG}! 🏠🚗 [TAGS] [HASHTAGS]" },
-                { tone: 'Hukum', platform: 'Instagram', text: "Kami minta @kejaksaan.ri sita aset DSI & pribadi manajemennya SEBELUM mereka mempailitkan diri! Selamatkan uang rakyat ${LOSS_VALUE_LONG}! 🏃‍♂️💨 [TAGS] [HASHTAGS]" },
-                { tone: 'Hukum', platform: 'Instagram', text: "Cekal semua petinggi DSI! Jangan sampai mereka kabur ke luar negeri pakai uang ${LOSS_VALUE_LONG} kami! @humaspolri @ditjen_imigrasi [TAGS] [HASHTAGS]" },
-                { tone: 'Hukum', platform: 'Instagram', text: "Mendesak @humaspolri segera menetapkan manajemen DSI sebagai tersangka TPPU dan Penipuan! Bukti kerugian ${LOSS_VALUE_LONG} sudah sangat jelas! [TAGS] [HASHTAGS]" },
-
-                { tone: 'Hukum', platform: 'Facebook', text: "Peringatan Hukum: Segala upaya mengalihkan aset, mempailitkan diri, atau 'memiskinkan' perusahaan saat gagal bayar ${LOSS_VALUE_LONG} adalah TINDAK PIDANA! Kami pantau kalian! 👀👮‍♂️ [TAGS]" },
-                { tone: 'Hukum', platform: 'Facebook', text: "Jangan jadikan 'Risiko Investasi' sebagai tameng hukum untuk lari dari tanggung jawab atas 'MISMANAGEMENT' dan dugaan 'FRAUD' ${LOSS_VALUE_LONG}. Kami paham bedanya! 🛑⚖️ [TAGS]" },
-                { tone: 'Hukum', platform: 'Facebook', text: "Surat Somasi Terbuka untuk OJK: Kami beri waktu 7x24 jam untuk tunjukkan langkah KONKRET pengembalian dana DSI yang ${LOSS_VALUE_LONG}, atau kami tempuh jalur hukum! ⚖️ [TAGS] [HASHTAGS]" },
-                { tone: 'Hukum', platform: 'Facebook', text: "Ini bukan perdata murni. Ini PIDANA! Ada unsur penipuan (TKB90 palsu) & penggelapan (dana lender ${LOSS_VALUE_LONG} ditahan). @humaspolri, usut tuntas! [TAGS] [HASHTAGS]" },
-                { tone: 'Hukum', platform: 'Facebook', text: "Kami tuntut pertanggungjawaban hukum PIMPINAN OJK atas kelalaian pengawasan DSI yang menyebabkan kerugian ${LOSS_VALUE_LONG}! Ini kerugian besar! [TAGS] [HASHTAGS]" },
-
-                { tone: 'Hukum', platform: 'TikTok', text: "Kami siapkan laporan massal ke Bareskrim! Bukti transfer ${LOSS_VALUE_LONG} siap! Negara gak boleh kalah sama mafia berjas! 🇮🇩👮‍♂️ [HASHTAGS]" },
-                { tone: 'Hukum', platform: 'TikTok', text: "OJK GAGAL PENGAWASAN = MELANGGAR HUKUM! Kita gugat class action atas kerugian ${LOSS_VALUE_LONG}! Siapa setuju? Komen! 👇 [HASHTAGS]" },
-                { tone: 'Hukum', platform: 'TikTok', text: "Viralin! Penipuan DSI harus berujung PIDANA! Jangan cuma di 'mediasi'! Kerugian sudah ${LOSS_VALUE_LONG}! [HASHTAGS]" },
-                { tone: 'Hukum', platform: 'TikTok', text: "Cekal Direksi DSI SEKARANG! Jangan sampai kabur bawa uang ${LOSS_VALUE_LONG}! @humaspolri [HASHTAGS]" },
-                { tone: 'Hukum', platform: 'TikTok', text: "Ini bukan perdata, ini fraud yang merugikan ${LOSS_VALUE_LONG}! Keadilan harus ditegakkan sampai tuntas! [HASHTAGS]" },
-
-                // ====================================================================================
-                // 9. AJAKAN AKSI (25 VARIAN BARU)
-                // ====================================================================================
-                { tone: 'Aksi', platform: 'all', text: "Ayo BOIKOT semua produk/layanan yang terafiliasi dengan pemilik & manajemen DSI! Buat mereka miskin! Kita balas kerugian ${LOSS_VALUE_LONG} ini! [HASHTAGS]" },
-                { tone: 'Aksi', platform: 'all', text: "JANGAN MAU MEDIASI BUNTU! Tuntutan kita cuma satu: UANG KEMBALI 100%! Bukan janji cicil 100 tahun! LAWAN MAFIA ${LOSS_VALUE_LONG}! ✊ [TAGS] [HASHTAGS]" },
-                { tone: 'Aksi', platform: 'all', text: "Semua korban DSI, kumpulkan KTP & Bukti Transfer! Kita GUGAT CLASS ACTION besar-besaran! Bersatu kita kuat melawan kerugian ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
-                { tone: 'Aksi', platform: 'all', text: "JANGAN MAU DIADU DOMBA antar sesama lender! Musuh kita DSI & OJK yg lalai! Kita harus bersatu padu! Lender bersatu tak bisa dikalahkan! ✊ [TAGS] [HASHTAGS]" },
-                { tone: 'Aksi', platform: 'all', text: "JANGAN TAKUT DIINTIMIDASI! Ini negara hukum! Kita berhak menuntut kerugian ${LOSS_VALUE_LONG}! AYO LAWAN MAFIA FINTECH! 💥 [TAGS] [HASHTAGS]" },
-
-                { tone: 'Aksi', platform: 'X', text: "Rapatkan barisan! Kita GERUDUK VIRTUAL akun @ojkindonesia! Spam komen #OJKGagalMengawasi di SETIAP postingan mereka! Jangan kasih kendor! [HASHTAGS]" },
-                { tone: 'Aksi', platform: 'X', text: "Boikot semua influencer yang *masih* mempromosikan P2P lending tanpa transparansi! Mereka ikut tanggung jawab moral atas kerugian ${LOSS_VALUE_LONG}! [HASHTAGS]" },
-                { tone: 'Aksi', platform: 'X', text: "Paguyuban Lender DSI, ayo tetapkan 1 hari untuk AKSI DIAM NASIONAL. Kita log out dari semua platform keuangan! Biar mereka panik! [HASHTAGS]" },
-                { tone: 'Aksi', platform: 'X', text: "Jangan cuma serang DSI! Serang REGULATORNYA! @ojkindonesia adalah biang kerok kegagalan ${LOSS_VALUE_LONG} ini! Alamatkan protes kita ke OJK! [HASHTAGS]" },
-                { tone: 'Aksi', platform: 'X', text: "Saatnya revolusi nasabah! Jika OJK tidak becus, kita minta @dpr_ri BUBAKAN OJK! Ganti dengan lembaga baru yg pro-rakyat! #BubarkanOJK [HASHTAGS]" },
-
-                { tone: 'Aksi', platform: 'Instagram', text: "PASANG FOTO PROFIL SERAGAM! Pakai logo #SaveLenderDSI! Biar semua platform tahu perjuangan kita! Tunjukkan solidaritas! Kerugian ${LOSS_VALUE_LONG} adalah pemicu! ✊🔄 [HASHTAGS]" },
-                { tone: 'Aksi', platform: 'Instagram', text: "Aksi kirim karangan bunga duka cita 'TURUT BERDUKA CITA ATAS MATINYA PENGAWASAN OJK' ke kantor @ojkindonesia! Biar mereka malu dengan ${LOSS_VALUE_LONG} ini! 💐 [TAGS] [HASHTAGS]" },
-                { tone: 'Aksi', platform: 'Instagram', text: "Buat petisi online di Change.org! Tuntut OJK & DSI atas ${LOSS_VALUE_LONG}! Target 1 Juta tanda tangan! Sebarkan! [TAGS] [HASHTAGS]" },
-                { tone: 'Aksi', platform: 'Instagram', text: "Semua korban, bikin video testimoni! Ceritakan kerugian ${LOSS_VALUE_LONG} kalian! Upload! Tag semua pejabat! [TAGS] [HASHTAGS]" },
-                { tone: 'Aksi', platform: 'Instagram', text: "Mari kita buat Instagram OJK @ojkindonesia 'merah' dengan komentar tuntutan dan kekecewaan! GASPOL! [TAGS] [HASHTAGS]" },
-
-                { tone: 'Aksi', platform: 'Facebook', text: "Aksi nyata! Siapkan diri! Kita kumpul di depan kantor OJK & @dpr_ri! Bawa spanduk 'KEMBALIKAN DANA KAMI, OJK GAGAL ${LOSS_VALUE_LONG}'! [TAGS]" },
-                { tone: 'Aksi', platform: 'Facebook', text: "TURUN KE JALAN! Suara kita di medsos gak didengar, mari kita teriak di dunia nyata! Kumpul di Bundaran HI! Bawa poster kerugian ${LOSS_VALUE_LONG}! [TAGS]" },
-                { tone: 'Aksi', platform: 'Facebook', text: "Kita harus lebih nekat! Kalau perlu, kita SEGEL kantor DSI pakai spanduk korban! Biar mereka gak bisa beroperasi! ⛔ [TAGS]" },
-                { tone: 'Aksi', platform: 'Facebook', text: "Hubungi semua anggota DPR di dapil kalian! Kirim email, WA, DM! Teror mereka sampai mereka mau bantu korban ${LOSS_VALUE_LONG}! [TAGS]" },
-                { tone: 'Aksi', platform: 'Facebook', text: "Kami serukan AKSI DAMAI di depan Istana Negara. Minta Presiden @prabowo dengarkan jeritan korban ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
-
-                { tone: 'Aksi', platform: 'TikTok', text: "Stop bayar pajak dulu! Buat apa bayar pajak kalau negara GAGAL lindungi uang rakyat dari perampok legal ${LOSS_VALUE_LONG}? #PajakUntukApa [HASHTAGS]" },
-                { tone: 'Aksi', platform: 'TikTok', text: "Pindahkan semua dana Anda dari fintech P2P lain! Industri ini GAGAL & TIDAK AMAN! #BoikotP2P. Jangan sampai rugi seperti ${LOSS_VALUE_LONG}! [HASHTAGS]" },
-                { tone: 'Aksi', platform: 'TikTok', text: "Ayo bikin gerakan 'Satu Rupiah untuk OJK' (koin)! Kirim koin ke kantor OJK sebagai simbol matinya kepercayaan ${LOSS_VALUE_LONG}! 🪙 [HASHTAGS]" },
-                { tone: 'Aksi', platform: 'TikTok', text: "Ayo kita 'shutdown' aplikasi DSI di Play Store/App Store! Kasih rating 1 Bintang & review jujur kerugian ${LOSS_VALUE_LONG}! 📉 [HASHTAGS]" },
-                { tone: 'Aksi', platform: 'TikTok', text: "Kekuatan netizen itu NYATA! Ayo kita buktikan di kasus DSI! Viralkan sampai TUNTAS! 🚀 [HASHTAGS]" },
-
-                // ====================================================================================
-                // 10. TANTANG TOKOH PUBLIK (25 VARIAN BARU)
-                // ====================================================================================
-                { tone: 'Influencer', platform: 'all', text: "Kami tantang @mastercorbuzier undang Paguyuban Lender DSI & Ketua OJK ke podcast! Biar jelas siapa yang bohong di kasus ${LOSS_VALUE_LONG}! BERANI? [TAGS] [HASHTAGS]" },
-                { tone: 'Influencer', platform: 'all', text: "Para Ustadz & Influencer syariah, mana suaranya? Ini nama baik 'syariah' dipertaruhkan dengan kerugian ${LOSS_VALUE_LONG}! Jangan diam saat umat jadi korban! @muipusat [TAGS] [HASHTAGS]" },
-                { tone: 'Influencer', platform: 'all', text: "Kekuatan influencer itu besar! Tolong pakai kekuatan itu untuk bela kami, bukan cuma untuk jualan produk. Angkat kasus ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
-                { tone: 'Influencer', platform: 'all', text: "@mastercorbuzier, 1 video Anda soal DSI bisa selamatkan ribuan orang lain dari jebakan P2P berikutnya. Tolong angkat skandal ${LOSS_VALUE_LONG} ini! [TAGS] [HASHTAGS]" },
-                { tone: 'Influencer', platform: 'all', text: "Para centang biru, bantu kami! Suara kalian adalah kekuatan! Jangan diam saat rakyat kecil dirampok ${LOSS_VALUE_LONG}! @prabowo @gibran_rakabuming [TAGS] [HASHTAGS]" },
-
-                { tone: 'Influencer', platform: 'X', text: "Para influencer keuangan (@xxxxx @xxxxx), mana suaramu? Dulu kalian gencar promo P2P. Sekarang ${LOSS_VALUE_LONG} hilang, kalian bungkam? Takut gak dapat endorse OJK lagi? [HASHTAGS]" },
-                { tone: 'Influencer', platform: 'X', text: "@raymondchins, ini bukan 'risiko bisnis' yang wajar. Ini 'risiko regulasi' yang GAGAL TOTAL! Tolong edukasi publik biar gak ada korban ${LOSS_VALUE_LONG} lagi! [HASHTAGS]" },
-                { tone: 'Influencer', platform: 'X', text: "Jangan cuma review gadget & mobil mewah. Coba review bobroknya pengawasan @ojkindonesia di kasus ${LOSS_VALUE_LONG}! @mastercorbuzier. Berani? [HASHTAGS]" },
-                { tone: 'Influencer', platform: 'X', text: "Apakah @ojkindonesia sudah 'briefing' para influencer besar agar kasus ${LOSS_VALUE_LONG} ini adem ayem? Bau amis! 🤫 [HASHTAGS]" },
-                { tone: 'Influencer', platform: 'X', text: "Hai @xxxx (influencer), ingat dulu Anda bilang DSI bagus? Sekarang kami tagih tanggung jawab moral Anda atas kerugian ${LOSS_VALUE_LONG}! [HASHTAGS]" },
-
-                { tone: 'Influencer', platform: 'Instagram', text: "Dear @mastercorbuzier, kasus Sambo Anda kulik habis. Kasus DSI (${LOSS_VALUE_LONG}) kok Anda diam? Ini lebih besar, Om! Tolong bantu kami! [TAGS] [HASHTAGS]" },
-                { tone: 'Influencer', platform: 'Instagram', text: "Pak Ustadz @felix.siauw, ini ribuan umat didzalimi platform berlabel syariah. Uang ${LOSS_VALUE_LONG} hilang. Mohon bantu suarakan kedzaliman ini! [TAGS] [HASHTAGS]" },
-                { tone: 'Influencer', platform: 'Instagram', text: "Bro @raymondchins, Anda jago bedah bisnis. Coba bedah kebobrokan DSI & OJK! Kenapa TKB90 bisa palsu & OJK diam di kasus ${LOSS_VALUE_LONG}? Kami butuh analisis Anda! [TAGS] [HASHTAGS]" },
-                { tone: 'Influencer', platform: 'Instagram', text: "Tag @najwashihab! Kami butuh mata najwa untuk menguliti kebobrokan DSI dan OJK di skandal ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
-                { tone: 'Influencer', platform: 'Instagram', text: "Kami kecewa! Influencer lebih takut kehilangan 'job' endorse dari OJK/Fintech daripada bela ribuan korban ${LOSS_VALUE_LONG}? Miris! [TAGS] [HASHTAGS]" },
-
-                { tone: 'Influencer', platform: 'Facebook', text: "Halo Kang @dedimulyadi71, tolong bantu kami, Pak. Kami ini rakyat kecil yang uangnya dirampok sistematis oleh DSI & kelalaian OJK. Kerugian ${LOSS_VALUE_LONG} ini nyata! [TAGS] [HASHTAGS]" },
-                { tone: 'Influencer', platform: 'Facebook', text: "Ustadz @felix.siauw, tolong luruskan! Ini bukan syariah, ini perampokan ${LOSS_VALUE_LONG} berkedok agama! Jangan sampai umat lain terjebak! [TAGS]" },
-                { tone: 'Influencer', platform: 'Facebook', text: "Kami tantang influencer yg dulu promo DSI untuk minta maaf & bantu kami tagih OJK! Berani tanggung jawab moral atas ${LOSS_VALUE_LONG}? [TAGS]" },
-                { tone: 'Influencer', platform: 'Facebook', text: "Kami undang @karniilyas_official untuk bahas tuntas kasus DSI di ILC! Biar semua terbuka, termasuk kerugian ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
-                { tone: 'Influencer', platform: 'Facebook', text: "Pak @baimwong, Anda dikenal dermawan. Kami yakin hati Anda tersentuh melihat penderitaan korban ${LOSS_VALUE_LONG}. Tolong bantu suarakan! [TAGS] [HASHTAGS]" },
-
-                { tone: 'Influencer', platform: 'TikTok', text: "Kalian (influencer) dibayar untuk promo P2P. Apakah sekarang kalian 'dibayar' untuk DIAM soal DSI ${LOSS_VALUE_LONG}? 🙄 [HASHTAGS]" },
-                { tone: 'Influencer', platform: 'TikTok', text: "Influencer Finansial: Dulu 'P2P aman, diawasi OJK'. Sekarang: *suara jangkrik* 🦗 Duit ${LOSS_VALUE_LONG} hilang! [HASHTAGS]" },
-                { tone: 'Influencer', platform: 'TikTok', text: "Tantang @mastercorbuzier @raymondchins bahas DSI! Biar netizen tau bobroknya OJK yang merugikan ${LOSS_VALUE_LONG}! [HASHTAGS]" },
-                { tone: 'Influencer', platform: 'TikTok', text: "Influencer, jangan cuma bahas cuan! Bahas juga penderitaan korban DSI yang ${LOSS_VALUE_LONG}! [HASHTAGS]" },
-                { tone: 'Influencer', platform: 'TikTok', text: "Kami butuh suara yang lantang! Siapa berani bahas kasus DSI ${LOSS_VALUE_LONG} di FYP? [HASHTAGS]" },
-
-                // ====================================================================================
-                // 11. KOMPARASI KASUS BESAR (25 VARIAN BARU)
-                // ====================================================================================
-                { tone: 'Komparasi', platform: 'all', text: "Kasus Jiwasraya (BUMN) negara turun tangan & talangi. Kasus DSI (Rakyat) negara cuci tangan? Di mana KEADILAN atas kerugian ${LOSS_VALUE_LONG}? [TAGS] [HASHTAGS]" },
-                { tone: 'Komparasi', platform: 'all', text: "Aneh. Pinjol ilegal dikejar-kejar. P2P LEGAL (DSI) yg rampok ${LOSS_VALUE_LONG} malah 'dimediasi'? Hukum macam apa ini? [TAGS] [HASHTAGS]" },
-                { tone: 'Komparasi', platform: 'all', text: "DSI ini skalanya sudah mini-Jiwasraya. Tapi kok penanganannya beda jauh? Apakah karena korbannya rakyat biasa? [TAGS] [HASHTAGS]" },
-                { tone: 'Komparasi', platform: 'all', text: "Jika DSI (berizin OJK) tidak diselesaikan tuntas, akan muncul DSI-DSI berikutnya yang merampok lebih dari ${LOSS_VALUE_LONG}! Ini preseden buruk! [TAGS] [HASHTAGS]" },
-                { tone: 'Komparasi', platform: 'all', text: "Jika bank rampok nasabah (BLBI), negara talangi. Jika fintech rampok nasabah (DSI ${LOSS_VALUE_LONG}), nasabah disuruh mediasi? [TAGS] [HASHTAGS]" },
-
-                { tone: 'Komparasi', platform: 'X', text: "INDOSURYA divonis bebas, triliunan hilang. Apakah DSI akan jadi Indosurya jilid 2 dengan kerugian ${LOSS_VALUE_LONG}? @ojkindonesia jangan biarkan sejarah buruk terulang! [HASHTAGS]" },
-                { tone: 'Komparasi', platform: 'X', text: "First Travel aset disita untuk NEGARA. Kenapa aset DSI tidak disita untuk KORBAN yang rugi ${LOSS_VALUE_LONG}? Hukum mana yang dipakai? [HASHTAGS]" },
-                { tone: 'Komparasi', platform: 'X', text: "Bank gagal dijamin LPS. Fintech P2P GAGAL (${LOSS_VALUE_LONG}) dijamin siapa? Doa? @ojkindonesia [HASHTAGS]" },
-                { tone: 'Komparasi', platform: 'X', text: "Bedanya DSI sama pinjol ilegal apa? Sama-sama bikin sengsara & uang ${LOSS_VALUE_LONG} hilang! Bedanya DSI 'legal' & direstui OJK! Ironis! [HASHTAGS]" },
-                { tone: 'Komparasi', platform: 'X', text: "OJK lebih galak ke pinjol ilegal recehan daripada ke P2P legal yg rampok ${LOSS_VALUE_LONG}. Aneh! [HASHTAGS]" },
-
-                { tone: 'Komparasi', platform: 'Instagram', text: "Penanganan kasus DSI akan jadi cerminan: Apakah hukum di era @prabowo masih tajam ke bawah tumpul ke atas? Samakan penanganan dengan kasus korupsi ${LOSS_VALUE_LONG} lainnya! [TAGS] [HASHTAGS]" },
-                { tone: 'Komparasi', platform: 'Instagram', text: "Tuntutan kami: Samakan penanganan DSI dengan kasus korupsi besar lainnya! Sita Aset! Penjarakan Pelaku! Ganti Rugi Korban ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
-                { tone: 'Komparasi', platform: 'Instagram', text: "Kasus Sambo cepat, kasus Kanjuruhan jalan. Kasus DSI (${LOSS_VALUE_LONG}) kok lambat? Apa karena pelakunya 'orang kuat'? [TAGS] [HASHTAGS]" },
-                { tone: 'Komparasi', platform: 'Instagram', text: "Skema DSI mirip Indosurya: Himpun dana (meski DSI legal) lalu gagal bayar ${LOSS_VALUE_LONG}. Korban gigit jari. Negara harusnya belajar! [TAGS] [HASHTAGS]" },
-                { tone: 'Komparasi', platform: 'Instagram', text: "Kami menuntut skema penjaminan dana fintech seperti LPS pada bank! Karena OJK gagal mengawasi skandal ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
-
-                { tone: 'Komparasi', platform: 'Facebook', text: "Bank Century di-bailout triliunan pakai uang negara. Korban DSI (${LOSS_VALUE_LONG}) disuruh ikhlas? Enak banget! @dpr_ri [TAGS]" },
-                { tone: 'Komparasi', platform: 'Facebook', text: "Pola yang sama terulang di DSI. Negara tidak pernah belajar dari kasus KSP bodong! Jangan biarkan ${LOSS_VALUE_LONG} jadi preseden! [TAGS]" },
-                { tone: 'Komparasi', platform: 'Facebook', text: "Negara rugi di Asabri, negara ganti. Rakyat rugi ${LOSS_VALUE_LONG} di DSI, rakyat gigit jari? Di mana sila ke-5 Pancasila? @dpr_ri [TAGS]" },
-                { tone: 'Komparasi', platform: 'Facebook', text: "BLBI > Negara rugi > Ditalangi. DSI > Rakyat rugi ${LOSS_VALUE_LONG}> Dibiarkan. Ini negara siapa? [TAGS]" },
-                { tone: 'Komparasi', platform: 'Facebook', text: "Keadilan harus sama bagi semua. Kami menuntut perlakuan kasus DSI ${LOSS_VALUE_LONG} sama dengan kasus skandal keuangan besar lainnya! [TAGS] [HASHTAGS]" },
-
-                { tone: 'Komparasi', platform: 'TikTok', text: "Pelajaran dari Indosurya: Jangan mau diajak PKPU! Itu akal-akalan maling untuk lari dari PIDANA! PIDANAKAN DSI ${LOSS_VALUE_LONG}! ✊ [HASHTAGS]" },
-                { tone: 'Komparasi', platform: 'TikTok', text: "Pak @prabowo, dulu Anda vokal soal Jiwasraya. Sekarang kami tunggu vokal Anda soal DSI ${LOSS_VALUE_LONG}! Jangan bedakan nasib rakyat! [HASHTAGS]" },
-                { tone: 'Komparasi', platform: 'TikTok', text: "Maling ${LOSS_VALUE_LONG} vs Maling Ayam. Lebih cepat proses hukum yg mana? Jawab di komen! 👇 [HASHTAGS]" },
-                { tone: 'Komparasi', platform: 'TikTok', text: "Viralin! Kasus DSI adalah skandal Jiwasraya versi mini ${LOSS_VALUE_LONG}! Jangan biarkan disenyapkan! [HASHTAGS]" },
-                { tone: 'Komparasi', platform: 'TikTok', text: "Kasus DSI harus jadi yurisprudensi. Bahwa regulator GAGAL harus bertanggung jawab ganti rugi ${LOSS_VALUE_LONG}! [HASHTAGS]" },
-
-                // ====================================================================================
-                // 12. GERAKAN VIRALKAN (25 VARIAN BARU)
-                // ====================================================================================
-                { tone: 'Viral', platform: 'all', text: "🔥 NETIZEN CHALLENGE 🔥 Bisa gak tagar #SaveLenderDSI & #OJKGagalMengawasi trending No.1 hari ini? Biar notif HP pejabat bunyi terus! Skandal ${LOSS_VALUE_LONG} harus terbongkar! Gaspol pasukan jempol! 👍📲 [HASHTAGS]" },
-                { tone: 'Viral', platform: 'all', text: "🚨 INDONESIA DARURAT FINTECH! 🚨 Sebarkan gambar ini, biarkan seluruh negeri tahu ada bom waktu ${LOSS_VALUE_LONG} yang sedang ditutupi! 💣📲 [HASHTAGS]" },
-                { tone: 'Viral', platform: 'all', text: "Ayo buat kasus DSI ini seviral Sambo! Ini menyangkut hajat hidup ribuan orang! Kerugian ${LOSS_VALUE_LONG} harus disuarakan! VIRALKAN! 📢📢 [TAGS] [HASHTAGS]" },
-                { tone: 'Viral', platform: 'all', text: "Satu suara gak didengar. Ribuan suara + JUTAAN netizen = PASTI TERDENGAR! Ayo bantu ramaikan skandal ${LOSS_VALUE_LONG}! 🗣️💥 [TAGS] [HASHTAGS]" },
-                { tone: 'Viral', platform: 'all', text: "Jangan biarkan korban berjuang sendiri! REPOST, COMMENT, SHARE! Tunjukkan kekuatan netizen Indonesia untuk kasus ${LOSS_VALUE_LONG}! 🇮🇩🔥 [TAGS] [HASHTAGS]" },
-
-                { tone: 'Viral', platform: 'X', text: "TWITTER PLEASE DO YOUR MAGIC! 🪄✨ Kasus DSI (${LOSS_VALUE_LONG}) terlalu senyap, sengaja didiamkan? Butuh trending topic agar media lirik! Retweet jika Anda peduli! 🔄❤️ [HASHTAGS]" },
-                { tone: 'Viral', platform: 'X', text: "Spam tagar #SaveLenderDSI di setiap postingan pejabat hari ini! Biar mereka tidak bisa pura-pura tidak baca kerugian ${LOSS_VALUE_LONG}! GASKEN! 🚀💥 [HASHTAGS]" },
-                { tone: 'Viral', platform: 'X', text: "Kasus ${LOSS_VALUE_LONG} ini sengaja disenyapkan? MEDIA MANA? Kenapa diam? Bantu kami viralkan! @kompastv @tvonenews @tempodotco [HASHTAGS]" },
-                { tone: 'Viral', platform: 'X', text: "NETIZEN BERSATU! Ayo kita serang kolom komentar @ojkindonesia & @dpr_ri dengan satu tuntutan: #KembalikanDanaLenderDSI! ⚔️ [HASHTAGS]" },
-                { tone: 'Viral', platform: 'X', text: "Bantu Retweet sampai @jokowi @prabowo baca skandal ${LOSS_VALUE_LONG} ini! Ini darurat! [HASHTAGS]" },
-
-                { tone: 'Viral', platform: 'Instagram', text: "[MOHON REPOST] 🚨 Hari ini kami korbannya, besok bisa jadi Anda jika kita DIAM! Kerugian sudah ${LOSS_VALUE_LONG}! Rapatkan barisan, tag semua pejabat & media di komentar! 🗣️🔄 [TAGS] [HASHTAGS]" },
-                { tone: 'Viral', platform: 'Instagram', text: "TAG 5 TEMANMU! Kita butuh daya gedor massal. 1 postinganmu = 1 harapan bagi korban lansia yang rugi ${LOSS_VALUE_LONG}. Solidaritas tanpa batas! ✊🔄 [HASHTAGS]" },
-                { tone: 'Viral', platform: 'Instagram', text: "Dear Influencer finansial, jangan cuma promosiin yang cuan. Bantu suarakan saat kami boncos ${LOSS_VALUE_LONG} karena sistem yg kalian endorse dulu! SPEAK UP! 🗣️📢 [TAGS] [HASHTAGS]" },
-                { tone: 'Viral', platform: 'Instagram', text: "Bikin IGS soal DSI! Tunjukkan solidaritasmu! Sekecil apapun bantuanmu, sangat berarti untuk korban ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
-                { tone: 'Viral', platform: 'Instagram', text: "Mari kita buat tagar #OJKGagalMengawasi trending di Instagram! Jangan kasih ampun pada skandal ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
-
-                { tone: 'Viral', platform: 'Facebook', text: "Bapak/Ibu, Om/Tante, mohon bantu BAGIKAN status ini. Saudara kita lagi berjuang dapatkan hak hari tuanya setelah rugi ${LOSS_VALUE_LONG}. Tunjukkan kekuatan solidaritas rakyat! 🤝🇮🇩 [HASHTAGS]" },
-                { tone: 'Viral', platform: 'Facebook', text: "TOLONG SHARE! Jangan sampai kasus ${LOSS_VALUE_LONG} ini hilang ditelan berita baru! Kita harus kawal sampai tuntas! Bagikan ke semua grup WA! 📲 [TAGS] [HASHTAGS]" },
-                { tone: 'Viral', platform: 'Facebook', text: "Setiap 1 SHARE = 1 DOA & 1 DUKUNGAN untuk korban DSI ${LOSS_VALUE_LONG}. Jangan pelit jempol! Ini perjuangan kita bersama! 🤝 [TAGS] [HASHTAGS]" },
-                { tone: 'Viral', platform: 'Facebook', text: "Mari kita sebarkan pesan ini ke seluruh grup Facebook tentang investasi dan keuangan! Peringatkan yang lain tentang ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
-                { tone: 'Viral', platform: 'Facebook', text: "Tolong bagikan ke akun @dpr_ri & @ojkindonesia. Biar mereka tahu kami tidak akan diam setelah ${LOSS_VALUE_LONG} lenyap! [TAGS] [HASHTAGS]" },
-
-                { tone: 'Viral', platform: 'TikTok', text: "⚠️ JANGAN SCROLL! Ini PENTING! Uang pensiun ortu kita (${LOSS_VALUE_LONG}) nyangkut di platform 'aman' berizin OJK! Bantu VIRALIN biar pejabat melek! 🔥👇 [HASHTAGS]" },
-                { tone: 'Viral', platform: 'TikTok', text: "DUIT ${LOSS_VALUE_LONG} ILANG? 😱 Bukan sulap bukan sihir, ini kejadian nyata di Indonesia! Bantu kawal kasus DSI sampai tuntas! NO VIRAL NO JUSTICE! 🎥🔥 [HASHTAGS]" },
-                { tone: 'Viral', platform: 'TikTok', text: "Stitch video ini! Ceritakan kerugianmu atau beri dukungan! Kita guncang FYP dengan kasus DSI ${LOSS_VALUE_LONG}! 🔥 [HASHTAGS]" },
-                { tone: 'Viral', platform: 'TikTok', text: "Sound ini kita pakai untuk bongkar kasus DSI! Ayo ramaikan! Biar semua tahu ada uang rakyat ${LOSS_VALUE_LONG} nyangkut! 🎶 [HASHTAGS]" },
-                { tone: 'Viral', platform: 'TikTok', text: "Kekuatan netizen itu NYATA! Ayo kita buktikan di kasus DSI! Viralkan sampai TUNTAS! 🚀 [HASHTAGS]" },
-
-                // ====================================================================================
-                // 13. ADUAN PRESIDEN (25 VARIAN BARU)
-                // ====================================================================================
-                { tone: 'Presiden', platform: 'all', text: "Yth. Presiden @prabowo & Wapres @gibran_rakabuming. Kami rakyatmu, korban DSI, kehilangan ${LOSS_VALUE_LONG}. Kami percaya OJK, kami percaya negara. Tolong jangan biarkan kami sengsara! 🇮🇩🙏 [TAGS] [HASHTAGS]" },
-                { tone: 'Presiden', platform: 'all', text: "Pak Presiden @prabowo, kami titip nasib kami. Kami memilih Bapak untuk melindungi kami. Sekarang kami dirampok ${LOSS_VALUE_LONG}, tolong kami! [TAGS] [HASHTAGS]" },
-                { tone: 'Presiden', platform: 'all', text: "Makan siang gratis penting. Tapi kembalikan uang kami yg HILANG ${LOSS_VALUE_LONG} itu JAUH LEBIH PENTING & MENDESAK! @prabowo [TAGS] [HASHTAGS]" },
-                { tone: 'Presiden', platform: 'all', text: "Kami menolak lupa! Kami akan tagih janji perlindungan rakyat ke @prabowo & @gibran_rakabuming setiap hari sampai ${LOSS_VALUE_LONG} kembali! [TAGS] [HASHTAGS]" },
-                { tone: 'Presiden', platform: 'all', text: "Jika OJK tak bisa diandalkan, kami hanya bisa mengadu ke Bapak @prabowo. Bapak harapan terakhir kami untuk kasus ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
-
-                { tone: 'Presiden', platform: 'X', text: "Pak @prabowo, #OJKGagalMengawasi kasus DSI. ${LOSS_VALUE_LONG} uang rakyat lenyap. Ini ujian pertama pemerintahan Bapak. Buktikan negara hadir untuk kami! [HASHTAGS]" },
-                { tone: 'Presiden', platform: 'X', text: "Laporan Pak Presiden @prabowo: Ada ${LOSS_VALUE_LONG} uang rakyat hilang di DSI. OJK lamban. Mohon instruksi tegas Bapak! [HASHTAGS]" },
-                { tone: 'Presiden', platform: 'X', text: "Instruksi Bapak @prabowo ke OJK & Polri kami tunggu! Jangan sampai kami hilang kepercayaan karena kasus ${LOSS_VALUE_LONG} ini! [HASHTAGS]" },
-                { tone: 'Presiden', platform: 'X', text: "Pemerintahan baru, masalah lama. Pak @prabowo, buktikan Bapak bisa bereskan 'warisan' bobrok ${LOSS_VALUE_LONG} ini! [HASHTAGS]" },
-                { tone: 'Presiden', platform: 'X', text: "Tag @setwatpres.ri @kantorstafpresiden! Biar laporan DSI ${LOSS_VALUE_LONG} ini sampai ke meja Presiden! [HASHTAGS]" },
-
-                { tone: 'Presiden', platform: 'Instagram', text: "Surat Terbuka untuk Presiden @prabowo. Ini PERAMPOKAN berkedok legalitas negara yang merugikan ${LOSS_VALUE_LONG}. Bapak diam = Bapak merestui rakyat dimiskinkan! Turun tangan! ⚡ [TAGS] [HASHTAGS]" },
-                { tone: 'Presiden', platform: 'Instagram', text: "Pak @prabowo, kami rindu ketegasan Bapak. Sikat mafia di balik DSI! Jangan biarkan mereka menari di atas penderitaan rakyat ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
-                { tone: 'Presiden', platform: 'Instagram', text: "Pak Presiden @prabowo, lihatlah kami. Para lansia, pensiunan. Uang kami ${LOSS_VALUE_LONG} hilang. Tolong, Pak! 😭 [TAGS] [HASHTAGS]" },
-                { tone: 'Presiden', platform: 'Instagram', text: "Ini bukan cuma soal uang. Ini soal Wibawa Negara! @prabowo. Masa negara kalah sama mafia fintech ${LOSS_VALUE_LONG}? [TAGS] [HASHTAGS]" },
-                { tone: 'Presiden', platform: 'Instagram', text: "Kami percaya pada janji kampanye Bapak @prabowo untuk melindungi rakyat kecil. Buktikan sekarang di kasus DSI ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
-
-                { tone: 'Presiden', platform: 'Facebook', text: "Pemerintah @jokowi @prabowo, jangan anggap remeh ribuan korban DSI. Kami bisa jadi api dalam sekam yang membakar kepercayaan publik karena ${LOSS_VALUE_LONG}! Bertindak! 🔥 [TAGS]" },
-                { tone: 'Presiden', platform: 'Facebook', text: "Kepada Yth. Presiden RI @prabowo, OJK di bawah Bapak GAGAL total. Tolong reformasi OJK & bantu kami kembalikan uang ${LOSS_VALUE_LONG} kami! [TAGS]" },
-                { tone: 'Presiden', platform: 'Facebook', text: "Kami, rakyat Indonesia, korban DSI, mengadukan nasib kami kepada Bapak Presiden @prabowo. Kami rugi ${LOSS_VALUE_LONG}. Tolong kami... [TAGS]" },
-                { tone: 'Presiden', platform: 'Facebook', text: "Nawacita/Program Bapak @prabowo GAGAL jika rakyat kecil masih bisa dirampok sistematis & legal seperti di DSI ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
-                { tone: 'Presiden', platform: 'Facebook', text: "Kami butuh KEHADIRAN NEGERI, bukan sekadar imbauan! Presiden harus turun tangan langsung selesaikan ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
-
-                { tone: 'Presiden', platform: 'TikTok', text: "Pak @prabowo @gibran_rakabuming, ini ujian pertama! Rakyat dirampok ${LOSS_VALUE_LONG}, negara diam? Buktikan kalian beda! BERTINDAK SEKARANG! ⚡🇮🇩 [HASHTAGS]" },
-                { tone: 'Presiden', platform: 'TikTok', text: "Pak @gibran_rakabuming, Anda representasi milenial & fintech. Tolong bantu kawal kasus DSI ${LOSS_VALUE_LONG}! Buktikan Anda peduli! [HASHTAGS]" },
-                { tone: 'Presiden', platform: 'TikTok', text: "Presiden, tolong instruksikan OJK BEKUKAN ASET DSI! Jangan cuma wacana! ${LOSS_VALUE_LONG} harus kembali! [HASHTAGS]" },
-                { tone: 'Presiden', platform: 'TikTok', text: "Kami tag Presiden @prabowo! Kalau kami rakyat kecil, kami ditangkap. Kenapa perampok ${LOSS_VALUE_LONG} dibiarkan? [HASHTAGS]" },
-                { tone: 'Presiden', platform: 'TikTok', text: "Ayo buat video TikTok 'Surat Terbuka untuk Presiden'! Viralkan skandal ${LOSS_VALUE_LONG}! [HASHTAGS]" },
-
-                // ====================================================================================
-                // 14. LIPUTAN MEDIA (25 VARIAN BARU)
-                // ====================================================================================
-                { tone: 'Media', platform: 'all', text: "Kami butuh media investigasi @tempodotco untuk bongkar kasus DSI! Ada apa antara DSI & @ojkindonesia sampai pengawasan GAGAL TOTAL dan merugikan ${LOSS_VALUE_LONG}? BONGKAR! 🕵️‍♂️ [TAGS] [HASHTAGS]" },
-                { tone: 'Media', platform: 'all', text: "Media, jangan cuma liput politik! Ini ada BENCANA KEUANGAN RAKYAT ${LOSS_VALUE_LONG}! Liput kami! [TAGS] [HASHTAGS]" },
-                { tone: 'Media', platform: 'all', text: "Jurnalisme investigasi dibutuhkan! @tempodotco tolong turunkan tim! Ini skandal ${LOSS_VALUE_LONG} besar! [TAGS] [HASHTAGS]" },
-                { tone: 'Media', platform: 'all', text: "Kami rindu media yang berani! Yang berpihak pada rakyat korban ${LOSS_VALUE_LONG}! @tempodotco @kumparan @tirtoid [TAGS] [HASHTAGS]" },
-                { tone: 'Media', platform: 'all', text: "Media, jangan liput pas demo-nya aja! Liput substansi masalahnya! Gagalnya pengawasan OJK yang menyebabkan ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
-
-                { tone: 'Media', platform: 'X', text: "Dear @beritasatu @tvonenews @kompastv. Kasus DSI (${LOSS_VALUE_LONG}) terlalu senyap! Tolong liput penderitaan kami! Bantu kami dapatkan keadilan! MEDIA, KAWAL! 📢 [HASHTAGS]" },
-                { tone: 'Media', platform: 'X', text: "Kasus ${LOSS_VALUE_LONG} ini sengaja disenyapkan? MEDIA MANA? Kenapa diam? Bantu kami viralkan! @kompastv @tvonenews @tempodotco [HASHTAGS]" },
-                { tone: 'Media', platform: 'X', text: "Kenapa media mainstream bungkam soal DSI? Takut sama OJK? Takut iklan dicabut? @dewanpers. Korban sudah ${LOSS_VALUE_LONG}! [HASHTAGS]" },
-                { tone: 'Media', platform: 'X', text: "No viral, no justice. No media coverage, no solution. @kompastv @tvonenews @metrotv bantu kami! [HASHTAGS]" },
-                { tone: 'Media', platform: 'X', text: "Hai @xxxx (jurnalis), Anda dikenal kritis. Tolong kritisi OJK di kasus DSI! ${LOSS_VALUE_LONG} harus jadi headline! [HASHTAGS]" },
-
-                { tone: 'Media', platform: 'Instagram', text: "Mohon atensi @inewsdotid @bloombergtechnoz @detikcom. Ada skandal fintech syariah GAGAL BAYAR ${LOSS_VALUE_LONG}! Korbannya ribuan. Kenapa berita ini adem ayem? 📰 [TAGS] [HASHTAGS]" },
-                { tone: 'Media', platform: 'Instagram', text: "Media adalah pilar ke-4 demokrasi. Tolong jalankan fungsi kontrol sosial Anda! Kawal kasus DSI ${LOSS_VALUE_LONG} sampai tuntas! @metrotv [TAGS] [HASHTAGS]" },
-                { tone: 'Media', platform: 'Instagram', text: "Tolong jadikan kasus DSI ini berita utama! Jangan biarkan tenggelam! @jawapos @kontanid. Kerugian sudah ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
-                { tone: 'Media', platform: 'Instagram', text: "Wartawan, jurnalis... Ini cerita besar! Ribuan korban, ${LOSS_VALUE_LONG}, regulator gagal! Ini 'makanan' empuk! @najwashihab [TAGS] [HASHTAGS]" },
-                { tone: 'Media', platform: 'Instagram', text: "Kami tag @detikcom & @kompascom: Tolong liput penderitaan korban lansia yang uangnya ${LOSS_VALUE_LONG} hilang di DSI! [TAGS] [HASHTAGS]" },
-
-                { tone: 'Media', platform: 'Facebook', text: "Para jurnalis, tolong angkat cerita kami. Kami punya data, kami punya bukti. Ribuan korban DSI ${LOSS_VALUE_LONG} butuh suara Anda! @beritasatu @kompastv @tvonenews [TAGS]" },
-                { tone: 'Media', platform: 'Facebook', text: "Kami undang @officialinewstv @kompastv datang ke pertemuan Paguyuban Lender DSI. Dengarkan langsung jeritan ${LOSS_VALUE_LONG} kami! [TAGS]" },
-                { tone: 'Media', platform: 'Facebook', text: "Surat terbuka untuk para Pemimpin Redaksi. Kasus DSI ${LOSS_VALUE_LONG} ini layak jadi headline! Ini penderitaan rakyat! [TAGS]" },
-                { tone: 'Media', platform: 'Facebook', text: "Terima kasih media-media kecil/alternatif yg sudah liput. Kami butuh media besar! @kompascom @detikcom [TAGS]" },
-                { tone: 'Media', platform: 'Facebook', text: "Kami minta media investigasi untuk bongkar siapa beking di balik DSI dan OJK yang lalai, menyebabkan kerugian ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
-
-                { tone: 'Media', platform: 'TikTok', text: "Ayo tag semua akun media! @kompastv @tvonenews @beritasatu @cnbcindonesia! Liput kasus DSI ${LOSS_VALUE_LONG}! Jangan diam! 📢 [HASHTAGS]" },
-                { tone: 'Media', platform: 'TikTok', text: "Media, tolong undang kami ke acara talkshow! Biar kami bisa bicara, biar OJK gak bisa ngeles lagi! @matanajwa [HASHTAGS]" },
-                { tone: 'Media', platform: 'TikTok', text: "Ayo kita banjiri kolom komentar akun-akun media! Minta mereka liput DSI ${LOSS_VALUE_LONG}! 👇 [HASHTAGS]" },
-                { tone: 'Media', platform: 'TikTok', text: "Kami butuh @najwashihab buat konten khusus DSI! Biar pejabat jujur tentang ${LOSS_VALUE_LONG}! [HASHTAGS]" },
-                { tone: 'Media', platform: 'TikTok', text: "Viralin! Media harus berani angkat kasus perampokan ${LOSS_VALUE_LONG} ini! #MediaBungkam [HASHTAGS]" },
-                // ====================================================================================
-                // END OF NEW TEMPLATES
-                // ====================================================================================
+                // 9. AKSI
+                { tone: 'Aksi', platform: 'all', text: "Rapatkan barisan! Besok kita serbu kolom komentar IG Presiden serentak! Tuntut ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
+
+                // 10. INFLUENCER
+                { tone: 'Influencer', platform: 'all', text: "@mastercorbuzier undang korban DSI ke podcast! Bongkar borok regulator yang bikin rugi ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]" },
+                 
+                // 11. KOMPARASI
+                { tone: 'Komparasi', platform: 'all', text: "First Travel disita asetnya. DSI kok santai? Padahal kerugian ${LOSS_VALUE_LONG} lebih masif! Samakan hukumnya! [TAGS] [HASHTAGS]" },
+
+                // 12. VIRAL
+                { tone: 'Viral', platform: 'all', text: "Bantu RT/Share! Kasus DSI ${LOSS_VALUE_LONG} harus trending 1! Jangan kasih kendor pasukan netizen! 🔥 [TAGS] [HASHTAGS]" },
+
+                // 13. PRESIDEN
+                { tone: 'Presiden', platform: 'all', text: "Lapor Pak @prabowo! Ada maling legal berizin OJK merampok ${LOSS_VALUE_LONG}. Mohon petunjuk & tindakan! 🫡 [TAGS] [HASHTAGS]" },
+
+                // 14. MEDIA
+                { tone: 'Media', platform: 'all', text: "Panggilan untuk jurnalis investigasi! Ada skandal ${LOSS_VALUE_LONG} yang siap meledak. Datanya lengkap! Hubungi kami! [TAGS] [HASHTAGS]" },
             ]
         };
+        
+        const additionalVariations = [
+            // RELIGIUS EXTRA
+            "Makan harta orang lain secara batil adalah dosa. ${LOSS_VALUE_LONG} itu bara api neraka.",
+            "Label Syariah bukan tameng untuk menipu. Kembalikan ${LOSS_VALUE_LONG} atau azab menanti.",
+            "Doa orang teraniaya tidak ada hijabnya. Hati-hati DSI, ${LOSS_VALUE_LONG} akan jadi karma.",
+            // HUKUM EXTRA
+            "Pidana penggelapan menunggu direksi DSI. ${LOSS_VALUE_LONG} bukti nyata kejahatan korporasi.",
+            "Somasi terbuka! 7x24 jam kembalikan ${LOSS_VALUE_LONG} atau kami lapor Bareskrim.",
+            "Gugat Class Action adalah jalan ninja kami merebut kembali ${LOSS_VALUE_LONG}.",
+            // AKSI EXTRA
+            "Boikot semua produk afiliasi bos DSI! Jangan kasih napas sampai ${LOSS_VALUE_LONG} lunas.",
+            "Siapkan spanduk! Kita demo depan OJK tuntut ganti rugi ${LOSS_VALUE_LONG}.",
+            "Satu komando! Spam tagar #SaveLenderDSI sekarang! ${LOSS_VALUE_LONG} harus viral.",
+            // INFLUENCER EXTRA
+            "Dimana influencer yang dulu promo DSI? Tanggung jawab moral woy atas ${LOSS_VALUE_LONG}!",
+            "Bantu kami @hotmanparisofficial! Rakyat kecil butuh bantuan hukum lawan raksasa perampok ${LOSS_VALUE_LONG}.",
+            // KOMPARASI EXTRA
+            "Jiwasraya dibantu negara, DSI dianak-tirikan. Padahal sama-sama rugi triliunan (${LOSS_VALUE_LONG}).",
+            "BLBI ditalangi, DSI dicuekin. Keadilan sosial bagi seluruh rakyat... yang mana? ${LOSS_VALUE_LONG}!",
+            // VIRAL EXTRA
+            "Netizen Indonesia, tunjukkan kekuatanmu! Kawal kasus ${LOSS_VALUE_LONG} ini.",
+            "Jangan scroll dulu! Ini menyangkut uang pensiun ortu kami yang hilang ${LOSS_VALUE_LONG}.",
+            // PRESIDEN EXTRA
+            "Pak @prabowo, tolong gebrak meja OJK! Suruh mereka kerja bener urus ${LOSS_VALUE_LONG}.",
+            "Harapan terakhir kami ada di tangan Presiden. Selamatkan korban ${LOSS_VALUE_LONG}.",
+            // MEDIA EXTRA
+            "Media tolong jangan bungkam! Angkat berita ${LOSS_VALUE_LONG} ini ke permukaan.",
+            "Breaking News yang kami tunggu: DSI Mulai Cicil ${LOSS_VALUE_LONG}. Kapan diliput?"
+        ];
 
-        // State untuk filter dan seleksi manual
+        function generateMoreTemplates() {
+             const tones = DB.tones.map(t => t.id).filter(id => id !== 'all');
+             const structures = [
+                 "Kami menuntut keadilan atas ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]",
+                 "Jangan diam saja melihat ${LOSS_VALUE_LONG} uang rakyat hilang! [TAGS] [HASHTAGS]",
+                 "Sampai kapan kami harus menunggu kepastian ${LOSS_VALUE_LONG}? [TAGS] [HASHTAGS]",
+                 "OJK Gagal! DSI Curang! Kembalikan ${LOSS_VALUE_LONG}! [TAGS] [HASHTAGS]",
+                 "Solidaritas untuk korban DSI yang rugi ${LOSS_VALUE_LONG}. [TAGS] [HASHTAGS]"
+             ];
+
+             tones.forEach(tone => {
+                 const currentCount = DB.templates.filter(t => t.tone === tone).length;
+                 const needed = 35 - currentCount;
+                 
+                 if (needed > 0) {
+                     for(let i=0; i<needed; i++) {
+                         const base = additionalVariations[i % additionalVariations.length] || structures[i % structures.length];
+                         const prefix = ["TOLONG!", "MOHON!", "VIRALKAN!", "URGENT!", "PENTING!", "BREAKING:", "UPDATE:", "INFO:", "WARNING:"][i % 9];
+                         
+                         DB.templates.push({
+                             tone: tone,
+                             platform: 'all', 
+                             text: `${prefix} ${base} (Variasi #${i+1})`
+                         });
+                     }
+                 }
+             });
+        }
+        
+        generateMoreTemplates();
+
+        // State logic (sama seperti sebelumnya)
         let state = { 
             platform: 'all', 
             tone: 'all',
-            selectedMentions: new Set(DB.mentions_wajib), // Default wajib ikut
-            selectedHashtags: new Set(DB.hashtags_utama), // Default utama ikut
-            randomizedTemplates: [] // Untuk menyimpan urutan acak
+            selectedMentions: new Set(DB.mentions_wajib), 
+            selectedHashtags: new Set(DB.hashtags_utama), 
+            randomizedTemplates: [] 
         };
         
-        // --- UTILITY FUNCTIONS ---
-        // Fungsi untuk mengacak array
         function shuffleArray(array) {
             for (let i = array.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
@@ -885,12 +641,10 @@
             return array;
         }
 
-        // --- MANUAL SELECTION FUNCTIONS ---
         function renderManualSelector() {
             const mentionContainer = document.getElementById('mention-category-pills');
             const hashtagContainer = document.getElementById('hashtag-category-pills');
             
-            // Render Mention Pills
             mentionContainer.innerHTML = Object.entries(DB.manual_targets).map(([category, targets]) => {
                 const allSelected = targets.every(t => state.selectedMentions.has(t));
                 return `
@@ -909,7 +663,6 @@
                 `;
             }).join('');
             
-            // Render Hashtag Pills
             hashtagContainer.innerHTML = Object.entries(DB.manual_hashtags).map(([category, tags]) => {
                 const allSelected = tags.every(t => state.selectedHashtags.has(t));
                 return `
@@ -933,49 +686,33 @@
         }
 
         function toggleAllManual(type, category, currentlySelected) {
-            const list = type === 'mention' 
-                ? DB.manual_targets[category] 
-                : DB.manual_hashtags[category];
-            
+            const list = type === 'mention' ? DB.manual_targets[category] : DB.manual_hashtags[category];
             const targetSet = type === 'mention' ? state.selectedMentions : state.selectedHashtags;
-
-            // Dapatkan mention wajib atau hashtag utama untuk dikecualikan dari deselect total
             const mandatory = type === 'mention' ? DB.mentions_wajib : DB.hashtags_utama;
 
             if (currentlySelected) {
-                // Deselect only if it's not a mandatory target
                 list.forEach(item => {
-                    if (!mandatory.includes(item)) {
-                        targetSet.delete(item);
-                    }
+                    if (!mandatory.includes(item)) targetSet.delete(item);
                 });
             } else {
-                // Select all in category
                 list.forEach(item => targetSet.add(item));
             }
-            
             renderManualSelector();
         }
 
         function toggleManualSelection(type, item) {
             const targetSet = type === 'mention' ? state.selectedMentions : state.selectedHashtags;
-            // Dapatkan mention wajib atau hashtag utama
             const mandatory = type === 'mention' ? DB.mentions_wajib : DB.hashtags_utama;
 
             if (mandatory.includes(item)) {
-                // Jika item wajib dan sedang dipilih, jangan biarkan dihapus
                 if (targetSet.has(item)) {
-                    showToast(`"${item}" adalah target wajib dan tidak dapat dihapus.`);
+                    showToast(`"${item}" adalah target wajib.`);
                     return;
                 }
             }
 
-            if (targetSet.has(item)) {
-                targetSet.delete(item);
-            } else {
-                targetSet.add(item);
-            }
-            
+            if (targetSet.has(item)) targetSet.delete(item);
+            else targetSet.add(item);
             renderManualSelector();
         }
 
@@ -1006,19 +743,11 @@
         }
         
         async function copyManualSelection() {
-            const selectedMentions = Array.from(state.selectedMentions).join(' ');
-            const selectedHashtags = Array.from(state.selectedHashtags).join(' ');
-            const final = `${selectedMentions} ${selectedHashtags}`.trim();
-
-            if (final.length === 0) {
-                 showToast("Pilih minimal 1 Mention atau 1 Tagar dulu!");
-                 return;
-            }
-
-            await copyText(final, `Seleksi Manual (${state.selectedMentions.size}+${state.selectedHashtags.size}) Tersalin!`, 'copy-manual-btn');
+            const final = `${Array.from(state.selectedMentions).join(' ')} ${Array.from(state.selectedHashtags).join(' ')}`.trim();
+            if (final.length === 0) { showToast("Pilih minimal 1 Mention/Tagar!"); return; }
+            await copyText(final, `Seleksi Manual Tersalin!`, 'copy-manual-btn');
         }
 
-        // --- RENDER FUNCTIONS ---
         function renderPlatforms() {
             const container = document.getElementById('platform-filters');
             container.innerHTML = DB.platforms.map(p => `
@@ -1029,7 +758,6 @@
         }
 
         function renderTones() {
-             // Render Slider Mode
             const slider = document.getElementById('tone-slider');
             slider.innerHTML = DB.tones.map(t => `
                 <button onclick="setTone('${t.id}')" id="tone-slide-${t.id}" class="flex-shrink-0 snap-start flex items-center space-x-1.5 px-4 py-2.5 rounded-xl font-bold text-[11px] uppercase transition-all border ${state.tone === t.id ? `bg-gradient-to-r ${t.color} text-white border-transparent shadow-md scale-[1.02]` : 'bg-white border-slate-200 text-slate-500 hover:bg-slate-50'}">
@@ -1038,7 +766,6 @@
                 </button>
             `).join('');
 
-            // Render Dropdown Grid Mode
             const grid = document.getElementById('tone-grid');
             grid.innerHTML = DB.tones.map(t => `
                  <button onclick="setTone('${t.id}'); toggleToneDropdown(false)" class="flex items-center space-x-2 px-3 py-3 rounded-xl font-bold text-[11px] uppercase transition-all border text-left ${state.tone === t.id ? `bg-gradient-to-r ${t.color} text-white border-transparent shadow-md ring-2 ring-offset-2 ring-blue-500` : `bg-white border-slate-200 text-slate-600 hover:bg-slate-50 hover:border-blue-200`}">
@@ -1049,12 +776,9 @@
                 </button>
             `).join('');
             
-            // Auto-scroll active tone in slider
             setTimeout(() => {
                const active = document.getElementById(`tone-slide-${state.tone}`);
-               if (active && state.tone !== 'all') {
-                   active.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-               }
+               if (active && state.tone !== 'all') active.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
             }, 100);
 
             lucide.createIcons();
@@ -1069,10 +793,7 @@
                 (state.tone === 'all' || t.tone === state.tone)
             );
             
-            // Jika filter diubah, acak ulang hasil yang difilter untuk menjaga kesegaran urutan
-            if (state.tone !== 'all' || state.platform !== 'all') {
-                 filtered = shuffleArray(filtered);
-            }
+            if (state.tone !== 'all' || state.platform !== 'all') filtered = shuffleArray(filtered);
 
             if (filtered.length === 0) {
                 container.classList.add('hidden');
@@ -1084,27 +805,19 @@
                 emptyState.classList.remove('flex');
 
                 container.innerHTML = filtered.map((t, index) => {
-                    // Buat ID unik untuk setiap template
                     const templateId = `${t.tone}-${t.platform}-${index}`; 
-                    
-                    // Cari data tone, fallback ke 'all' jika tidak ditemukan (seharusnya tidak terjadi)
                     const toneData = DB.tones.find(tone => tone.id === t.tone) || DB.tones[0];
-                    // Cari data platform, fallback ke 'all' jika tidak ditemukan
                     const platformData = DB.platforms.find(p => p.id === t.platform) || DB.platforms[0];
                     
-                    // Beautify placeholders
                     const formattedText = t.text
                         .replace(/\[TAGS\]/g, '<span class="inline-flex items-center bg-blue-50 text-blue-600 px-1.5 py-0.5 rounded-md font-bold text-[90%] -tracking-tight mx-0.5"><i data-lucide="at-sign" class="w-2.5 h-2.5 mr-0.5"></i>MENTION</span>')
                         .replace(/\[HASHTAGS\]/g, '<span class="inline-flex items-center bg-amber-50 text-amber-700 px-1.5 py-0.5 rounded-md font-bold text-[90%] -tracking-tight mx-0.5"><i data-lucide="hash" class="w-2.5 h-2.5 mr-0.5"></i>TAGAR</span>')
-                        .replace(/\$\{LOSS_VALUE_LONG\}/g, getRandomLossVariant()); // Replace dynamic loss value with random variant
+                        .replace(/\$\{LOSS_VALUE_LONG\}/g, getRandomLossVariant());
 
                     return `
                         <div class="group relative bg-white rounded-2xl p-4 border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300 animate-in fade-in slide-in-from-bottom-4" style="animation-delay: ${index * 30}ms; animation-fill-mode: both;">
-                            <!-- Tone Indicator Bar -->
                             <div class="absolute left-0 inset-y-4 w-1 rounded-r-full bg-gradient-to-b ${toneData.color}"></div>
-                            
                             <div class="pl-3.5">
-                                <!-- Metadata Badges -->
                                 <div class="flex flex-wrap items-center gap-2 mb-3">
                                     <span class="inline-flex items-center px-2.5 py-1 rounded-lg text-[10px] font-black uppercase text-white bg-gradient-to-r ${toneData.color} shadow-sm">
                                         <i data-lucide="${toneData.icon}" class="w-3 h-3 mr-1"></i> ${toneData.label}
@@ -1114,13 +827,9 @@
                                         <i data-lucide="${platformData.icon}" class="w-3 h-3 mr-1"></i> ${platformData.label}
                                     </span>` : ''}
                                 </div>
-
-                                <!-- Message Body -->
                                 <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-100 mb-3 group-hover:border-slate-200 transition-colors">
                                     <p class="text-slate-800 text-[13px] md:text-sm leading-relaxed whitespace-pre-wrap font-medium">${formattedText}</p>
                                 </div>
-
-                                <!-- Copy Button -->
                                 <button onclick="copyTemplate('${templateId}')" id="btn-${templateId}" class="w-full flex items-center justify-center space-x-2 py-3 rounded-xl font-black text-[13px] uppercase tracking-wider transition-all bg-slate-900 text-white hover:bg-slate-800 active:scale-[0.98] shadow-sm relative overflow-hidden">
                                     <div class="relative z-10 flex items-center space-x-2">
                                         <i data-lucide="copy" class="w-4 h-4"></i> <span>SALIN PESAN</span>
@@ -1134,15 +843,12 @@
             lucide.createIcons();
         }
 
-        // --- INTERACTION FUNCTIONS ---
         function toggleToneDropdown(forceState = null) {
             const dropdown = document.getElementById('tone-dropdown');
             const overlay = document.getElementById('dropdown-overlay');
             const icon = document.getElementById('tone-toggle-icon');
             const btn = document.getElementById('tone-toggle-btn');
-            
-            const isHidden = dropdown.classList.contains('hidden');
-            const shouldShow = forceState !== null ? forceState : isHidden;
+            const shouldShow = forceState !== null ? forceState : dropdown.classList.contains('hidden');
 
             if (shouldShow) {
                 dropdown.classList.remove('hidden');
@@ -1175,22 +881,16 @@
             state.tone = 'all';
             renderPlatforms();
             renderTones();
-            // Re-shuffle on full reset
             state.randomizedTemplates = shuffleArray([...DB.templates]);
             renderTemplates();
         }
 
-        // --- CLIPBOARD FUNCTIONS (UPDATED) ---
         async function copyText(text, successMsg, elementId = null) {
             try {
-                // Pastikan mengganti placeholder LOSS_VALUE_LONG sebelum menyalin
                 const finalContent = text.replace(/\$\{LOSS_VALUE_LONG\}/g, getRandomLossVariant());
-
-                // Gunakan navigator.clipboard.writeText jika tersedia
                 if (navigator.clipboard && navigator.clipboard.writeText) {
                     await navigator.clipboard.writeText(finalContent);
                 } else {
-                    // Fallback
                     const tempInput = document.createElement('textarea');
                     tempInput.value = finalContent;
                     tempInput.style.position = 'absolute';
@@ -1200,12 +900,10 @@
                     document.execCommand('copy');
                     document.body.removeChild(tempInput);
                 }
-                
                 showToast(successMsg);
                 if (elementId) animateSuccessButton(elementId);
             } catch (err) {
-                showToast("Gagal salin otomatis. Salin manual disarankan.");
-                console.error("Gagal menyalin:", err);
+                showToast("Gagal salin otomatis.");
             }
         }
 
@@ -1220,34 +918,22 @@
         }
 
         function copyTemplate(idString) {
-            // Logika untuk menemukan template berdasarkan ID unik
-            // ID format: ${t.tone}-${t.platform}-${index}
             const parts = idString.split('-');
-            const platform = parts[1];
-            const tone = parts[0];
             const indexInFiltered = parseInt(parts[parts.length - 1]);
-
-            // Filter template sesuai state saat ini
             const filtered = state.randomizedTemplates.filter(t =>
                 (state.platform === 'all' || t.platform === 'all' || t.platform === state.platform) &&
                 (state.tone === 'all' || t.tone === state.tone)
             );
-            
             const t = filtered[indexInFiltered];
 
             if (t) {
-                // Ganti placeholder dengan Seleksi Manual yang sudah di-set
-                const finalMentions = Array.from(state.selectedMentions).join(' ');
-                const finalHashtags = Array.from(state.selectedHashtags).join(' ');
-                
-                // Pastikan menggunakan Mention Wajib/Tagar Utama sebagai fallback jika seleksi manual kosong
-                const mentionsToUse = finalMentions.trim() || DB.mentions_wajib.join(' ');
-                const hashtagsToUse = finalHashtags.trim() || DB.hashtags_utama.join(' ');
+                const mentionsToUse = Array.from(state.selectedMentions).join(' ') || DB.mentions_wajib.join(' ');
+                const hashtagsToUse = Array.from(state.selectedHashtags).join(' ') || DB.hashtags_utama.join(' ');
 
                 const final = t.text
                     .replace(/\[TAGS\]/g, mentionsToUse)
                     .replace(/\[HASHTAGS\]/g, hashtagsToUse)
-                    .replace(/\$\{LOSS_VALUE_LONG\}/g, getRandomLossVariant()); // Replace dynamic loss value with random variant
+                    .replace(/\$\{LOSS_VALUE_LONG\}/g, getRandomLossVariant());
 
                 copyText(final, "Pesan Siap Tempur! ⚔️", `btn-${idString}`);
             }
@@ -1256,22 +942,16 @@
         function animateSuccessButton(btnId) {
             const btn = document.getElementById(btnId);
             if (!btn) return;
-            
             const originalHTML = btn.innerHTML;
             btn.innerHTML = `<div class="relative z-10 flex items-center space-x-2 scale-110 transition-transform"><i data-lucide="check-circle-2" class="w-5 h-5"></i><span>BERHASIL DISALIN!</span></div>`;
             btn.classList.remove('bg-slate-900', 'text-white', 'bg-red-600', 'hover:bg-red-700', 'shadow-lg', 'shadow-red-200');
             btn.classList.add('bg-emerald-500', 'text-white', 'shadow-lg', 'shadow-emerald-500/30');
             lucide.createIcons();
-
             setTimeout(() => {
                 btn.innerHTML = originalHTML;
                 btn.classList.remove('bg-emerald-500', 'text-white', 'shadow-lg', 'shadow-emerald-500/30');
-                // Restore original style based on button ID
-                if(btnId === 'copy-manual-btn') {
-                     btn.classList.add('bg-red-600', 'text-white', 'hover:bg-red-700', 'shadow-lg', 'shadow-red-200');
-                } else {
-                     btn.classList.add('bg-slate-900', 'text-white');
-                }
+                if(btnId === 'copy-manual-btn') btn.classList.add('bg-red-600', 'text-white', 'hover:bg-red-700', 'shadow-lg', 'shadow-red-200');
+                else btn.classList.add('bg-slate-900', 'text-white');
                 lucide.createIcons();
             }, 2000);
         }
@@ -1284,20 +964,8 @@
             window.toastTimer = setTimeout(() => toast.classList.add('-translate-y-40', 'opacity-0'), 2500);
         }
 
-        // --- Initial Setup (UPDATED) ---
         function init() {
-            // Randomize templates on first load (Kriteria 1)
             state.randomizedTemplates = shuffleArray([...DB.templates]);
-            
-            // --- MODIFIKASI UNTUK REFRESH BERBEDA & MENGHILANGKAN TEXT INDICATOR (Permintaan 1) ---
-            // Menghilangkan indicator text:
-            const refreshIndicator = document.getElementById('refresh-indicator');
-            if (refreshIndicator) {
-                refreshIndicator.textContent = 'Kondisi Darurat'; 
-            }
-            // --- END MODIFIKASI ---
-
-            // Update quick action counters
             document.getElementById('target-count').textContent = `${DB.targets_full.length} Akun`;
             document.getElementById('hashtag-count').textContent = `${DB.hashtags_full.length} Tagar`;
             document.getElementById('mention-wajib-count').textContent = `${DB.mentions_wajib.length} Akun`;
@@ -1309,29 +977,20 @@
             renderManualSelector();
         }
         
-        // --- ANTI-COPY PROTECTION ---
         document.addEventListener('contextmenu', event => event.preventDefault());
         document.addEventListener('keydown', e => {
-            // Block Ctrl+C, Cmd+C, Ctrl+U, Ctrl+S
             if ((e.ctrlKey || e.metaKey) && (e.key === 'c' || e.key === 'u' || e.key === 's')) {
                 let el = e.target;
                 while (el) {
-                    // Cek jika elemen yang fokus adalah bagian dari tombol salin
-                    if (el.tagName === 'BUTTON' && el.onclick && (el.onclick.toString().includes('copyTemplate') || el.onclick.toString().includes('copyTargets') || el.onclick.toString().includes('copyHashtags') || el.onclick.toString().includes('copyManualSelection'))) {
-                        return; 
-                    }
+                    if (el.tagName === 'BUTTON' && el.onclick && (el.onclick.toString().includes('copyTemplate') || el.onclick.toString().includes('copyTargets') || el.onclick.toString().includes('copyHashtags') || el.onclick.toString().includes('copyManualSelection'))) return; 
                     el = el.parentElement;
                 }
-                
                 e.preventDefault();
                 showToast("Konten dilindungi! Gunakan tombol 'Salin' yang tersedia.");
             }
         });
-        // --- END ANTI-COPY ---
         
-        // Initialize on load
         window.onload = init;
-
     </script>
 </body>
 </html>
