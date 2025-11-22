@@ -712,7 +712,9 @@
                 emptyState.classList.remove('flex');
 
                 container.innerHTML = filtered.map((t, index) => {
-                    const templateId = `${t.tone}-${t.platform}-${index}`; 
+                    /* FIX: Use the unique ID from the template object, NOT the index */
+                    const templateId = t.id;
+                    
                     const toneData = DB.tones.find(tone => tone.id === t.tone) || DB.tones[0];
                     const platformData = DB.platforms.find(p => p.id === t.platform) || DB.platforms[0];
                     
@@ -829,29 +831,26 @@
             copyText(hashtags.join(' '), `Tagar ${type === 'full' ? 'Lengkap' : 'Utama'} Tersalin! 🔥`); 
         }
 
-        function copyTemplate(idString) {
-            const parts = idString.split('-');
-            const indexInFiltered = parseInt(parts[parts.length - 1]);
-            const filtered = state.randomizedTemplates.filter(t =>
-                (state.platform === 'all' || t.platform === 'all' || t.platform === state.platform) &&
-                (state.tone === 'all' || t.tone === state.tone)
-            );
-            const t = filtered[indexInFiltered];
+        // MODIFIED FUNCTION: Uses ID for stable lookup
+        function copyTemplate(templateId) {
+            // FIX: Find the template by its unique ID, not by index/filter logic which changes on render
+            const t = DB.templates.find(item => item.id === templateId);
 
             if (t) {
                 const mentionsToUse = Array.from(state.selectedMentions).join(' ') || DB.mentions_wajib.join(' ');
                 const hashtagsToUse = Array.from(state.selectedHashtags).join(' ') || DB.hashtags_utama.join(' ');
                 
                 // Retrieve the SPECIFIC loss variant displayed on the button's data attribute
-                const btnElement = document.getElementById(`btn-${idString}`);
-                const lossVariantToUse = btnElement.getAttribute('data-loss-text') || getRandomLossVariant();
+                const btnElement = document.getElementById(`btn-${templateId}`);
+                // Robust fallback: if button missing or data missing, generate new one (unlikely)
+                const lossVariantToUse = btnElement ? (btnElement.getAttribute('data-loss-text') || getRandomLossVariant()) : getRandomLossVariant();
 
                 const final = t.text
                     .replace(/\[TAGS\]/g, mentionsToUse)
                     .replace(/\[HASHTAGS\]/g, hashtagsToUse)
-                    .replace(/\$\{LOSS_VALUE_LONG\}/g, lossVariantToUse); // Use the stored variant
+                    .replace(/\$\{LOSS_VALUE_LONG\}/g, lossVariantToUse);
 
-                copyText(final, "Pesan Siap Tempur! ⚔️", `btn-${idString}`);
+                copyText(final, "Pesan Siap Tempur! ⚔️", `btn-${templateId}`);
             }
         }
 
@@ -914,8 +913,11 @@
         }
 
         function init() {
-            // Sanitize templates: Ensure placeholders exist
-            DB.templates.forEach(t => {
+            // Sanitize templates and Assign Unique IDs
+            DB.templates.forEach((t, i) => {
+                // FIX: Assign a stable Unique ID to each template
+                t.id = `tpl-${i}`;
+                
                 if (!t.text.includes('[TAGS]')) t.text += ' [TAGS]';
                 if (!t.text.includes('[HASHTAGS]')) t.text += ' [HASHTAGS]';
             });
