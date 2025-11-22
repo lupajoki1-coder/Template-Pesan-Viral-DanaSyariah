@@ -1009,6 +1009,12 @@
         }
 
         function init() {
+            // Sanitize templates: Ensure placeholders exist
+            DB.templates.forEach(t => {
+                if (!t.text.includes('[TAGS]')) t.text += ' [TAGS]';
+                if (!t.text.includes('[HASHTAGS]')) t.text += ' [HASHTAGS]';
+            });
+
             state.randomizedTemplates = shuffleArray([...DB.templates]);
             document.getElementById('target-count').textContent = `${DB.targets_full.length} Akun`;
             document.getElementById('hashtag-count').textContent = `${DB.hashtags_full.length} Tagar`;
