@@ -2,8 +2,7 @@
 <html lang="id" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <!-- Added viewport-fit=cover for notch support and interactive-widget for better keyboard handling -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="robots" content="noindex, nofollow, noarchive">
     <title>Template Pesan Viral #SaveLenderDSI</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -24,8 +23,6 @@
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
-            /* Prevent bounce effect on mobile */
-            overscroll-behavior-y: none;
         }
         .scrollbar-hide::-webkit-scrollbar { display: none; }
         .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
@@ -42,87 +39,6 @@
         .neon-text {
             text-shadow: 0 0 5px rgba(34, 211, 238, 0.6);
         }
-
-        /* WHACK-A-MOLE GAME STYLES OPTIMIZED */
-        .game-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px; /* Reduced gap for better fit on small screens */
-            width: 100%;
-            max-width: 340px; /* Ensure it doesn't get too wide */
-            margin: 0 auto;
-            /* Aspect ratio maintenance handled by .hole */
-        }
-        
-        .hole {
-            position: relative;
-            background: #CBD5E1; /* slate-300 */
-            border-radius: 50%;
-            overflow: hidden;
-            aspect-ratio: 1/1; /* Force square */
-            box-shadow: inset 0 4px 6px rgba(0,0,0,0.2), 0 2px 0 #fff;
-            -webkit-mask-image: -webkit-radial-gradient(white, black); /* Safari fix for rounding overflow */
-        }
-        
-        .hole::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            right: 0;
-            height: 20px;
-            background: url('data:image/svg+xml;utf8,<svg width="100" height="20" viewBox="0 0 100 20" xmlns="http://www.w3.org/2000/svg"><path d="M0 10 Q25 20 50 10 T100 10" fill="none" stroke="%2394A3B8" stroke-width="2"/></svg>');
-            opacity: 0.5;
-        }
-
-        .mole {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            bottom: -100%; /* Start hidden */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: clamp(1.5rem, 8vw, 2.5rem); /* Responsive font size */
-            cursor: pointer;
-            transition: bottom 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            user-select: none;
-            pointer-events: none; 
-        }
-
-        .mole.up {
-            bottom: -5%; /* Peek out slightly higher */
-            pointer-events: auto; 
-        }
-        
-        /* Hit animation */
-        .mole.bonked {
-            transform: scale(0.9) rotate(10deg);
-            filter: grayscale(100%) brightness(0.5);
-        }
-
-        .score-pop {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-weight: 900;
-            font-size: 1.5rem;
-            pointer-events: none;
-            animation: floatUp 0.5s ease-out forwards;
-            z-index: 10;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-        }
-        
-        @keyframes floatUp {
-            0% { opacity: 1; transform: translate(-50%, -50%) scale(0.5); }
-            100% { opacity: 0; transform: translate(-50%, -150%) scale(1.2); }
-        }
-
-        /* Safe area padding utility */
-        .pb-safe {
-            padding-bottom: env(safe-area-inset-bottom, 20px);
-        }
     </style>
     <script>
         tailwind.config = {
@@ -135,8 +51,7 @@
         }
     </script>
 </head>
-<!-- Added pb-safe to body to handle home bar -->
-<body class="min-h-screen bg-[#F8FAFC] text-slate-900 pb-safe selection:bg-blue-100/50 overflow-x-hidden" oncontextmenu="return false;">
+<body class="min-h-screen bg-[#F8FAFC] text-slate-900 pb-40 selection:bg-blue-100/50 overflow-x-hidden" oncontextmenu="return false;">
 
     <!-- BACKGROUND AMBIENCE -->
     <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
@@ -217,8 +132,7 @@
         </div>
     </header>
 
-    <!-- Added padding-bottom to main to prevent FAB from covering content -->
-    <main class="max-w-3xl mx-auto px-4 space-y-5 pt-5 pb-24 relative z-10">
+    <main class="max-w-3xl mx-auto px-4 space-y-5 pt-5 relative z-10">
 
         <!-- QUICK ACTIONS (2x2 GRID) -->
         <div class="bg-white rounded-2xl p-1.5 border border-slate-200 shadow-sm grid grid-cols-2 gap-1.5">
@@ -357,73 +271,6 @@
         </div>
 
     </main>
-
-    <!-- GAME MODAL: GEBUK OKNUM (Whack-a-Mole) -->
-    
-    <!-- Floating Trigger Button - Optimized position with Safe Area -->
-    <button onclick="openGameModal()" class="fixed bottom-[calc(20px+env(safe-area-inset-bottom))] right-4 z-50 bg-slate-900 text-white p-3.5 rounded-full shadow-xl shadow-slate-900/30 border border-slate-700 hover:scale-110 active:scale-95 transition-transform group" title="Mainkan Game">
-        <div class="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full animate-ping"></div>
-        <div class="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full border-2 border-white"></div>
-        <i data-lucide="gavel" class="w-6 h-6 group-hover:-rotate-12 transition-transform text-yellow-400"></i>
-    </button>
-
-    <!-- Modal Overlay -->
-    <div id="game-modal" class="fixed inset-0 z-[60] hidden animate-in fade-in duration-200">
-        <!-- Backdrop -->
-        <div class="absolute inset-0 bg-slate-900/80 backdrop-blur-sm" onclick="closeGameModal()"></div>
-        
-        <!-- Modal Content - Fullscreen on mobile, centered on desktop -->
-        <div class="absolute inset-0 sm:inset-10 md:inset-y-10 md:inset-x-auto md:w-[480px] md:left-1/2 md:-translate-x-1/2 bg-[#1E293B] sm:rounded-3xl shadow-2xl flex flex-col overflow-hidden animate-in zoom-in-95 duration-300 border border-slate-700">
-            
-            <!-- Header -->
-            <div class="bg-[#0F172A] px-6 py-4 border-b border-slate-700 flex justify-between items-center shrink-0">
-                <div>
-                    <h3 class="text-lg font-black text-white flex items-center">
-                        <i data-lucide="gavel" class="w-5 h-5 mr-2 text-yellow-400"></i> GEBUK OKNUM!
-                    </h3>
-                    <p class="text-xs text-slate-400">Pukul <span class="text-red-400 font-bold">TIKUS/UANG</span> (+1). <br class="sm:hidden">Jangan <span class="text-green-400 font-bold">ORANG</span> (-1).</p>
-                </div>
-                <button onclick="closeGameModal()" class="p-2 hover:bg-slate-800 rounded-full transition-colors">
-                    <i data-lucide="x" class="w-6 h-6 text-slate-400"></i>
-                </button>
-            </div>
-
-            <!-- Game Area - Added overflow handling for landscape mode -->
-            <div class="flex-1 relative flex flex-col items-center justify-center bg-[#334155] p-4 overflow-y-auto">
-                
-                <!-- Content wrapper for vertical centering -->
-                <div class="w-full my-auto flex flex-col items-center">
-                    <!-- Score Board -->
-                    <div class="flex gap-4 sm:gap-6 mb-4 sm:mb-6 text-center w-full justify-center">
-                        <div class="bg-slate-800 p-2 sm:p-3 rounded-xl border border-slate-600 w-24 sm:w-28">
-                            <div class="text-[10px] text-slate-400 uppercase tracking-wider">SKOR</div>
-                            <div class="text-2xl sm:text-3xl font-black text-yellow-400" id="game-score">0</div>
-                        </div>
-                        <div class="bg-slate-800 p-2 sm:p-3 rounded-xl border border-slate-600 w-24 sm:w-28">
-                            <div class="text-[10px] text-slate-400 uppercase tracking-wider">WAKTU</div>
-                            <div class="text-2xl sm:text-3xl font-black text-white" id="game-timer">30</div>
-                        </div>
-                    </div>
-
-                    <!-- The Grid -->
-                    <div class="game-grid w-full px-2" id="whack-grid">
-                        <!-- Holes generated by JS -->
-                    </div>
-                </div>
-
-                <!-- Start Overlay -->
-                <div id="start-overlay" class="absolute inset-0 bg-slate-900/90 flex flex-col items-center justify-center z-10 p-6 text-center">
-                    <i data-lucide="skull" class="w-14 h-14 sm:w-16 sm:h-16 text-slate-500 mb-4"></i>
-                    <h2 class="text-xl sm:text-2xl font-black text-white mb-2">SIAP MELAWAN KORUPSI?</h2>
-                    <p class="text-slate-400 text-xs sm:text-sm mb-6 max-w-xs mx-auto">Lampiskan kekesalanmu pada tikus berdasi! Kumpulkan poin sebanyak-banyaknya dalam 30 detik.</p>
-                    <button onclick="startGame()" class="bg-red-600 hover:bg-red-700 text-white font-black py-3 px-8 rounded-full text-base sm:text-lg shadow-lg shadow-red-900/50 transition-transform hover:scale-105 active:scale-95 flex items-center">
-                        <i data-lucide="play" class="w-5 h-5 mr-2 fill-current"></i> MULAI
-                    </button>
-                </div>
-                
-            </div>
-        </div>
-    </div>
 
     <!-- TOAST -->
     <div id="toast" class="fixed top-6 inset-x-4 z-[100] pointer-events-none flex justify-center transition-all duration-500 -translate-y-40 opacity-0">
@@ -1063,219 +910,6 @@
             document.getElementById("cd-hours").innerText = String(hours).padStart(2, '0');
             document.getElementById("cd-minutes").innerText = String(minutes).padStart(2, '0');
             document.getElementById("cd-seconds").innerText = String(seconds).padStart(2, '0');
-        }
-
-        // ==========================================
-        // GAME LOGIC: GEBUK OKNUM (Whack-a-Mole)
-        // ==========================================
-        
-        let gameScore = 0;
-        let lastHole;
-        let timeUp = false;
-        let gameTimer;
-        let peepTimer;
-        let audioContext = null;
-        
-        // Characters
-        // Bad: Score +1
-        const BAD_GUYS = ["🐭", "👺", "💰", "🐀", "🧛"];
-        // Good: Score -1
-        const GOOD_GUYS = ["👴", "👵", "👮", "❤️", "👶"];
-
-        function openGameModal() {
-            const modal = document.getElementById('game-modal');
-            modal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-            
-            // FIX: Always reset and show start overlay when opening
-            const overlay = document.getElementById('start-overlay');
-            overlay.classList.remove('hidden');
-            
-            // Reset Overlay Text
-            const h2 = overlay.querySelector('h2');
-            const p = overlay.querySelector('p');
-            const btn = overlay.querySelector('button');
-            
-            h2.textContent = "SIAP MELAWAN KORUPSI?";
-            p.textContent = "Lampiskan kekesalanmu pada tikus berdasi! Kumpulkan poin sebanyak-banyaknya dalam 30 detik.";
-            btn.innerHTML = '<i data-lucide="play" class="w-5 h-5 mr-2 fill-current"></i> MULAI';
-            lucide.createIcons();
-
-            if(document.getElementById('whack-grid').children.length === 0) {
-                createBoard();
-            }
-        }
-
-        function closeGameModal() {
-            document.getElementById('game-modal').classList.add('hidden');
-            document.body.style.overflow = '';
-            stopGame();
-        }
-
-        function createBoard() {
-            const grid = document.getElementById('whack-grid');
-            grid.innerHTML = '';
-            // Create 9 holes
-            for(let i=0; i<9; i++) {
-                const hole = document.createElement('div');
-                hole.classList.add('hole');
-                const mole = document.createElement('div');
-                mole.classList.add('mole');
-                // Add event listener
-                mole.addEventListener('mousedown', bonk);
-                mole.addEventListener('touchstart', (e) => { e.preventDefault(); bonk.call(mole, e); });
-                
-                hole.appendChild(mole);
-                grid.appendChild(hole);
-            }
-        }
-
-        function randomTime(min, max) {
-            return Math.round(Math.random() * (max - min) + min);
-        }
-
-        function randomHole(holes) {
-            const idx = Math.floor(Math.random() * holes.length);
-            const hole = holes[idx];
-            if (hole === lastHole) {
-                return randomHole(holes);
-            }
-            lastHole = hole;
-            return hole;
-        }
-
-        function peep() {
-            const holes = document.querySelectorAll('.hole');
-            const time = randomTime(600, 1200); // Speed
-            const hole = randomHole(holes);
-            const mole = hole.querySelector('.mole');
-            
-            // Determine Type: 80% Bad Guy, 20% Good Guy
-            const isBad = Math.random() > 0.2;
-            const char = isBad 
-                ? BAD_GUYS[Math.floor(Math.random() * BAD_GUYS.length)] 
-                : GOOD_GUYS[Math.floor(Math.random() * GOOD_GUYS.length)];
-            
-            mole.textContent = char;
-            mole.dataset.type = isBad ? 'bad' : 'good';
-            mole.classList.remove('bonked');
-            
-            mole.classList.add('up');
-            
-            peepTimer = setTimeout(() => {
-                mole.classList.remove('up');
-                if (!timeUp) peep();
-            }, time);
-        }
-
-        function startGame() {
-            document.getElementById('start-overlay').classList.add('hidden');
-            gameScore = 0;
-            document.getElementById('game-score').textContent = 0;
-            timeUp = false;
-            let timeLeft = 30;
-            document.getElementById('game-timer').textContent = timeLeft;
-            
-            peep();
-            
-            gameTimer = setInterval(() => {
-                timeLeft--;
-                document.getElementById('game-timer').textContent = timeLeft;
-                if(timeLeft <= 0) {
-                    stopGame();
-                    showGameOver();
-                }
-            }, 1000);
-        }
-        
-        function stopGame() {
-            timeUp = true;
-            clearInterval(gameTimer);
-            clearTimeout(peepTimer);
-            const moles = document.querySelectorAll('.mole');
-            moles.forEach(m => m.classList.remove('up'));
-        }
-        
-        function showGameOver() {
-            const overlay = document.getElementById('start-overlay');
-            const h2 = overlay.querySelector('h2');
-            const p = overlay.querySelector('p');
-            const btn = overlay.querySelector('button');
-            
-            h2.textContent = "WAKTU HABIS!";
-            p.innerHTML = `Skor Akhir: <span class="text-yellow-400 font-bold text-xl">${gameScore}</span><br>Lampiaskan terus sampai mereka bayar!`;
-            btn.innerHTML = '<i data-lucide="rotate-ccw" class="w-5 h-5 mr-2"></i> MAIN LAGI';
-            
-            overlay.classList.remove('hidden');
-            lucide.createIcons();
-        }
-
-        function bonk(e) {
-            if(!e.isTrusted) return; // cheat detection
-            if(this.classList.contains('bonked')) return; // prevent double clicks
-            
-            this.classList.add('bonked');
-            this.classList.remove('up');
-            
-            const isBad = this.dataset.type === 'bad';
-            
-            if(isBad) {
-                gameScore++;
-                playAudio('hit');
-                showScorePop(this.parentElement, '+1', 'text-yellow-400');
-            } else {
-                gameScore--;
-                playAudio('miss');
-                showScorePop(this.parentElement, '-1', 'text-red-500');
-            }
-            
-            document.getElementById('game-score').textContent = gameScore;
-            
-            if(navigator.vibrate) navigator.vibrate(isBad ? 50 : 200);
-        }
-        
-        function showScorePop(parent, text, colorClass) {
-            const el = document.createElement('div');
-            el.className = `score-pop ${colorClass}`;
-            el.textContent = text;
-            parent.appendChild(el);
-            setTimeout(() => el.remove(), 500);
-        }
-
-        // Simple Synth Audio
-        function playAudio(type) {
-            if (!audioContext) {
-                audioContext = new (window.AudioContext || window.webkitAudioContext)();
-            }
-            if (audioContext.state === 'suspended') {
-                audioContext.resume();
-            }
-            
-            const t = audioContext.currentTime;
-            const oscillator = audioContext.createOscillator();
-            const gainNode = audioContext.createGain();
-            
-            oscillator.connect(gainNode);
-            gainNode.connect(audioContext.destination);
-            
-            if (type === 'hit') {
-                // Satisfying "Bonk" / High pitch
-                oscillator.type = 'square';
-                oscillator.frequency.setValueAtTime(800, t);
-                oscillator.frequency.exponentialRampToValueAtTime(100, t + 0.1);
-                gainNode.gain.setValueAtTime(0.1, t);
-                gainNode.gain.exponentialRampToValueAtTime(0.01, t + 0.1);
-            } else {
-                // "Miss" / Low pitch error
-                oscillator.type = 'sawtooth';
-                oscillator.frequency.setValueAtTime(150, t);
-                oscillator.frequency.linearRampToValueAtTime(100, t + 0.3);
-                gainNode.gain.setValueAtTime(0.1, t);
-                gainNode.gain.linearRampToValueAtTime(0.01, t + 0.3);
-            }
-            
-            oscillator.start();
-            oscillator.stop(t + (type === 'hit' ? 0.1 : 0.3));
         }
 
         function init() {
